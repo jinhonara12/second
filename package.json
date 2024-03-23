@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "second",
   "version": "0.1.0",
   "private": true,
@@ -9,9 +10,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.14",
+    "next": "14.1.4",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.1.4"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "eslint": "^8",
