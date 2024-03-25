@@ -15,3 +15,6 @@
 5. /lib/database 디렉토리에 만들어둔 notion 데이터 가져오기
  - 출력 페이지에서 데이터 import해서 가져오기
  - 정적페이지 club 페이지 (완료)
+
+6. CSS 조작법 습득
+ - header 페이지 제작

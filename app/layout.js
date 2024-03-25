@@ -1,4 +1,4 @@
-import "./globals.css";
+import Header from './header'
 
 export const metadata = {
   title: "",
@@ -8,7 +8,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-      <body >{children}</body>
+      <body >
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
