@@ -19,6 +19,7 @@ export default async function ClubData() {
                         <p>{club.name}</p>
                         <p>{club.locaiton && `위치 : ${club.locaiton}`}</p>
                         <p>{club.address && `상세주소 : ${club.address}`}</p>
+                        {club.address && <p> <ExternalLink href={`https://map.naver.com/p/search/${club.address}`} text={"네이버 지도"} /></p>}
                         <div>
                             <p>활동요일</p>
                             {club.mainday.map((day, idx) => (
