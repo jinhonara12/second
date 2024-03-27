@@ -3,9 +3,9 @@ import ExternalLink from "./ExternalLink"
 export default function Home() {
   return (
     <>
+      <p>메인 페이지는 아래 링크 참고</p>
       <ExternalLink href="https://dribbble.com/shots/15890442-News-Paper-Web-Concept-Design" text="디자인 참고 사이트" />
 
-      <p>메인 페이지는 아래 링크 참고</p>
       <p>상단은 중앙 로고와 우측 로그인</p>
       <p>커스텀 한줄로 [날씨] [요일] [해당 요일 바] [검색(미정)]</p>
       <p>상단 밑 네브바에는 [어바웃] [원데이모집] [스윙클럽] [스윙바] [스윙팀] [데일리 DJ]</p>

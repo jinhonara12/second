@@ -19,7 +19,8 @@ export default async function fetchData() {
                 mainday: page.properties.mainday.multi_select,
                 homepage: page.properties.homepage.url,
                 locaiton: page.properties.location.rollup.array[0].select.name,
-                address: page.properties.address.rollup.array[0].rich_text[0].plain_text
+                address: page.properties.address.rollup.array[0].rich_text[0].plain_text,
+                heart: page.properties.heart.formula.number
             }
         })
         return data;
