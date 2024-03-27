@@ -1,5 +1,7 @@
 import Header from './header';
+import SideNav from './sideNav'
 import { Roboto_Slab } from 'next/font/google';
+import styles from './layout.module.scss';
 import './reset.css';
 import './global.scss';
 
@@ -17,9 +19,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko" className={roboto.className}>
-      <body >
+      <body className={styles.body}>
         <Header />
-        {children}
+        <div className={styles.main__section}>
+          <SideNav />
+          {children}
+        </div>
       </body>
     </html>
   );

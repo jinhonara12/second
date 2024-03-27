@@ -1,7 +1,8 @@
 import Link from "next/link";
 import styles from './header.module.scss';
 import { Yeseva_One } from 'next/font/google';
-import fetchData from './lib/database/club'
+import fetchData from './lib/database/club';
+import Nav from './Nav';
 
 const yeseva = Yeseva_One({
     subsets: ['latin'],
@@ -62,6 +63,7 @@ const getClubData = async () => {
 
 async function TodayClubList() {
     const data = await getClubData();
+
     const krDay = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
     const serverDay = krDay[new Date().getDay()];
     const todayClub = data.map(page => {
@@ -71,6 +73,7 @@ async function TodayClubList() {
             }
         }).filter(el => el)
     }).filter(el => el.length).flat();
+
 
     return (
         <div className={styles.club__list}>
@@ -94,23 +97,6 @@ function CustomBar() {
     )
 }
 
-// 상단 네브
-
-function Nav() {
-    return (
-        <nav className={styles.nav}>
-            <Link href="/">home</Link>
-            <Link href="/about">about</Link>
-            <Link href="/club">club</Link>
-            <Link href="/bar">bar</Link>
-            <Link href="/oneday">oneday</Link>
-            <Link href="/team">team</Link>
-            <Link href="/daily_dj">daily dj</Link>
-            <Link href="/awards">awards</Link>
-        </nav>
-    )
-}
-
 function Header() {
     return (
         <header className={styles.header} >
@@ -120,6 +106,5 @@ function Header() {
         </header >
     )
 }
-
 
 export default Header
