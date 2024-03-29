@@ -13,7 +13,7 @@ export default async function fetchData() {
                 location: page.properties.location.select.name,
                 url: page.properties.url.url,
                 address: page.properties.address.rich_text[0].plain_text,
-                heart: page.properties.heart.formula.number
+                heart: page.properties.member_heart_count.formula.number
             }
         })
         return response

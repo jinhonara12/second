@@ -1,15 +1,16 @@
- .nav {
-     display: flex;
-     column-gap: 1rem;
-     padding: 15px 3rem;
-     border-bottom: 1.5px #888 solid;
+.nav {
+    display: flex;
+    column-gap: 1rem;
+    padding: 15px 3rem;
+    border-bottom: 1.5px #888 solid;
 
-     a {
-         text-transform: uppercase;
-     }
+    a {
+        text-transform: uppercase;
+        text-decoration: inherit;
+    }
 
-     .active {
-         color: red;
-     }
+    .active {
+        color: red;
+    }
 
- }
+}

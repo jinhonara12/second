@@ -20,7 +20,7 @@ export default async function fetchData() {
                 homepage: page.properties.homepage.url,
                 locaiton: page.properties.location.rollup.array[0].select.name,
                 address: page.properties.address.rollup.array[0].rich_text[0].plain_text,
-                heart: page.properties.heart.formula.number
+                heart: page.properties.member_heart_count.formula.number
             }
         })
         return data;

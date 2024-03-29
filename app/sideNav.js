@@ -9,12 +9,6 @@ export default function SideNav() {
         <aside className={styles.side__box}>
             <h3>recruitment</h3>
             <ul>
-                <li className={pathname === "/all-recruitment" ? styles.active : ""}>
-                    <Link href="/all-recruitment">
-                        <span>All</span>
-                        <span>전체</span>
-                    </Link>
-                </li>
                 <li className={pathname === "/class-recruitment" ? styles.active : ""}>
                     <Link href="/class-recruitment">
                         <span>Class</span>

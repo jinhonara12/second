@@ -12,7 +12,7 @@ const roboto = Roboto_Slab({
 })
 
 export const metadata = {
-  title: "Swing Daily",
+  title: "Daily Swing",
   description: "",
 };
 
