@@ -28,7 +28,9 @@ export default async function RecentlyNewsData() {
     return (
         <>
             {Array(repeatCount).fill().map((_, index) => {
-                const last_modified_time = new Date(sortedData[index].last_modified_time).toLocaleString()
+                const last_modified_time = new Date(sortedData[index].last_modified_time).toLocaleDateString()
+                const created_time = new Date(sortedData[index].created_time).toLocaleDateString()
+
                 return <li key={sortedData[index].name} >
                     <a href={sortedData[index].url} title={sortedData[index].name} target="_blank" >
                         <div className={styles.top}>
@@ -42,8 +44,18 @@ export default async function RecentlyNewsData() {
                             <span className={styles.dday}>{sortedData[index].dday}</span>
                         </div>
                         <div className={styles.bottom}>
-                            <span className={styles.writer}>{sortedData[index].last_modifier_user}</span>
-                            <span className={styles.date}>{last_modified_time}</span>
+                            {last_modified_time != created_time ?
+                                <div>
+                                    <span className={styles.writer}>{sortedData[index].last_modifier_user}</span>
+                                    <span className={styles.date}>last modified {last_modified_time}</span>
+                                </div>
+                                :
+                                null
+                            }
+                            <div>
+                                <span className={styles.writer}>{sortedData[index].creator_user}</span>
+                                <span className={styles.date}>created {created_time}</span>
+                            </div>
                         </div>
                     </a>
                 </li>

@@ -9,8 +9,11 @@ export default async function fetchData() {
             database_id: databaseId
         })
         const data = await Promise.all(response.results.map(async page => {
-            const userId = page.properties.last_modifier.last_edited_by.id;
-            const userResponse = await notion.users.retrieve({ user_id: userId });
+            const last_edited_id = page.properties.last_modifier.last_edited_by.id;
+            const last_user = await notion.users.retrieve({ user_id: last_edited_id });
+
+            const creator_id = page.properties.creator.created_by.id;
+            const create_user = await notion.users.retrieve({ user_id: creator_id });
             return {
                 name: page.properties.name.title[0].text.content,
                 teacher: page.properties.teacher.rollup,
@@ -19,9 +22,9 @@ export default async function fetchData() {
                 start_date: page.properties.date.date.start,
                 end_date: page.properties.date.date.end,
                 dday: page.properties.dday.formula.string,
-                creator: page.properties.creator.created_by.id,
+                creator_user: create_user.name,
                 created_time: page.properties.created_time.created_time,
-                last_modifier_user: userResponse.name,
+                last_modifier_user: last_user.name,
                 last_modified_time: page.properties.last_modified_time.last_edited_time,
             }
         }))
