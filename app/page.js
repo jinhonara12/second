@@ -1,7 +1,6 @@
 import styles from './page.module.scss';
 import Link from 'next/link';
-import recentlyNewsData from './recentlyNewsData.js';
-
+import RecentlyNewsData from './recentlyNewsData.js';
 
 function RecentlyNews({ className }) {
   return (
@@ -11,24 +10,7 @@ function RecentlyNews({ className }) {
         <span>최신 모집글</span>
       </div>
       <ul>
-        <li>
-          <a href="" title="타이틀" target="_blank">
-            <div className={styles.top}>
-              <p>
-                <span>new</span>
-                Camp Swing It 2024
-              </p>
-            </div>
-            <div className={styles.middle}>
-              <span className={styles.date}>2024년 4월 5일 - 2024년 4월 7일</span>
-              <span className={styles.dday}>D-2</span>
-            </div>
-            <div className={styles.bottom}>
-              <span className={styles.writer}>장롱</span>
-              <span className={styles.date}>2024년 3월 28일 오후 3:00</span>
-            </div>
-          </a>
-        </li>
+        <RecentlyNewsData />
       </ul>
     </div>
   )
