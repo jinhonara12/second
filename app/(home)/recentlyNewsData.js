@@ -23,7 +23,7 @@ async function getSortedData(array) {
 }
 
 export default async function RecentlyNewsData() {
-    const repeatCount = 10;
+    const repeatCount = 5;
     const fetchArray = [fetchClassData, fetchTeamData, fetchWorkshopData, fetchEventData, fetchFestivalData];
     const sortedData = await getSortedData(fetchArray);
     return (
@@ -33,32 +33,40 @@ export default async function RecentlyNewsData() {
                 const created_time = new Date(sortedData[index].created_time).toLocaleDateString()
 
                 return <li key={sortedData[index].name} >
-                    <a href={sortedData[index].url} title={sortedData[index].name} target="_blank" >
-                        <div className={styles.top}>
-                            <p>
-                                <span>new</span>
-                                {sortedData[index].name}
-                            </p>
-                        </div>
-                        <div className={styles.middle}>
+
+                    <div className={styles.top}>
+                        <p>
+                            <span>new</span>
+                            <span>{sortedData[index].classification}</span>
+                            {sortedData[index].name}
+                        </p>
+                    </div>
+                    <div className={styles.middle}>
+                        <div>
                             <span className={styles.date}>{sortedData[index].start_date} {sortedData[index].end_date ? ` - ${sortedData[index].end_date}` : ""}</span>
                             <span className={styles.dday}>{sortedData[index].dday}</span>
                         </div>
-                        <div className={styles.bottom}>
-                            {last_modified_time != created_time ?
-                                <div>
-                                    <span className={styles.writer}>{sortedData[index].last_modifier_user}</span>
-                                    <span className={styles.date}>last modified {last_modified_time}</span>
-                                </div>
-                                :
-                                null
-                            }
-                            <div>
-                                <span className={styles.writer}>{sortedData[index].creator_user}</span>
-                                <span className={styles.date}>created {created_time}</span>
-                            </div>
+
+                        <div className={styles.middle_2}>
+                            {sortedData[index].url ? <a href={sortedData[index].url} title={sortedData[index].name} target="_blank" >홍보링크</a> : null}
+                            {sortedData[index].check_url ? <a href={sortedData[index].check_url} title={sortedData[index].name} target="_blank" >확인링크</a> : null}
                         </div>
-                    </a>
+                    </div>
+
+                    <div className={styles.bottom}>
+                        {last_modified_time != created_time ?
+                            <div>
+                                <span className={styles.writer}>{sortedData[index].last_modifier_user}</span>
+                                <span className={styles.date}>modified {last_modified_time}</span>
+                            </div>
+                            :
+                            null
+                        }
+                        <div>
+                            <span className={styles.writer}>{sortedData[index].creator_user}</span>
+                            <span className={styles.date}>created {created_time}</span>
+                        </div>
+                    </div>
                 </li>
             })}
         </>

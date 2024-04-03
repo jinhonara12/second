@@ -7,7 +7,7 @@ function RecentlyNews({ className }) {
     <div className={className}>
       <div>
         <h4>recently news</h4>
-        <span>최신 모집 글</span>
+        <span>- 최신 모집 글</span>
       </div>
       <ul>
         <RecentlyNewsData />
