@@ -37,10 +37,10 @@ function Time() {
     const krDay = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
     const enMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const krMonths = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"];
-    const serverDay = enDay[new Date().getDay()];
-    const serverDate = new Date().getDate();
-    const serverMonth = enMonths[new Date().getMonth()];
-    const serverYear = new Date().getFullYear();
+    const serverDay = krDay[new Date().getDay()];
+    const serverDate = `${new Date().getDate()}일`;
+    const serverMonth = krMonths[new Date().getMonth()];
+    const serverYear = `${new Date().getFullYear()}년`;
 
     return (
         <div className={styles.time}>

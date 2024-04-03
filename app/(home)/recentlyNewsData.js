@@ -1,9 +1,9 @@
 import styles from './page.module.scss';
-import fetchClassData from "./lib/database/class-recuritment";
-import fetchTeamData from "./lib/database/team-recuritment";
-import fetchWorkshopData from "./lib/database/workshop-recuritment";
-import fetchEventData from "./lib/database/event-recuritment";
-import fetchFestivalData from "./lib/database/festival-recuritment";
+import fetchClassData from "../lib/database/class-recuritment";
+import fetchTeamData from "../lib/database/team-recuritment";
+import fetchWorkshopData from "../lib/database/workshop-recuritment";
+import fetchEventData from "../lib/database/event-recuritment";
+import fetchFestivalData from "../lib/database/festival-recuritment";
 
 // 최신데이터는 수정된 날짜를 기준으로 정렬
 // fetch를 5개에서 가져오니 모든 데이터를 가져오는 동안 기다리기 위해서 Promise.all()을 사용
@@ -11,7 +11,8 @@ import fetchFestivalData from "./lib/database/festival-recuritment";
 async function getSortedData(array) {
     const result = await Promise.all(array.map(async fn => {
         let data = await fn();
-        let sorted = data.sort((a, b) => {
+        let vaildData = data.filter(page => page.dday != "종료");
+        let sorted = vaildData.sort((a, b) => {
             return new Date(b.last_modified_time) - new Date(a.last_modified_time)
         })
         return sorted
