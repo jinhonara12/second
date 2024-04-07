@@ -3,6 +3,7 @@ import styles from './header.module.scss';
 import { Yeseva_One } from 'next/font/google';
 import fetchData from './lib/database/club';
 import Nav from './Nav';
+import Login from './(component)/Login'
 
 const yeseva = Yeseva_One({
     subsets: ['latin'],
@@ -23,8 +24,7 @@ function Logo() {
                 </h1>
             </div>
             <div className={styles.right}>
-                <Link href="">join</Link>
-                <Link href="">login</Link>
+                <Login />
             </div>
         </div >
     )

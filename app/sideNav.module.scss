@@ -11,6 +11,8 @@
     flex-direction: column;
     row-gap: 1.5rem;
 
+    align-self: stretch;
+
     h3 {
         position: absolute;
         z-index: -1;
