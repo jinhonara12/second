@@ -14,7 +14,6 @@ export default async function fetchData() {
 
             const creator_id = page.properties.creator.created_by.id;
             const create_user = await notion.users.retrieve({ user_id: creator_id });
-
             return {
                 classification: page.properties.classification.select.name,
                 name: page.properties.name.title[0].text.content,

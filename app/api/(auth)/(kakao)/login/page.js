@@ -21,5 +21,5 @@ export default async function fetchKakaoToken(req, res) {
     const tokenData = await response.json();
     await getKakaoUser(tokenData)
 
-    return 12;
+    return "마이페이지 내용 보이기";
 }

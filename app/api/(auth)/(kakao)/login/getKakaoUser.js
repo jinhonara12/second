@@ -1,3 +1,5 @@
+import callBack from "./callback";
+
 export default async function getKakaoUser({ access_token }) {
     const url = "https://kapi.kakao.com/v2/user/me";
     const response = await fetch(url, {
@@ -9,6 +11,5 @@ export default async function getKakaoUser({ access_token }) {
     });
 
     const userData = await response.json();
-    console.log(userData)
-    return userData;
+    return callBack(userData);
 }
