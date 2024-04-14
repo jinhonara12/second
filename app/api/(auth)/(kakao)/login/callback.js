@@ -1,8 +1,8 @@
 export default async function callBack({ id, properties: { nickname } }) {
     const { Client } = require('@notionhq/client');
-
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
-    const checkId = async () => {
+
+    (async () => {
         const databaseId = process.env.NOTION_PRIVACY;
         const response = await notion.databases.query({
             database_id: databaseId,
@@ -18,11 +18,11 @@ export default async function callBack({ id, properties: { nickname } }) {
             console.log("회원가입 필요합니다")
             makeMember()
         } else {
-            console.log("이미 가입되어 있습니다.")
-            // 마이페이지로 이동
+            console.log(nickname, "이미 가입되어 있습니다.")
+            // 마이페이지로 이동 하도록 
+            return '이미 회원가입'
         }
-    };
-    checkId()
+    })()
 
     const makeMember = async () => {
         const databaseId = process.env.NOTION_MEMBER;
@@ -69,7 +69,8 @@ export default async function callBack({ id, properties: { nickname } }) {
             }
         })
 
-        // 마이페이지로 이동
+        return '마페로 이동'
+        // 마이페이지로 이동 하도록
     }
 
 }

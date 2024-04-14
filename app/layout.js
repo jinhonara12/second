@@ -1,5 +1,5 @@
-import Header from './header';
-import SideNav from './sideNav'
+import Header from './(header)/header';
+import SideNav from './(header)/sideNav'
 import { Roboto_Slab } from 'next/font/google';
 import styles from './layout.module.scss';
 import './reset.css';

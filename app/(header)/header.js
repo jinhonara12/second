@@ -1,9 +1,9 @@
 import Link from "next/link";
 import styles from './header.module.scss';
 import { Yeseva_One } from 'next/font/google';
-import fetchData from './lib/database/club';
+import fetchData from '../lib/database/club';
+import Login from '../(component)/Login'
 import Nav from './Nav';
-import Login from './(component)/Login'
 
 const yeseva = Yeseva_One({
     subsets: ['latin'],
