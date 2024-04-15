@@ -1,3 +1,4 @@
+
 import NextAuth from "next-auth";
 import KakaoProvider from "next-auth/providers/kakao";
 
@@ -9,5 +10,6 @@ const handler = NextAuth({
         }),
     ],
 })
+
 
 export { handler as GET, handler as POST }

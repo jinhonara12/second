@@ -11,16 +11,10 @@
   },
   "dependencies": {
     "@notionhq/client": "^2.2.14",
-    "jsonwebtoken": "^9.0.2",
-    "next": "14.1.4",
+    "next": "^14.2.1",
     "next-auth": "^4.24.7",
-    "react": "^18",
-    "react-dom": "^18"
-  },
-  "devDependencies": {
-    "@types/react": "18.2.72",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.4",
-    "sass": "^1.72.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.75.0"
   }
 }
