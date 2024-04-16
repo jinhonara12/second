@@ -1,26 +1,25 @@
-export default async function callBack({ id, properties: { nickname } }) {
+export default async function makeNotionData({ id, name }) {
     const { Client } = require('@notionhq/client');
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
-
     (async () => {
         const databaseId = process.env.NOTION_PRIVACY;
+
         const response = await notion.databases.query({
             database_id: databaseId,
             filter: {
-                "property": "kakao-id",
-                number: {
+                "property": "kakao_id",
+                "rich_text": {
                     "equals": id
                 }
             }
         });
 
         if (response.results.length === 0) {
-            console.log("회원가입 필요합니다")
+            //회원가입 필요
             makeMember()
         } else {
-            console.log(nickname, "이미 가입되어 있습니다.")
-            // 마이페이지로 이동 하도록 
-            return '이미 회원가입'
+            //이미 가입됨
+            return ""
         }
     })()
 
@@ -52,13 +51,30 @@ export default async function callBack({ id, properties: { nickname } }) {
                     "title": [
                         {
                             "text": {
-                                "content": nickname
+                                "content": name
                             }
                         }
                     ]
                 },
-                "kakao-id": {
-                    "number": 232323
+                "kakao_id": {
+                    "rich_text": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": id,
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": id,
+                            "href": null
+                        }
+                    ]
                 },
                 "member": {
                     "type": "relation",
@@ -69,8 +85,6 @@ export default async function callBack({ id, properties: { nickname } }) {
             }
         })
 
-        return '마페로 이동'
-        // 마이페이지로 이동 하도록
+        // 처음 가입한 인원 대상으로 마이페이지로 바로 이동하게 하고 싶음...
     }
-
 }

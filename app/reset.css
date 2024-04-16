@@ -138,3 +138,7 @@ a {
     color: inherit;
     /* text-decoration: initial; */
 }
+
+button {
+    all: initial;
+}
