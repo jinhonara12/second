@@ -1,7 +1,6 @@
 'use client'
 import Link from "next/link";
-import { useSession } from "next-auth/react";
-import { signOut, signIn, SessionProvider } from "next-auth/react";
+import { signOut, signIn, SessionProvider, useSession } from "next-auth/react";
 
 function LoginCheck() {
     const { data: session, status } = useSession()

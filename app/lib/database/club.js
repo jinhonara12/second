@@ -9,6 +9,7 @@ export default async function fetchData() {
         });
         const data = response.results.map((page) => {
             return {
+                page_id: page.id,
                 name: page.properties.name.title[0].text.content,
                 facebook: page.properties.facebook.url,
                 instagram: page.properties.instagram.url,

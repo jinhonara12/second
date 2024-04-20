@@ -1,0 +1,48 @@
+.main {
+    padding: 15px 0;
+    display: flex;
+
+    .mypage {
+        display: flex;
+        flex-direction: column;
+        row-gap: 3rem;
+
+        .join {
+            display: flex;
+            flex-direction: column;
+            row-gap: .5rem;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #888;
+
+            .en {
+                font-size: 1.2rem;
+                font-weight: 300;
+
+                span {
+                    font-weight: 800;
+                }
+            }
+
+            .kr {
+                font-size: .9rem;
+                font-weight: 300;
+                color: #888;
+            }
+        }
+
+        .privacy,
+        .member {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2rem;
+
+            .title {
+                font-size: 1.5rem;
+                text-transform: uppercase;
+            }
+
+        }
+    }
+
+
+}

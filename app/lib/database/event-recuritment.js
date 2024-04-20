@@ -19,6 +19,7 @@ export default async function fetchData() {
                 classification: page.properties.classification.select.name,
                 name: page.properties.name.title[0].text.content,
                 url: page.properties.url.url,
+                home: page.properties.home.url,
                 check_url: page.properties.check_url.url,
                 start_date: page.properties.date.date.start,
                 end_date: page.properties.date.date.end,

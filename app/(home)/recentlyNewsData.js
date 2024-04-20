@@ -23,55 +23,62 @@ async function getSortedData(array) {
 }
 
 export default async function RecentlyNewsData() {
-    const repeatCount = 5;
     const fetchArray = [fetchClassData, fetchTeamData, fetchWorkshopData, fetchEventData, fetchFestivalData];
     const sortedData = await getSortedData(fetchArray);
-    return (
-        <>
-            {Array(repeatCount).fill().map((_, index) => {
-                const last_modified_time = new Date(sortedData[index].last_modified_time).toLocaleDateString()
-                const created_time = new Date(sortedData[index].created_time).toLocaleDateString()
+    const repeatCount = Math.min(sortedData.length, 10);
 
-                return <li key={sortedData[index].name} >
+    if (sortedData.length > 0) {
+        return (
+            <>
+                {Array(repeatCount).fill().map((_, index) => {
+                    const last_modified_time = new Date(sortedData[index].last_modified_time).toLocaleDateString()
+                    const created_time = new Date(sortedData[index].created_time).toLocaleDateString()
 
-                    <div className={styles.top}>
-                        <p>
-                            <span>new</span>
-                            <span>{sortedData[index].classification}</span>
-                            {sortedData[index].name}
-                        </p>
-                    </div>
-                    <div className={styles.middle}>
-                        <div>
-                            <span className={styles.date}>{sortedData[index].start_date} {sortedData[index].end_date ? ` - ${sortedData[index].end_date}` : ""}</span>
-                            <span className={styles.dday}>{sortedData[index].dday}</span>
+                    return <li key={sortedData[index].name} >
+
+                        <div className={styles.top}>
+                            <p>
+                                <span>new</span>
+                                <span>{sortedData[index].classification}</span>
+                                {sortedData[index].name}
+                            </p>
                         </div>
-
-                        <div className={styles.middle_2}>
-                            {sortedData[index].url ? <a href={sortedData[index].url} title={sortedData[index].name} target="_blank" >홍보링크</a> : null}
-                            {sortedData[index].check_url ? <a href={sortedData[index].check_url} title={sortedData[index].name} target="_blank" >확인링크</a> : null}
-                        </div>
-                    </div>
-
-                    <div className={styles.bottom}>
-                        {last_modified_time != created_time ?
+                        <div className={styles.middle}>
                             <div>
-                                <span className={styles.writer}>{sortedData[index].last_modifier_user}</span>
-                                <span className={styles.date}>modified {last_modified_time}</span>
+                                <span className={styles.date}>{sortedData[index].start_date} {sortedData[index].end_date ? ` - ${sortedData[index].end_date}` : ""}</span>
+                                <span className={styles.dday}>{sortedData[index].dday}</span>
                             </div>
-                            :
-                            null
-                        }
-                        <div>
-                            <span className={styles.writer}>{sortedData[index].creator_user}</span>
-                            <span className={styles.date}>created {created_time}</span>
-                        </div>
-                    </div>
-                </li>
-            })}
-        </>
 
-    )
+                            <div className={styles.middle_2}>
+                                {sortedData[index].home ? <a href={sortedData[index].home} title={sortedData[index].name} target="_blank" >공식홈페이지<img src="/icons/link_24px.png" /> </a> : null}
+                                {sortedData[index].url ? <a href={sortedData[index].url} title={sortedData[index].name} target="_blank" >신청링크<img src="/icons/link_24px.png" /></a> : null}
+                                {sortedData[index].check_url ? <a href={sortedData[index].check_url} title={sortedData[index].name} target="_blank" >확인링크<img src="/icons/link_24px.png" /></a> : null}
+                            </div>
+                        </div>
+
+                        <div className={styles.bottom}>
+                            {last_modified_time != created_time ?
+                                <div>
+                                    <span className={styles.writer}>{sortedData[index].last_modifier_user}</span>
+                                    <span className={styles.date}>modified {last_modified_time}</span>
+                                </div>
+                                :
+                                null
+                            }
+                            <div>
+                                <span className={styles.writer}>{sortedData[index].creator_user}</span>
+                                <span className={styles.date}>created {created_time}</span>
+                            </div>
+                        </div>
+                    </li>
+                })}
+            </>
+        )
+    } else {
+        return (
+            <p className={styles.not}> 등록된 최신 모집글이 없습니다.</p >
+        )
+    }
 
 }
 

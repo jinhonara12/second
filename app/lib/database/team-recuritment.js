@@ -18,7 +18,6 @@ export default async function fetchData() {
             return {
                 classification: page.properties.classification.select.name,
                 name: page.properties.name.title[0].text.content,
-                teacher: page.properties.teacher.rollup,
                 team: page.properties.team.relation,
                 url: page.properties.url.url,
                 check_url: page.properties.check_url.url,
@@ -31,7 +30,6 @@ export default async function fetchData() {
                 last_modified_time: page.properties.last_modified_time.last_edited_time,
             }
         }))
-
         return data;
     } catch (error) {
         console.error("class-recuritment data error");

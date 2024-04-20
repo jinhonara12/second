@@ -1,9 +1,9 @@
 
 import NextAuth from "next-auth";
 import KakaoProvider from "next-auth/providers/kakao";
-import makeNewNotionData from "../(kakao)/makeNotionData"
+import makeNewNotionData from "../kakao/makeNotionData"
 
-const handler = NextAuth({
+export const authOptions = {
     providers: [
         KakaoProvider({
             clientId: process.env.KAKAO_CLIENT_ID,
@@ -19,13 +19,13 @@ const handler = NextAuth({
             return baseUrl
         },
         async session({ session, token, user }) {
-            return session
+            return { session, token }
         },
         async jwt({ token, user, account, profile, isNewUser }) {
             return token
         }
     }
-})
-
+}
+const handler = NextAuth(authOptions)
 
 export { handler as GET, handler as POST }
