@@ -1,4 +1,5 @@
 import fetchData from '../lib/database/club';
+import styles from './page.module.scss';
 
 const getData = async () => {
     const result = await fetchData()
@@ -7,34 +8,49 @@ const getData = async () => {
 
 export default async function ClubData() {
     const data = await getData()
+
     return (
-        <>
-            <h3>Club data</h3>
-            <ul>
+        <div className={styles.clbu_data_box}>
+            <ul className={styles.data_ul}>
                 {data.map((club, index) => (
-                    <li key={index}>
-                        <p>{club.name}</p>
-                        <p>{club.locaiton && `위치 : ${club.locaiton}`}</p>
-                        <p>{club.address && `상세주소 : ${club.address}`}</p>
-                        {club.address && <p> <a href={`https://map.naver.com/p/search/${club.address}`} target="_blank">네이버 지도 <img src="/icons/link_24px.png" /></a></p>}
-                        <div>
-                            <p>활동요일</p>
-                            {club.mainday.map((day, idx) => (
-                                <ul key={idx}>
-                                    <li>{day.name}</li>
-                                </ul>
-                            ))}
+                    <li className={styles.li} key={index}>
+                        <div className={styles.main_box}>
+                            <div className={styles.title_box}>
+                                <p className={styles.title}> {club.name}</p>
+                            </div>
+                            <div className={styles.sub_text}>
+                                <p className={styles.p}>{club.address}</p>
+                                {club.address && <p className={styles.p}> <a href={`https://map.naver.com/p/search/${club.address}`} target="_blank">지도 링크<img src="/icons/link_24px.png" /></a></p>}
+                            </div>
                         </div>
-                        {club.facebook && <p> <a href={club.facebook} title="페이스북 바로가기" target="_blank">페이스북<img src="/icons/link_24px.png" /> </a></p>}
-                        {club.instagram && <p> <a href={club.instagram} title="인스타그램 바로가기" target="_blank">인스타그램<img src="/icons/link_24px.png" /> </a></p>}
-                        {club.linktree && <p> <a href={club.linktree} title="링크트리 바로가기" target="_blank">링크트리<img src="/icons/link_24px.png" /> </a></p>}
-                        {club.cafe && <p> <a href={club.cafe} title="카페 바로가기" target="_blank">카페<img src="/icons/link_24px.png" /> </a></p>}
-                        {club.youtube1 && <p> <a href={club.youtube1} title="유튜브 바로가기" target="_blank">유튜브<img src="/icons/link_24px.png" /> </a></p>}
-                        {club.youtube2 && <p> <a href={club.youtube2} title="유튜브 바로가기" target="_blank">유튜브<img src="/icons/link_24px.png" /> </a></p>}
-                        {club.homepage && <p> <a href={club.homepage} title="홈페이지 바로가기" target="_blank">홈페이지<img src="/icons/link_24px.png" /> </a></p>}
+
+                        <div className={styles.bottom}>
+                            <div className={styles.link_box}>
+                                {club.facebook && <p className={styles.link}> <a href={club.facebook} title="페이스북 바로가기" target="_blank">페이스북<img src="/icons/link_24px.png" /> </a></p>}
+                                {club.instagram && <p className={styles.link}> <a href={club.instagram} title="인스타그램 바로가기" target="_blank">인스타그램<img src="/icons/link_24px.png" /> </a></p>}
+                                {club.linktree && <p className={styles.link}> <a href={club.linktree} title="링크트리 바로가기" target="_blank">링크트리<img src="/icons/link_24px.png" /> </a></p>}
+                                {club.cafe && <p className={styles.link}> <a href={club.cafe} title="카페 바로가기" target="_blank">카페<img src="/icons/link_24px.png" /> </a></p>}
+                                {club.youtube1 && <p className={styles.link}> <a href={club.youtube1} title="유튜브 바로가기" target="_blank">유튜브<img src="/icons/link_24px.png" /> </a></p>}
+                                {club.youtube2 && <p className={styles.link}> <a href={club.youtube2} title="유튜브 바로가기" target="_blank">유튜브<img src="/icons/link_24px.png" /> </a></p>}
+                                {club.homepage && <p className={styles.link}> <a href={club.homepage} title="홈페이지 바로가기" target="_blank">홈페이지<img src="/icons/link_24px.png" /> </a></p>}
+                            </div>
+
+                            <div className={styles.date_box}>
+                                <div className={styles.heart_box}>
+                                    ❤️
+                                    <span>{club.heart}개</span>
+                                </div>
+                                <p data-key={club.locaiton} className={styles.location}>{club.locaiton}</p>
+                                <ul>
+                                    {club.mainday.map((day, idx) => (
+                                        <li key={idx} data-day={day.name}>{day.name.slice(0, 1)}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                 ))}
             </ul>
-        </>
+        </div>
     )
 }

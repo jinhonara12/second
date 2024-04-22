@@ -1,0 +1,160 @@
+.clbu_data_box {
+    padding: 15px 0;
+
+    .data_ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+
+        .li {
+            border: 1px #444 solid;
+            flex: 1 1 25%;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 1rem;
+
+            .main_box {
+                display: flex;
+                flex-direction: column;
+                row-gap: .5rem;
+
+
+                .title_box {
+                    display: flex;
+                    column-gap: .5rem;
+                    align-items: flex-top;
+
+                    .title {
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                    }
+                }
+
+                .sub_text {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    row-gap: .3rem;
+
+                    .p {
+                        font-size: .9rem;
+                        color: #444;
+
+                        a {
+                            text-decoration: inherit;
+
+                            img {
+                                width: 15px;
+                                height: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .bottom {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                row-gap: .5rem;
+
+                .link_box {
+                    width: 100%;
+                    padding-top: 1rem;
+                    display: flex;
+                    column-gap: .5rem;
+                    row-gap: .3rem;
+                    border-top: 1px solid #444;
+
+                    .link {
+                        font-size: .9rem;
+
+                        a {
+                            text-decoration: inherit;
+
+                            img {
+                                width: 15px;
+                                height: 15px;
+                            }
+                        }
+                    }
+                }
+
+                .date_box {
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+
+                    .heart_box {
+                        display: flex;
+                        column-gap: .2rem;
+                        font-size: .7rem;
+                    }
+
+                    ul {
+                        display: flex;
+                        gap: .3rem;
+
+                        li {
+                            background-color: #444;
+                            color: #fff;
+                            font-size: .7rem;
+                            width: 22px;
+                            height: 22px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 50px;
+                        }
+
+                        $days: (
+                            일요일: rgb(205, 70, 70),
+                            토요일: rgb(61, 61, 176)
+                        );
+
+                    @each $day,
+                    $color in $days {
+                        li[data-day="#{$day}"] {
+                            background-color: $color;
+                        }
+                    }
+                }
+
+                .location {
+                    background-color: #444;
+                    color: #fff;
+                    height: 22px;
+                    padding: 0 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50px;
+                    font-size: .7rem;
+                }
+
+                $lines: (
+                    남부터미널: (#EF7C1C, #EF7C1C),
+                    합정: (#00A84D, #CD7C2F),
+                    신촌 : (#00A84D, #00A84D),
+                    건대: (#00A84D, #747F00),
+                    신림: (#00A84D, #6789CA),
+                    사당 : (#00A84D, #00A5DE),
+                    선릉:(#00A84D, #F5A200)
+                );
+
+            @each $line,
+            $colors in $lines {
+                $startColor: nth($colors, 1);
+                $endColor: nth($colors, 2);
+
+                .location[data-key="#{$line}"] {
+                    background: linear-gradient(to right, $startColor 50%, $endColor 50%);
+                }
+            }
+        }
+    }
+}
+}
+}
