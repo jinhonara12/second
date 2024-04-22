@@ -33,9 +33,10 @@ export default async function fetchData(kakao_id) {
         const day = String(date.getDate()).padStart(2, '0');
         const formattedDate = `${year}-${month}-${day}`;
 
+        console.log(properties)
         const data = {
             page_id: response.results[0].id,
-            nickname: properties.nickname.title[0].text.content,
+            nickname: properties.nickname.title ? "" : properties.nickname.title[0].text.content,
             swing_date: properties.swing_date.date ? properties.swing_date.date.start : formattedDate,
             swing_years: properties.swing_years.formula.number,
             swing_days: properties.swing_days.formula.number,

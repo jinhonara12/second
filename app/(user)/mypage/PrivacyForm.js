@@ -55,25 +55,25 @@ export default function Form({ privacy }) {
                 <span className={styles.title}>name</span>
                 [<input className={styles.input} onChange={(e) => {
                     setName(e.target.value)
-                }} type="text" value={name} name="이름" />]
+                }} type="text" value={name} name="이름" placeholder="이름을 적어주세요." required />]
             </label>
             <label className={styles.label}>
                 <span className={styles.title}>birthday</span>
                 [<input className={styles.input} onChange={(e) => {
                     setBirthday(e.target.value)
-                }} type="date" value={birthday} name="생일" />]
+                }} type="date" value={birthday} name="생일" placeholder="생일을 적어주세요." />]
             </label>
             <label className={styles.label}>
                 <span className={styles.title}>email</span>
                 [<input className={styles.input} onChange={(e) => {
                     setEmail(e.target.value)
-                }} type="email" value={email} name="이메일" />]
+                }} type="email" value={email} name="이메일" placeholder="이메일을 적어주세요." />]
             </label>
             <label className={styles.label}>
                 <span className={styles.title}>tel</span>
                 [<input className={styles.input} onChange={(e) => {
                     setTel(e.target.value)
-                }} type="tel" value={tel} name="연락처" />]
+                }} type="tel" value={tel} name="연락처" placeholder="핸드폰 번호를 적어주세요." />]
             </label>
             <label className={styles.label}>
                 <span className={styles.title}>push alarm</span>

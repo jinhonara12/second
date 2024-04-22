@@ -113,7 +113,7 @@ export default function Form({ member, bar, club, team }) {
                 <span className={styles.title}>nickname</span>
                 [<input className={styles.input} onChange={(e) => {
                     setNickame(e.target.value)
-                }} type="text" value={nickname} name="닉네임" />]
+                }} type="text" value={nickname} name="닉네임" placeholder="닉네임을 적어주세요." required />]
             </label>
 
             <label className={styles.label}>
@@ -125,12 +125,12 @@ export default function Form({ member, bar, club, team }) {
 
             <label className={styles.label}>
                 <span className={styles.title}>swing years</span>
-                [<input className={styles.input} readOnly type="text" value={`${member.swing_years ? member.swing_years + "년차" : ""}`} name="스윙 연차" placeholder="스윙시작 날짜를 기입해주세요." />]
+                [<input className={styles.input} readOnly type="text" value={`${member.swing_years !== undefined ? member.swing_years + "년차" : ""}`} name="스윙 연차" placeholder="스윙시작 날짜를 기입해주세요." />]
             </label>
 
             <label className={styles.label}>
                 <span className={styles.title}>swing days</span>
-                [<input className={styles.input} readOnly type="text" value={`${member.swing_days ? member.swing_days + "일" : ""}`} name="스윙 일수" placeholder="스윙시작 날짜를 기입해주세요." />]
+                [<input className={styles.input} readOnly type="text" value={`${member.swing_days !== undefined ? member.swing_days + "일" : ""}`} name="스윙 일수" placeholder="스윙시작 날짜를 기입해주세요." />]
             </label>
 
             <div className={styles.label}>
