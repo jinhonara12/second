@@ -1,8 +1,5 @@
 import fetchData from '../lib/database/club';
-import ExternalLink from '../ExternalLink';
 
-// next js 14부터 SSR(Server Side Rendering)은 fetch 함수로 진행
-// 개발문서 링크 : https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating
 const getData = async () => {
     const result = await fetchData()
     return result;
@@ -19,7 +16,7 @@ export default async function ClubData() {
                         <p>{club.name}</p>
                         <p>{club.locaiton && `위치 : ${club.locaiton}`}</p>
                         <p>{club.address && `상세주소 : ${club.address}`}</p>
-                        {club.address && <p> <ExternalLink href={`https://map.naver.com/p/search/${club.address}`} text={"페이스북"} /></p>}
+                        {club.address && <p> <a href={`https://map.naver.com/p/search/${club.address}`} target="_blank">네이버 지도 <img src="/icons/link_24px.png" /></a></p>}
                         <div>
                             <p>활동요일</p>
                             {club.mainday.map((day, idx) => (
@@ -28,13 +25,13 @@ export default async function ClubData() {
                                 </ul>
                             ))}
                         </div>
-                        {club.facebook && <p> <ExternalLink href={club.facebook} text={"페이스북"} /></p>}
-                        {club.instagram && <p> <ExternalLink href={club.instagram} text={"인스타그램"} /></p>}
-                        {club.linktree && <p> <ExternalLink href={club.linktree} text={"링크트리"} /></p>}
-                        {club.cafe && <p> <ExternalLink href={club.cafe} text={"카페"} /></p>}
-                        {club.youtube1 && <p> <ExternalLink href={club.youtube1} text={"유튜브"} /></p>}
-                        {club.youtube2 && <p> <ExternalLink href={club.youtube2} text={"유튜브"} /></p>}
-                        {club.homepage && <p> <ExternalLink href={club.homepage} text={"홈페이지"} /></p>}
+                        {club.facebook && <p> <a href={club.facebook} title="페이스북 바로가기" target="_blank">페이스북<img src="/icons/link_24px.png" /> </a></p>}
+                        {club.instagram && <p> <a href={club.instagram} title="인스타그램 바로가기" target="_blank">인스타그램<img src="/icons/link_24px.png" /> </a></p>}
+                        {club.linktree && <p> <a href={club.linktree} title="링크트리 바로가기" target="_blank">링크트리<img src="/icons/link_24px.png" /> </a></p>}
+                        {club.cafe && <p> <a href={club.cafe} title="카페 바로가기" target="_blank">카페<img src="/icons/link_24px.png" /> </a></p>}
+                        {club.youtube1 && <p> <a href={club.youtube1} title="유튜브 바로가기" target="_blank">유튜브<img src="/icons/link_24px.png" /> </a></p>}
+                        {club.youtube2 && <p> <a href={club.youtube2} title="유튜브 바로가기" target="_blank">유튜브<img src="/icons/link_24px.png" /> </a></p>}
+                        {club.homepage && <p> <a href={club.homepage} title="홈페이지 바로가기" target="_blank">홈페이지<img src="/icons/link_24px.png" /> </a></p>}
                     </li>
                 ))}
             </ul>

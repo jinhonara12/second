@@ -6,11 +6,12 @@ export async function GET(req) {
 }
 
 export async function POST(req) {
-    const { nickname, id, barArray, clubArray, teamMemberArray } = await req.json();
+    const { nickname, id, swingDay, barArray, clubArray, teamMemberArray } = await req.json()
 
     try {
         async function update() {
             const response = await notion.pages.update({
+
                 page_id: id,
                 properties: {
                     'nickname': {
@@ -26,6 +27,11 @@ export async function POST(req) {
                                 "plain_text": nickname,
                             }
                         ]
+                    },
+                    'swing_date': {
+                        "date": {
+                            "start": swingDay,
+                        }
                     },
                     'bar': {
                         "relation": barArray

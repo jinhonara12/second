@@ -49,8 +49,8 @@ export default async function festival(id) {
 
     return (
         <div className={styles.detail_box}>
-            <h1 className={styles.title}>{title}</h1>
             <img className={styles.img} src={mainImgUrl} loading="lazy" />
+            <h1 className={styles.title}>{title}</h1>
             {pairedTextBlocks.map(item => {
                 return (
                     <div className={styles.detail} key={item.title} >

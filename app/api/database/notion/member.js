@@ -26,9 +26,19 @@ export default async function fetchData(kakao_id) {
         }
 
         const properties = response.results[0].properties;
+
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`;
+
         const data = {
-            nickname: properties.nickname.title[0].text.content,
             page_id: response.results[0].id,
+            nickname: properties.nickname.title[0].text.content,
+            swing_date: properties.swing_date.date ? properties.swing_date.date.start : formattedDate,
+            swing_years: properties.swing_years.formula.number,
+            swing_days: properties.swing_days.formula.number,
         }
 
         const extractRelationIds = (property) =>

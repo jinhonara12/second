@@ -14,7 +14,6 @@ export default async function fetchData(kakao_id) {
             }
         })
 
-
         const properties = response.results[0].properties;
 
         const dateString = properties.join.created_time

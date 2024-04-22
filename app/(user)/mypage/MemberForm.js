@@ -16,8 +16,8 @@ export default function Form({ member, bar, club, team }) {
         name: item.name,
         id: item.page_id
     }))
-
     const [nickname, setNickame] = useState(member.nickname);
+    const [swingDay, setSwingDay] = useState(member.swing_date);
     const [barArray, setBarArray] = useState(member.barArray);
     const [clubArray, setClubArray] = useState(member.clubArray);
     const [teamMemberArray, setTeamMemberArray] = useState(member.teamMemberArray);
@@ -75,6 +75,7 @@ export default function Form({ member, bar, club, team }) {
     const updateData = async () => {
         const formData = {
             nickname: nickname || '닉네임',
+            swingDay: swingDay,
             id: page_id,
             barArray: allBarList.filter(list => barArray.includes(list.name)).map(item => ({
                 id: item.id
@@ -95,6 +96,7 @@ export default function Form({ member, bar, club, team }) {
                 },
                 body: JSON.stringify(formData),
             });
+
             const response = await postFetch.json()
             setState(response);
             setUpdate('update')
@@ -104,6 +106,7 @@ export default function Form({ member, bar, club, team }) {
         }
     }
 
+
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
             <label className={styles.label}>
@@ -111,6 +114,23 @@ export default function Form({ member, bar, club, team }) {
                 [<input className={styles.input} onChange={(e) => {
                     setNickame(e.target.value)
                 }} type="text" value={nickname} name="닉네임" />]
+            </label>
+
+            <label className={styles.label}>
+                <span className={styles.title}>swing date</span>
+                [<input className={styles.input} onChange={(e) => {
+                    setSwingDay(e.target.value)
+                }} type="date" value={swingDay} name="스윙시작날" />]
+            </label>
+
+            <label className={styles.label}>
+                <span className={styles.title}>swing years</span>
+                [<input className={styles.input} readOnly type="text" value={`${member.swing_years ? member.swing_years + "년차" : ""}`} name="스윙 연차" placeholder="스윙시작 날짜를 기입해주세요." />]
+            </label>
+
+            <label className={styles.label}>
+                <span className={styles.title}>swing days</span>
+                [<input className={styles.input} readOnly type="text" value={`${member.swing_days ? member.swing_days + "일" : ""}`} name="스윙 일수" placeholder="스윙시작 날짜를 기입해주세요." />]
             </label>
 
             <div className={styles.label}>
