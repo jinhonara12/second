@@ -48,6 +48,14 @@ export default async function ClubData() {
                                 </ul>
                             </div>
                         </div>
+
+                        <div className={styles.bar}>
+                            <ul className={styles.bar_box}>
+                                {club.bar.map((item, idx) => (
+                                    <li key={idx}>{item}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </li>
                 ))}
             </ul>
