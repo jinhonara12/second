@@ -1,5 +1,4 @@
 import { Client } from '@notionhq/client'
-import { compileString } from 'sass';
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export default async function fetchData() {

@@ -1,4 +1,4 @@
-.clbu_data_box {
+.club_data_box {
     padding: 15px 0;
 
     .data_ul {
@@ -34,8 +34,9 @@
 
                 .sub_text {
                     display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    column-gap: .5rem;
                     row-gap: .3rem;
 
                     .p {
@@ -66,7 +67,7 @@
                     display: flex;
                     column-gap: .5rem;
                     row-gap: .3rem;
-                    border-top: 1px solid #444;
+                    border-top: 1px solid #aaa;
 
                     .link {
                         font-size: .9rem;
@@ -164,16 +165,19 @@
             flex-wrap: wrap;
             row-gap: .3rem;
             column-gap: .5rem;
-            border-top: 1px solid #444;
+            border-top: 1px solid #aaa;
             padding-top: 1rem;
 
             li {
                 font-size: .8rem;
+            }
+
+            li.item {
                 border-right: 1px solid #888;
                 padding-right: .5rem;
             }
 
-            li:last-of-type {
+            li.item:last-of-type {
                 border: none;
             }
         }

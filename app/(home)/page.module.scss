@@ -5,139 +5,148 @@
     padding: 15px 0;
     padding-right: 1rem;
 
-    .recently_news_box {
-        flex: 1 1 0%;
-        max-width: 400px;
-        width: 100%;
+    .sorted_news {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        row-gap: 1rem;
+        column-gap: 1rem;
+        flex: 1 1 0%;
 
-        h4 {
-            font-weight: 600;
-            text-transform: capitalize;
-            font-size: 1.5rem;
-        }
+        .weekly_news_box,
+        .recently_news_box {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
 
-        span {
-            font-size: .9rem;
-        }
-
-        ul {
-            .not {
-                font-size: .9rem;
-                color: #888;
-                text-align: center;
-                margin: 30px 0;
+            h4 {
+                font-weight: 600;
+                text-transform: capitalize;
+                font-size: 1.5rem;
             }
 
-            li {
-                border-bottom: 1px solid #888;
-                display: flex;
-                flex-direction: column;
-                gap: .8rem;
-                padding: 1.5rem 0;
-                text-decoration: inherit;
+            span {
+                font-size: .9rem;
+            }
 
-                .top {
-                    display: flex;
-                    justify-content: space-between;
-
-                    p {
-                        display: flex;
-                        align-items: center;
-                        column-gap: .3rem;
-                        font-size: 1.2rem;
-
-                        span {
-                            padding: 2px 4px;
-                            border-radius: 3px;
-                            font-size: .6rem;
-                            color: #fff;
-                        }
-
-                        span:first-of-type {
-                            background-color: tomato;
-                        }
-
-                        span:last-of-type {
-                            background-color: gray;
-                        }
-                    }
+            ul {
+                .not {
+                    font-size: .9rem;
+                    color: #888;
+                    text-align: center;
+                    margin: 30px 0;
                 }
 
-                .middle {
+                li {
+                    border-bottom: 1px solid #888;
                     display: flex;
                     flex-direction: column;
-                    justify-content: center;
+                    gap: .8rem;
+                    padding: 1.5rem 0;
+                    text-decoration: inherit;
 
-                    div {
+                    .top {
                         display: flex;
-                        gap: .5rem;
-                        flex-wrap: wrap;
-                        align-items: center;
+                        justify-content: space-between;
 
-                        .dday {
-                            padding: 2px 4px;
-                            border-radius: 3px;
-                            font-size: .6rem;
-                            background-color: #444;
-                            color: #fff;
-                        }
+                        p {
+                            display: flex;
+                            align-items: center;
+                            column-gap: .3rem;
+                            font-size: 1.2rem;
 
-                        .date {
-                            font-size: .9rem;
-                        }
-                    }
+                            span {
+                                padding: 2px 4px;
+                                border-radius: 3px;
+                                font-size: .6rem;
+                                color: #fff;
+                            }
 
-                    .middle_2 {
-                        display: flex;
-                        flex-wrap: nowrap;
-                        row-gap: .5rem;
-                        column-gap: 1rem;
+                            span:first-of-type {
+                                background-color: tomato;
+                            }
 
-                        a {
-                            margin-top: .5rem;
-                            font-size: .8rem;
-                            text-decoration: none;
-                            color: #888;
-
-                            img {
-                                width: 12px;
-                                height: 12px;
-                                opacity: .5;
+                            span:last-of-type {
+                                background-color: gray;
                             }
                         }
                     }
-                }
 
-
-
-                .bottom {
-                    display: flex;
-                    flex-direction: column;
-                    column-gap: 1rem;
-                    flex-wrap: wrap;
-                    color: rgba(0, 0, 0, .4);
-                    margin-top: 1rem;
-                    gap: .2rem;
-
-                    div {
+                    .middle {
                         display: flex;
-                        justify-content: space-between;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        div {
+                            display: flex;
+                            gap: .5rem;
+                            flex-wrap: wrap;
+                            align-items: center;
+
+                            .dday {
+                                padding: 2px 4px;
+                                border-radius: 3px;
+                                font-size: .6rem;
+                                background-color: #444;
+                                color: #fff;
+                            }
+
+                            .date {
+                                font-size: .9rem;
+                            }
+                        }
+
+                        .middle_2 {
+                            display: flex;
+                            flex-wrap: nowrap;
+                            row-gap: .5rem;
+                            column-gap: 1rem;
+
+                            a {
+                                margin-top: .5rem;
+                                font-size: .8rem;
+                                text-decoration: none;
+                                color: #888;
+
+                                img {
+                                    width: 12px;
+                                    height: 12px;
+                                    opacity: .5;
+                                }
+                            }
+                        }
                     }
 
-                    .writer {
-                        font-size: .8rem;
-                    }
 
-                    .date {
-                        font-size: .8rem;
+
+                    .bottom {
+                        display: flex;
+                        flex-direction: column;
+                        column-gap: 1rem;
+                        flex-wrap: wrap;
+                        color: rgba(0, 0, 0, .4);
+                        margin-top: 1rem;
+                        gap: .2rem;
+
+                        div {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+
+                        .writer {
+                            font-size: .8rem;
+                        }
+
+                        .date {
+                            font-size: .8rem;
+                        }
                     }
                 }
             }
         }
     }
+
+
 
     .main_news {
         flex: 2 2 0%;

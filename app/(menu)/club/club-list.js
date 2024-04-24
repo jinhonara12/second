@@ -1,4 +1,4 @@
-import fetchData from '../lib/database/club';
+import fetchData from '../../lib/database/club';
 import styles from './page.module.scss';
 
 const getData = async () => {
@@ -10,7 +10,7 @@ export default async function ClubData() {
     const data = await getData()
 
     return (
-        <div className={styles.clbu_data_box}>
+        <div className={styles.club_data_box}>
             <ul className={styles.data_ul}>
                 {data.map((club, index) => (
                     <li className={styles.li} key={index}>
@@ -20,7 +20,7 @@ export default async function ClubData() {
                             </div>
                             <div className={styles.sub_text}>
                                 <p className={styles.p}>{club.address}</p>
-                                {club.address && <p className={styles.p}> <a href={`https://map.naver.com/p/search/${club.address}`} target="_blank">지도 링크<img src="/icons/link_24px.png" /></a></p>}
+                                {club.address && <p className={styles.p}><a href={`https://map.naver.com/p/search/${club.address}`} target="_blank">(지도 링크<img src="/icons/link_24px.png" />)</a></p>}
                             </div>
                         </div>
 
@@ -51,8 +51,9 @@ export default async function ClubData() {
 
                         <div className={styles.bar}>
                             <ul className={styles.bar_box}>
+                                <li>BAR</li>
                                 {club.bar.map((item, idx) => (
-                                    <li key={idx}>{item}</li>
+                                    <li className={styles.item} key={idx}>{item}</li>
                                 ))}
                             </ul>
                         </div>

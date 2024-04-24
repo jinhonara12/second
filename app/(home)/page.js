@@ -1,13 +1,29 @@
 import styles from './page.module.scss';
 import Link from 'next/link';
 import RecentlyNewsData from './recentlyNewsData.js';
+import WeeklyNewsData from './weeklyNewsData.js';
+import { Suspense } from 'react';
+
+function WeeklyNews({ className }) {
+  return (
+    <div className={className}>
+      <div>
+        <h4>weekly news</h4>
+        <span>- 7일 이내 모집 마감 게시글</span>
+      </div>
+      <ul>
+        <WeeklyNewsData />
+      </ul>
+    </div>
+  )
+}
 
 function RecentlyNews({ className }) {
   return (
     <div className={className}>
       <div>
         <h4>recently news</h4>
-        <span>- 최신 모집 글</span>
+        <span>- 최근 업로드 게시글</span>
       </div>
       <ul>
         <RecentlyNewsData />
@@ -41,7 +57,14 @@ function MainNews({ className }) {
 export default function Home() {
   return (
     <main className={styles.main}>
-      <RecentlyNews className={styles.recently_news_box} />
+      <div className={styles.sorted_news}>
+        <Suspense fallback={<p>Weekly News Loading...</p>}>
+          <WeeklyNews className={styles.weekly_news_box} />
+        </Suspense>
+        <Suspense fallback={<p>Recently News Loading...</p>}>
+          <RecentlyNews className={styles.recently_news_box} />
+        </Suspense>
+      </div>
       <MainNews className={styles.main_news} />
     </main>
   )

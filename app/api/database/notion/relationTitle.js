@@ -7,7 +7,6 @@ export default async function fetchData(id) {
         try {
             const response = await notion.pages.retrieve({
                 page_id: pageId,
-
             })
             const title = response.properties.name.title[0].text.content
             return title;

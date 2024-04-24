@@ -17,8 +17,9 @@ async function getSortedData(array) {
             const today = new Date();
             const oneDay = 24 * 60 * 60 * 1000;
             const diffDays = Math.round((date - today) / oneDay);
-            return diffDays > 7
+            return diffDays <= 7 && diffDays >= 0;
         });
+
         let sorted = vaildData.sort((a, b) => {
             return new Date(b.last_modified_time) - new Date(a.last_modified_time)
         })
@@ -29,10 +30,10 @@ async function getSortedData(array) {
     })
 }
 
-export default async function RecentlyNewsData() {
+export default async function WeeklyNewsData() {
     const fetchArray = [fetchClassData, fetchTeamData, fetchWorkshopData, fetchEventData, fetchFestivalData];
     const sortedData = await getSortedData(fetchArray);
-    const repeatCount = Math.min(sortedData.length, 5);
+    const repeatCount = Math.min(sortedData.length, 10);
 
     if (sortedData.length > 0) {
         return (
@@ -46,7 +47,7 @@ export default async function RecentlyNewsData() {
 
                         <div className={styles.top}>
                             <p>
-                                <span>new</span>
+                                {/* <span>new</span> */}
                                 <span>{type}</span>
                                 {sortedData[index].name}
                             </p>
@@ -86,7 +87,7 @@ export default async function RecentlyNewsData() {
         )
     } else {
         return (
-            <p className={styles.not}> 등록된 최근 모집글이 없습니다.</p >
+            <p className={styles.not}> 7일 이내 모집 마감 게시글이 없습니다.</p >
         )
     }
 

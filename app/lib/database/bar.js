@@ -1,5 +1,5 @@
+
 import { Client } from '@notionhq/client'
-import getRelationTitle from '../../api/database/notion/relationTitle';
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export default async function fetchData() {
@@ -7,26 +7,34 @@ export default async function fetchData() {
     try {
         const response = await notion.databases.query({
             database_id: databaseId
-        })
+        });
+        const data = await Promise.all(response.results.map(async page => {
+            const clubPromise = page.properties.club.relation.map(async clubList => {
+                const id = clubList.id;
 
-        const data = response.results.map((page) => {
-            let socialDay = page.properties.social.multi_select.map(item => item.name)
+                const response = await notion.pages.retrieve({
+                    page_id: id
+                })
+                const result = response.properties.name.title[0].text.content
+
+                return result;
+            })
+
+            const clubArray = await Promise.all(clubPromise);
             return {
                 page_id: page.id,
                 name: page.properties.name.title[0].text.content,
-                location: page.properties.location.select.name,
-                url: page.properties.url.url,
+                locaiton: page.properties.location.select.name,
+                socialArray: page.properties.social.multi_select,
                 address: page.properties.address.rich_text[0].plain_text,
+                url: page.properties.url.url,
+                club: clubArray,
                 heart: page.properties.member_heart_count.formula.number,
-                socialDays: socialDay,
-                clubArray: page.properties.club.relation,
-                djArray: page.properties.dj.relation,
             }
-        })
-
-        return data
+        }))
+        return data;
     } catch (error) {
-        console.error('bar error')
-        throw error
+        console.error('Error fetching data from Notion:', error);
+        throw error;
     }
 }
