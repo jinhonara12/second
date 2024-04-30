@@ -1,4 +1,4 @@
-import BarList from "./bar-list";
+import BarList from "./Bar-list";
 
 export default function page() {
     return (

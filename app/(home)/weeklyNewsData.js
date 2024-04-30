@@ -87,7 +87,7 @@ export default async function WeeklyNewsData() {
         )
     } else {
         return (
-            <p className={styles.not}> 7일 이내 모집 마감 게시글이 없습니다.</p >
+            <p className={styles.not}> 7일 이내 마감되는 모집 게시글이 없습니다.</p >
         )
     }
 

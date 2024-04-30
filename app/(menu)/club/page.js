@@ -1,4 +1,4 @@
-import ClubList from "./club-list";
+import ClubList from "./Club-list";
 
 export default function page() {
     return (

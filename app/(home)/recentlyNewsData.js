@@ -86,7 +86,7 @@ export default async function RecentlyNewsData() {
         )
     } else {
         return (
-            <p className={styles.not}> 등록된 최근 모집글이 없습니다.</p >
+            <p className={styles.not}> 최근 수정 또는 등록된 모집 게시글이 없습니다.</p>
         )
     }
 

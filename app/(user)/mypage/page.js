@@ -7,7 +7,8 @@ import PrivacyForm from './PrivacyForm';
 import MemberForm from './MemberForm';
 
 export default async function MyPage() {
-    if (getUserProfile !== null) {
+    const resposne = await getUserProfile();
+    if (resposne !== null) {
         const userProfile = await getUserProfile();
         const barList = await getBarList();
         const clubList = await getClubList();
@@ -52,9 +53,10 @@ export default async function MyPage() {
         )
     } else {
         return (
-            <div>
-                <p>로그인 기능에 문제가 생겼습니다.</p>
-                <p>다시 로그인을 부탁드립니다. 지속적인 문제가 생길시 오류 화면 문의 주시면 빠르게 처리하겠습니다.</p>
+            <div style={{ paddingTop: "15px" }}>
+                <p>로그인이 제대로 되지 않았습니다.</p>
+                <p>다시 로그인을 부탁드립니다.</p>
+                <p>지속적인 문제가 생길시 오류 화면 문의 주시면 빠르게 처리하겠습니다.</p>
             </div>
         )
     }
