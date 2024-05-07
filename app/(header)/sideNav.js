@@ -11,14 +11,14 @@ export default function SideNav() {
             <ul>
                 <li className={pathname === "/class-recruitment" ? styles.active : ""}>
                     <Link href="/class-recruitment">
-                        <span>Class</span>
+                        <span>class</span>
                         <span>강습 모집</span>
                     </Link>
                 </li>
                 <li className={pathname === "/team-recruitment" ? styles.active : ""}>
                     <Link href="/team-recruitment">
                         <span>team</span>
-                        <span>팀 모집</span>
+                        <span>팀원 모집</span>
                     </Link>
                 </li>
                 <li className={pathname === "/workshop-recruitment" ? styles.active : ""}>

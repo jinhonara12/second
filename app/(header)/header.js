@@ -20,7 +20,10 @@ function Logo() {
             </div>
             <div className={styles.center}>
                 <h1 className={yeseva.className}>
-                    <Link href="/">Daily Swing</Link>
+                    <Link href="/">Daily Swing
+                        <span>beta</span>
+                    </Link>
+
                 </h1>
             </div>
             <div className={styles.right}>
@@ -83,7 +86,7 @@ async function TodayClubList() {
                     {todayClub.map(el =>
                         <span key={el}>{el}</span>
                     )} </div></>
-                : <span>there is no club today</span>}
+                : <span>There are no clubs open today.</span>}
         </div>
     )
 }

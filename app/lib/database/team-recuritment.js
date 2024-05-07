@@ -20,7 +20,6 @@ export default async function fetchData() {
                 name: page.properties.name.title[0].text.content,
                 team: page.properties.team.relation,
                 url: page.properties.url.url,
-                check_url: page.properties.check_url.url,
                 start_date: page.properties.date.date.start,
                 end_date: page.properties.date.date.end,
                 dday: page.properties.dday.formula.string,
