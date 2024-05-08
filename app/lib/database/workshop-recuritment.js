@@ -6,7 +6,13 @@ export default async function fetchData() {
 
     try {
         const response = await notion.databases.query({
-            database_id: databaseId
+            database_id: databaseId,
+            sorts: [
+                {
+                    property: "date",
+                    direction: "descending"
+                }
+            ],
         })
         const data = await Promise.all(response.results.map(async page => {
             const last_edited_id = page.properties.last_modifier.last_edited_by.id;
@@ -35,5 +41,4 @@ export default async function fetchData() {
         console.error("class-recuritment data error");
         throw error;
     }
-
 }
