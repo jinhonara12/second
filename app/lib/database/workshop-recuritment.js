@@ -29,6 +29,7 @@ export default async function fetchData() {
                 start_date: page.properties.date.date.start,
                 end_date: page.properties.date.date.end,
                 dday: page.properties.dday.formula.string,
+                photo: page.properties.photo.files[0] && page.properties.photo.files[0].file.url,
                 creator_user: create_user.name,
                 created_time: page.properties.created_time.created_time,
                 last_modifier_user: last_user.name,
