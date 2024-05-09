@@ -12,6 +12,10 @@
             row-gap: 2rem;
             grid-auto-rows: minmax(100px, auto);
 
+            .list:hover .img_box img {
+                filter: grayscale(0);
+            }
+
             .list {
                 display: grid;
                 grid-template-rows: minmax(100px, 100%);
@@ -23,6 +27,8 @@
                     img {
                         width: 100%;
                         object-fit: cover;
+                        filter: grayscale(1);
+                        transition: filter .2s;
                     }
 
                     .no_img {
