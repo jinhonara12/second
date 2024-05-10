@@ -13,9 +13,18 @@ const roboto = Roboto_Slab({
 })
 
 export const metadata = {
-  title: "Daily Swing",
-  description: "",
-};
+  title: "Daily Swing | 홈",
+  description: "홈페이지",
+  keywords: 'a,b,c',
+
+  openGraph: {
+    title: 'Next.js',
+    description: 'The React Framework for the Web',
+    type: 'article',
+    publishedTime: '2023-01-01T00:00:00.000Z',
+    authors: ['Seb', 'Josh']
+  },
+}
 
 export default function RootLayout({ children }) {
   return (

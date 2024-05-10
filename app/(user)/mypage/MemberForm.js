@@ -185,7 +185,7 @@ export default function Form({ member, bar, club, team }) {
                     {member.eventArray.length === 0 ? <span className={styles.not}>관심있는 행사를 등록하지 않았습니다.</span> :
                         member.eventArray.map(item => {
                             return (
-                                <Link className={styles.link} key={item} href={""} target="_blank" title={item} >{item}
+                                <Link className={styles.link} key={item.id} href={`/event-recruitment/${item.id}`} target="_blank" title={item.title} >{item.title}
                                     <img src="/icons/link_24px.png" />
                                 </Link>
                             )
@@ -200,7 +200,7 @@ export default function Form({ member, bar, club, team }) {
                     {member.festArray.length === 0 ? <span className={styles.not}>관심있는 대회를 등록하지 않았습니다.</span> :
                         member.festArray.map(item => {
                             return (
-                                <Link className={styles.link} key={item} href={""} target="_blank" title={item} >{item}
+                                <Link className={styles.link} key={item.id} href={`/festival-recruitment/${item.id}`} target="_blank" title={item.title} >{item.title}
                                     <img src="/icons/link_24px.png" />
                                 </Link>
                             )

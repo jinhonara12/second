@@ -7,7 +7,6 @@ export async function GET(req) {
 
 export async function POST(req) {
     const { nickname, id, swingDay, barArray, clubArray, teamMemberArray } = await req.json()
-
     try {
         async function update() {
             const response = await notion.pages.update({

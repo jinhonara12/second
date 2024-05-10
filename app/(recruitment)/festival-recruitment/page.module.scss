@@ -23,6 +23,23 @@
 
                 .img_box {
                     display: flex;
+                    position: relative;
+
+                    .heart_box {
+                        position: absolute;
+                        top: .5rem;
+                        left: .5rem;
+                        cursor: pointer;
+
+                        span {
+                            font-size: 1rem;
+                            transition: .2s;
+                            -webkit-user-select: none;
+                            -moz-user-select: none;
+                            -ms-user-select: none;
+                            user-select: none
+                        }
+                    }
 
                     img {
                         width: 100%;
@@ -38,8 +55,20 @@
                     }
                 }
 
+
+
                 .title_box {
-                    h3 {}
+                    h3 {
+                        a {
+                            display: flex;
+                            text-decoration: initial;
+
+                            img {
+                                width: 15px;
+                                height: 15px;
+                            }
+                        }
+                    }
                 }
 
                 .date {
@@ -70,6 +99,9 @@
                 }
 
                 .link {
+                    display: flex;
+                    flex-wrap: wrap;
+                    column-gap: .5rem;
                     margin-top: 1rem;
 
                     a {

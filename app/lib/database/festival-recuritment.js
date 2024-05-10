@@ -20,6 +20,7 @@ export default async function fetchData() {
 
             const creator_id = page.properties.creator.created_by.id;
             const create_user = await notion.users.retrieve({ user_id: creator_id });
+
             return {
                 page_id: page.id,
                 classification: page.properties.classification.select.name,
@@ -32,6 +33,7 @@ export default async function fetchData() {
                 dday: page.properties.dday.formula.string,
                 member_heart_count: page.properties.member_heart_count.formula.number,
                 member_heart: page.properties.member_heart.relation,
+                photo: page.properties.photo.files[0] && page.properties.photo.files[0].file.url,
                 creator_user: create_user.name,
                 created_time: page.properties.created_time.created_time,
                 last_modifier_user: last_user.name,

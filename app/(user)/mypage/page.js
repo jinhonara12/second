@@ -2,9 +2,9 @@ import getUserProfile from './getUserProfile';
 import getBarList from '../../lib/database/bar';
 import getClubList from '../../lib/database/club';
 import getTeamList from '../../lib/database/team';
-import styles from './mypage.module.scss';
 import PrivacyForm from './PrivacyForm';
 import MemberForm from './MemberForm';
+import styles from './mypage.module.scss';
 
 export default async function MyPage() {
     const resposne = await getUserProfile();

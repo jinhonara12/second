@@ -1,5 +1,10 @@
 import styles from './page.module.scss';
 
+export const metadata = {
+    title: "Daily Swing | 소개",
+    description: "소개 페이지",
+};
+
 export default function About() {
     return (
         <main className={styles.main}>

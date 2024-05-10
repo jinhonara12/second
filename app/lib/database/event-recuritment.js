@@ -34,6 +34,7 @@ export default async function fetchData() {
                 member_heart_count: page.properties.member_heart_count.formula.number,
                 awards: page.properties.awards.relation,
                 member_heart: page.properties.member_heart.relation,
+                photo: page.properties.photo.files[0] && page.properties.photo.files[0].file.url,
                 creator_user: create_user.name,
                 created_time: page.properties.created_time.created_time,
                 last_modifier_user: last_user.name,
