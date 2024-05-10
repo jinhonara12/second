@@ -3,12 +3,14 @@ import styles from './page.module.scss';
 import getUserProfile from '@/app/(user)/mypage/getUserProfile';
 import Heart from './Heart';
 
-
+export const metadata = {
+    title: "행사 모집",
+    description: "스윙댄스 행사 모집 리스트입니다."
+};
 
 export default async function page() {
     const response = await fetch();
     const userInfo = await getUserProfile();
-    console.log(userInfo)
 
     return (
         <main className={styles.main}>
@@ -25,7 +27,7 @@ export default async function page() {
                                 </div>
 
                                 <div className={styles.title_box}>
-                                    <h3><a href={`/festival-recruitment/${list.page_id}`}>{list.name} <img src="/icons/link_24px.png" /></a></h3>
+                                    <h3><a href={`/festival-recruitment/${list.page_id}?name=${list.name}`}>{list.name} <img src="/icons/link_24px.png" /></a></h3>
                                 </div>
                                 <div className={styles.date}>
                                     <div className={styles.dday}>

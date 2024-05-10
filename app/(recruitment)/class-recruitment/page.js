@@ -1,6 +1,10 @@
 import fetch from "../../lib/database/class-recuritment";
 import styles from "./page.module.scss";
 
+export const metadata = {
+    title: "강습 모집",
+    description: "스윙동호회의 강습 모집 리스트입니다."
+};
 
 export default async function page() {
     const response = await fetch();

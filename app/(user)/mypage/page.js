@@ -6,6 +6,10 @@ import PrivacyForm from './PrivacyForm';
 import MemberForm from './MemberForm';
 import styles from './mypage.module.scss';
 
+export const metadata = {
+    title: "마이페이지",
+};
+
 export default async function MyPage() {
     const resposne = await getUserProfile();
     if (resposne !== null) {

@@ -1,8 +1,7 @@
 import styles from './page.module.scss';
 
 export const metadata = {
-    title: "Daily Swing | 소개",
-    description: "소개 페이지",
+    title: "소개",
 };
 
 export default function About() {

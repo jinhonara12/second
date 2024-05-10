@@ -13,16 +13,18 @@ const roboto = Roboto_Slab({
 })
 
 export const metadata = {
-  title: "Daily Swing | 홈",
-  description: "홈페이지",
-  keywords: 'a,b,c',
+  title: {
+    template: 'Daily Swing | %s',
+    default: 'Daily Swing | 홈페이지',
+  },
+  description: "스윙 커뮤니티 데일리스윙입니다. 스윙댄스를 시작하는 뉴비를 위해 다양한 행사와 강습, 정보를 손쉽게 확인할 수 있습니다.",
+  keywords: '스윙댄스,스윙라이프,스윙재즈,직장인취미,취미생활,커플댄스,소셜댄스,댄스',
 
   openGraph: {
-    title: 'Next.js',
-    description: 'The React Framework for the Web',
-    type: 'article',
-    publishedTime: '2023-01-01T00:00:00.000Z',
-    authors: ['Seb', 'Josh']
+    title: 'Daily Swing',
+    site_name: '데일리스윙',
+    description: "스윙 커뮤니티 데일리스윙입니다. 스윙댄스를 시작하는 뉴비를 위해 다양한 행사와 강습, 정보를 손쉽게 확인할 수 있습니다.",
+    url: 'https://daily-swing.com',
   },
 }
 

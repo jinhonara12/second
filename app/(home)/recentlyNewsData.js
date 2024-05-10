@@ -58,8 +58,8 @@ export default async function RecentlyNewsData() {
                             </div>
 
                             <div className={styles.middle_2}>
-                                {type === "행사" ? <Link href={`festival-recruitment/${sortedData[index].page_id}`}>자세히 보기<img src="/icons/link_24px.png" /></Link> : null}
-                                {type === "대회" ? <Link href={`event-recruitment/${sortedData[index].page_id}`}>자세히 보기<img src="/icons/link_24px.png" /></Link> : null}
+                                {type === "행사" ? <Link href={`festival-recruitment/${sortedData[index].page_id}?name=${sortedData[index].name}`}>자세히 보기<img src="/icons/link_24px.png" /></Link> : null}
+                                {type === "대회" ? <Link href={`event-recruitment/${sortedData[index].page_id}?name=${sortedData[index].name}`}>자세히 보기<img src="/icons/link_24px.png" /></Link> : null}
                                 {sortedData[index].home ? <a href={sortedData[index].home} title={sortedData[index].name} target="_blank" >공식홈페이지<img src="/icons/link_24px.png" /> </a> : null}
                                 {sortedData[index].url ? <a href={sortedData[index].url} title={sortedData[index].name} target="_blank" >신청링크<img src="/icons/link_24px.png" /></a> : null}
                                 {sortedData[index].check_url ? <a href={sortedData[index].check_url} title={sortedData[index].name} target="_blank" >확인링크<img src="/icons/link_24px.png" /></a> : null}
