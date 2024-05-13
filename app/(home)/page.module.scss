@@ -1,3 +1,6 @@
+@use '../mixins';
+@import '../variable.scss';
+
 .main {
     display: flex;
     width: 100%;
@@ -51,7 +54,9 @@
 
                         p {
                             display: flex;
+                            flex-wrap: wrap;
                             align-items: center;
+                            row-gap: .3rem;
                             column-gap: .3rem;
                             font-size: 1.2rem;
 
@@ -146,8 +151,6 @@
         }
     }
 
-
-
     .main_news {
         flex: 2 2 0%;
         border: 1px solid #888;
@@ -200,6 +203,23 @@
                     font-size: .8rem;
                 }
             }
+        }
+    }
+}
+
+@include mixins.respond-to($breakpoint-large) {
+    .main {
+        flex-direction: column;
+        padding: 0;
+        row-gap: 0;
+
+        .sorted_news {
+            padding: 15px 3rem;
+        }
+
+        .main_news {
+            padding: 15px 3rem;
+            max-width: initial;
         }
     }
 }

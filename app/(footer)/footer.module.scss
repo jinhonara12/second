@@ -1,0 +1,25 @@
+.footer {
+    padding: 20px 3rem;
+    background-color: #111;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    row-gap: .3rem;
+
+
+    p {
+        font-size: .9rem;
+        align-items: center;
+        line-height: 1.5;
+
+        a {
+            background-color: tomato;
+            display: inline-block;
+            padding: 0px 2px;
+            border-radius: 2px;
+            text-decoration: none;
+        }
+    }
+
+
+}
