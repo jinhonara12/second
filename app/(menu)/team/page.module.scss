@@ -1,8 +1,15 @@
+@use '../../mixins';
+@import '../../variable';
+
 .team_list {
     padding: 15px 0;
     padding-right: 1rem;
 
     .team_ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+
         .team {
             flex: 1 1 25%;
             min-width: 250px;
@@ -145,6 +152,26 @@
                     color: #444;
                 }
             }
+        }
+    }
+}
+
+@include mixins.respond-to($breakpoint-large) {
+    .team_list {
+        padding: 15px 3rem;
+
+        .team_ul {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@include mixins.respond-to($breakpoint-small) {
+    .team_list {
+        padding: 15px 2rem;
+
+        .team_ul {
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 }

@@ -6,8 +6,20 @@ html {
     color: #2a2a2a;
 }
 
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 @include mixins.respond-to($breakpoint-medium) {
     html {
         font-size: 15px !important;
+    }
+}
+
+@include mixins.respond-to($breakpoint-small) {
+    html {
+        font-size: 14px !important;
     }
 }

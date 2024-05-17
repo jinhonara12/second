@@ -1,10 +1,13 @@
+@use '../../mixins';
+@import '../../variable';
+
 .club_data_box {
     padding: 15px 0;
     padding-right: 1rem;
 
     .data_ul {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
 
         .li {
@@ -49,8 +52,8 @@
                             text-decoration: inherit;
 
                             img {
-                                width: 15px;
-                                height: 15px;
+                                width: 1rem;
+                                height: 1rem;
                             }
                         }
                     }
@@ -78,8 +81,8 @@
                             text-decoration: inherit;
 
                             img {
-                                width: 15px;
-                                height: 15px;
+                                width: 1rem;
+                                height: 1rem;
                             }
                         }
                     }
@@ -186,4 +189,24 @@
     }
 }
 }
+}
+
+@include mixins.respond-to($breakpoint-large) {
+    .club_data_box {
+        padding: 15px 3rem;
+
+        .data_ul {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@include mixins.respond-to($breakpoint-small) {
+    .club_data_box {
+        padding: 15px 2rem;
+
+        .data_ul {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
 }

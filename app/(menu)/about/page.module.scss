@@ -1,3 +1,6 @@
+@use '../../mixins';
+@import '../../variable';
+
 .main {
     padding-top: 15px;
     padding-bottom: 100px;
@@ -85,5 +88,28 @@
             }
         }
 
+    }
+}
+
+
+@include mixins.respond-to($breakpoint-large) {
+    .main {
+        padding: 15px 3rem;
+        max-width: 100%;
+
+        &>section {
+            .about_box {
+                .item {
+                    flex-direction: column;
+                    row-gap: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+@include mixins.respond-to($breakpoint-large) {
+    .main {
+        padding: 15px 2rem;
     }
 }

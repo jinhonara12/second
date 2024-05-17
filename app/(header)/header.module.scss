@@ -138,8 +138,8 @@
                         right: 0;
                         transform: translateY(-50%);
                         cursor: pointer;
-                        width: 25px;
-                        height: 25px;
+                        width: 1.5rem;
+                        height: 1.5rem;
 
                         img {
                             display: inline-block;
@@ -245,6 +245,16 @@
             .time {
                 display: none;
             }
+        }
+    }
+}
+
+@include mixins.respond-to($breakpoint-small) {
+    .header {
+
+        .logo__box,
+        .custom__bar {
+            padding: 15px 2rem;
         }
     }
 }
