@@ -36,8 +36,8 @@ export default async function page() {
                                     {list.check_url ? <a href={list.check_url} target='_blank'>확인링크 <img src="/icons/link_24px.png" /></a> : ""}
                                 </div>
                                 <div className={styles.created_date}>
-                                    <span>수정일 | {list.last_modified_time.split('T')[0]}</span>
                                     <span>작성일 | {list.created_time.split('T')[0]}</span>
+                                    <span>수정일 | {list.last_modified_time.split('T')[0]}</span>
                                 </div>
                             </li>
                         )

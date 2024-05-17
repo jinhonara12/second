@@ -39,8 +39,8 @@ export default async function page() {
                                         {list.url ? <a href={list.url} target='_blank'>신청링크 <img src="/icons/link_24px.png" /></a> : <span>링크 미작성</span>}
                                     </div>
                                     <div className={styles.created_date}>
-                                        <span>수정일 | {list.last_modified_time.split('T')[0]}</span>
                                         <span>작성일 | {list.created_time.split('T')[0]}</span>
+                                        <span>수정일 | {list.last_modified_time.split('T')[0]}</span>
                                     </div>
                                 </div>
                             </li>

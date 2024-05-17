@@ -30,7 +30,7 @@ export default async function fetchData() {
             return {
                 classification: page.properties.classification.select.name,
                 name: page.properties.name.title[0].text.content,
-                team: teamResponse && teamResponse.properties.name.title[0].text.content,
+                team: (teamResponse && teamResponse.properties.name.title[0].text.content) || "TEAM",
                 url: page.properties.url.url,
                 start_date: page.properties.date.date.start,
                 end_date: page.properties.date.date.end,
