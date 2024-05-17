@@ -15,7 +15,7 @@ function LoginCheck() {
     } else {
         return <button onClick={() => {
             signIn("kakao")
-        }}>kakao login</button>
+        }}>login</button>
     }
 }
 

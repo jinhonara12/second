@@ -1,10 +1,23 @@
-.body {
+@use './mixins';
+@import './variable.scss';
 
+.body {
     .main__section {
         display: flex;
         align-items: flex-start;
         gap: 1rem;
     }
+}
 
+.not_found {
+    padding-top: 15px;
+}
 
+@include mixins.respond-to($breakpoint-large) {
+    .body {
+        .main__section {
+            flex-direction: column;
+            row-gap: 0;
+        }
+    }
 }

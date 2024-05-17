@@ -223,3 +223,19 @@
         }
     }
 }
+
+@include mixins.respond-to($breakpoint-medium) {
+    .main {
+        .sorted_news {
+
+            .weekly_news_box,
+            .recently_news_box {
+                ul {
+                    li {
+                        padding: 1rem 0;
+                    }
+                }
+            }
+        }
+    }
+}

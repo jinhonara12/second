@@ -1,4 +1,13 @@
+@use './mixins';
+@import './variable.scss';
+
 html {
     background-color: rgb(244 242 230);
     color: #2a2a2a;
+}
+
+@include mixins.respond-to($breakpoint-medium) {
+    html {
+        font-size: 15px !important;
+    }
 }

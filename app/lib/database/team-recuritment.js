@@ -21,8 +21,7 @@ export default async function fetchData() {
             const creator_id = page.properties.creator.created_by.id;
             const create_user = await notion.users.retrieve({ user_id: creator_id });
 
-
-            const teamResponse = await notion.pages.retrieve({
+            const teamResponse = page.properties.team.relation[0] && await notion.pages.retrieve({
                 page_id: page.properties.team.relation[0].id
             })
 
@@ -31,7 +30,7 @@ export default async function fetchData() {
             return {
                 classification: page.properties.classification.select.name,
                 name: page.properties.name.title[0].text.content,
-                team: teamResponse.properties.name.title[0].text.content,
+                team: teamResponse && teamResponse.properties.name.title[0].text.content,
                 url: page.properties.url.url,
                 start_date: page.properties.date.date.start,
                 end_date: page.properties.date.date.end,

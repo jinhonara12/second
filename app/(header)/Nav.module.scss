@@ -1,3 +1,6 @@
+@use '../mixins';
+@import '../variable';
+
 .nav {
     display: flex;
     column-gap: 1rem;
@@ -13,4 +16,10 @@
         color: tomato;
     }
 
+}
+
+@include mixins.respond-to($breakpoint-medium) {
+    .nav {
+        display: none;
+    }
 }

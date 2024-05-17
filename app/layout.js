@@ -1,5 +1,6 @@
 import Header from './(header)/header';
-import SideNav from './(header)/sideNav'
+import SideNav from './(header)/sideNav';
+import Footer from './(footer)/Footer'
 import { Roboto_Slab } from 'next/font/google';
 import styles from './layout.module.scss';
 import './reset.css';
@@ -11,6 +12,8 @@ const roboto = Roboto_Slab({
   display: 'swap',
   weight: '400',
 })
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: {
@@ -37,6 +40,7 @@ export default function RootLayout({ children }) {
           <SideNav />
           {children}
         </div>
+        <Footer />
       </body>
     </html>
   );

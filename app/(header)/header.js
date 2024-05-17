@@ -4,6 +4,7 @@ import { Yeseva_One } from 'next/font/google';
 import fetchData from '../lib/database/club';
 import Login from '../(component)/Login'
 import Nav from './Nav';
+import Mobile from './Mobile';
 
 const yeseva = Yeseva_One({
     subsets: ['latin'],
@@ -23,11 +24,13 @@ function Logo() {
                     <Link href="/">Daily Swing
                         <span>beta</span>
                     </Link>
-
                 </h1>
+                <div className={styles.mo}>
+                    <Mobile className={yeseva.className} />
+                </div>
             </div>
             <div className={styles.right}>
-                <Login />
+                <div className={styles.pc}><Login /></div>
             </div>
         </div >
     )
