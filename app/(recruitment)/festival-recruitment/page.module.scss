@@ -47,7 +47,9 @@
 
                     img {
                         width: 100%;
-                        object-fit: contain;
+                        object-fit: cover;
+                        object-position: top;
+                        aspect-ratio: 3/4;
                         filter: grayscale(1);
                         transition: filter .2s;
                     }

@@ -16,6 +16,7 @@ export default function Mobile({ className }) {
     function Menu() {
 
         function linkClick() {
+            body.style.overflow = !toggle ? 'hidden' : 'visible';
             setToggle(false);
         }
 

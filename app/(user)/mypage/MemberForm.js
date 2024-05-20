@@ -111,26 +111,32 @@ export default function Form({ member, bar, club, team }) {
         <form onSubmit={handleSubmit} className={styles.form}>
             <label className={styles.label}>
                 <span className={styles.title}>nickname</span>
-                [<input className={styles.input} onChange={(e) => {
+                <div>[<input className={styles.input} onChange={(e) => {
                     setNickame(e.target.value)
-                }} type="text" value={nickname} name="닉네임" placeholder="닉네임을 적어주세요." required />]
+                }} type="text" value={nickname} name="닉네임" placeholder="닉네임을 적어주세요." required />]</div>
             </label>
 
             <label className={styles.label}>
                 <span className={styles.title}>swing date</span>
-                [<input className={styles.input} onChange={(e) => {
-                    setSwingDay(e.target.value)
-                }} type="date" value={swingDay} name="스윙시작날" />]
+                <div>
+                    [<input className={styles.input} onChange={(e) => {
+                        setSwingDay(e.target.value)
+                    }} type="date" value={swingDay} name="스윙시작날" />]
+                </div>
             </label>
 
             <label className={styles.label}>
                 <span className={styles.title}>swing years</span>
-                [<input className={styles.input} readOnly type="text" value={`${member.swing_years !== undefined ? member.swing_years + "년차" : ""}`} name="스윙 연차" placeholder="스윙시작 날짜를 기입해주세요." />]
+                <div>
+                    [<input className={styles.input} readOnly type="text" value={`${member.swing_years !== undefined ? member.swing_years + "년차" : ""}`} name="스윙 연차" placeholder="스윙시작 날짜를 기입해주세요." />]
+                </div>
             </label>
 
             <label className={styles.label}>
                 <span className={styles.title}>swing days</span>
-                [<input className={styles.input} readOnly type="text" value={`${member.swing_days !== undefined ? member.swing_days + "일" : ""}`} name="스윙 일수" placeholder="스윙시작 날짜를 기입해주세요." />]
+                <div>
+                    [<input className={styles.input} readOnly type="text" value={`${member.swing_days !== undefined ? member.swing_days + "일" : ""}`} name="스윙 일수" placeholder="스윙시작 날짜를 기입해주세요." />]
+                </div>
             </label>
 
             <div className={styles.label}>
@@ -196,7 +202,7 @@ export default function Form({ member, bar, club, team }) {
 
             <div className={styles.label}>
                 <span className={styles.title}>interested festival</span>
-                <div>
+                <div className={styles.wrap_box}>
                     {member.festArray.length === 0 ? <span className={styles.not}>관심있는 대회를 등록하지 않았습니다.</span> :
                         member.festArray.map(item => {
                             return (
