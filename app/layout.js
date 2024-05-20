@@ -6,14 +6,20 @@ import styles from './layout.module.scss';
 import './reset.css';
 import './global.scss';
 
+export const maxDuration = 5; // This function can run for a maximum of 5 seconds
+export const dynamic = 'force-dynamic';
+
+export function GET(request) {
+  return new Response('Vercel', {
+    status: 200,
+  });
+}
 
 const roboto = Roboto_Slab({
   subsets: ['latin'],
   display: 'swap',
   weight: '400',
 })
-
-export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: {
