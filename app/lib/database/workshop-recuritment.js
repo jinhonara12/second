@@ -39,7 +39,7 @@ export default async function fetchData() {
 
         return data;
     } catch (error) {
-        console.error("class-recuritment data error");
+        console.error("workshop-recuritment data error");
         throw error;
     }
 }
