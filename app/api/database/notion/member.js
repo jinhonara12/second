@@ -76,7 +76,7 @@ export default async function fetchData(kakao_id) {
         return data
 
     } catch (error) {
-        console.error('privacy error')
+        console.error('member error')
         throw error
     }
 }

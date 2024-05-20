@@ -36,7 +36,7 @@ function MainNews({ className }) {
   return (
     <div className={className}>
       <div className={styles.image_box}>
-        <img src="/images/Lindbergh_610.webp" alt='Charles Lindbergh Successfully Crosses the Atlantic Solo!' />
+        <img src="/image/Lindbergh_610.webp" alt='Charles Lindbergh Successfully Crosses the Atlantic Solo!' />
       </div>
       <div className={styles.text_box}>
         <div className={styles.title}>
