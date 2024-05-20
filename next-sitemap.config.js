@@ -1,5 +1,5 @@
 module.exports = {
-    siteUrl: "https://daily-swing.com",
+    siteUrl: process.env.SITE_URL,
     generateRobotsTxt: true,
     exclude: ['/mypage'],
     robotsTxtOptions: {
