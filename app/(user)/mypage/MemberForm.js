@@ -128,14 +128,14 @@ export default function Form({ member, bar, club, team }) {
             <label className={styles.label}>
                 <span className={styles.title}>swing years</span>
                 <div>
-                    [<input className={styles.input} readOnly type="text" value={`${member.swing_years !== undefined ? member.swing_years + "년차" : ""}`} name="스윙 연차" placeholder="스윙시작 날짜를 기입해주세요." />]
+                    [<input className={styles.input} readOnly type="text" value={`${member.swing_years !== undefined ? member.swing_years + "년차" : ""}`} name="스윙 연차" placeholder="자동으로 계산됩니다." />]
                 </div>
             </label>
 
             <label className={styles.label}>
                 <span className={styles.title}>swing days</span>
                 <div>
-                    [<input className={styles.input} readOnly type="text" value={`${member.swing_days !== undefined ? member.swing_days + "일" : ""}`} name="스윙 일수" placeholder="스윙시작 날짜를 기입해주세요." />]
+                    [<input className={styles.input} readOnly type="text" value={`${member.swing_days !== undefined ? member.swing_days + "일" : ""}`} name="스윙 일수" placeholder="자동으로 계산됩니다." />]
                 </div>
             </label>
 
