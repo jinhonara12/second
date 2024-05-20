@@ -95,6 +95,21 @@ export default function About() {
                             </div>
                         </div>
                     </div>
+
+                    <div className={styles.item}>
+                        <div className={styles.left}>
+                            <span>07.</span>
+                        </div>
+                        <div className={styles.right}>
+                            <h3>기타</h3>
+                            <div className={styles.sub_text}>
+                                <p>⚠️ 홈페이지의 내용은 모두 데이터베이스와 실시간으로 연동되고 있습니다.</p>
+                                <p>⚠️ 새로운 데이터가 입력되고 있을 때 홈페이지 접속에 오류가 있을 수 있습니다.</p>
+                                <p>⚠️ 데이터를 실시간으로 연동하기 때문에 로딩에 시간이 오래 걸릴 수 있습니다.</p>
+                                <p>✅ 속도 개선을 위한 방향은 새롭게 고민하도록 하겠습니다.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
