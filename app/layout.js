@@ -35,10 +35,6 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  const apiToken = process.env.NOTION_API_KEY;
-
-  console.log(apiToken)
-
   return (
     <html lang="ko" className={roboto.className}>
       <body className={styles.body}>
