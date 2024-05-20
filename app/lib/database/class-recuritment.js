@@ -2,7 +2,7 @@ import { Client } from '@notionhq/client'
 const notion = new Client({ auth: process.env.NEXT_PUBLIC_NOTION_API_KEY });
 
 export default async function fetchData() {
-    const databaseId = process.env.NOTION_CLASS_RECURITMENT;
+    const databaseId = process.env.NEXT_PUBLIC_NOTION_CLASS_RECURITMENT;
 
     try {
         const response = await notion.databases.query({
