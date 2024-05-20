@@ -22,6 +22,9 @@ export const metadata = {
   },
   description: "스윙 커뮤니티 데일리스윙입니다. 스윙댄스를 시작하는 뉴비를 위해 다양한 행사와 강습, 정보를 손쉽게 확인할 수 있습니다.",
   keywords: '스윙댄스,스윙라이프,스윙재즈,직장인취미,취미생활,커플댄스,소셜댄스,댄스',
+  icons: {
+    icon: "/favicon.ico",
+  },
 
   openGraph: {
     title: 'Daily Swing',
