@@ -114,5 +114,11 @@
     .main {
         padding: 15px 2rem;
         padding-bottom: 50px;
+
+        &>section {
+            .img_box {
+                height: 100px;
+            }
+        }
     }
 }
