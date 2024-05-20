@@ -1,4 +1,4 @@
-import ClubList from "./Club-list";
+import ClubList from "./club-list";
 
 export const metadata = {
     title: "클럽",

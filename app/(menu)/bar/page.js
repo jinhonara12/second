@@ -1,4 +1,4 @@
-import BarList from "./Bar-list";
+import BarList from "./bar-list";
 
 export const metadata = {
     title: "바",
