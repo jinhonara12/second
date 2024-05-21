@@ -170,7 +170,7 @@
 
 @include mixins.respond-to($breakpoint-small) {
     .team_list {
-        padding: 15px 2rem;
+        padding: 15px 1rem;
         padding-bottom: 50px;
 
         .team_ul {

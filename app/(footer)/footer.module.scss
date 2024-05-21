@@ -1,3 +1,6 @@
+@use '../mixins';
+@import '../variable';
+
 .footer {
     padding: 20px 3rem;
     background-color: #111;
@@ -20,6 +23,10 @@
             text-decoration: none;
         }
     }
+}
 
-
+@include mixins.respond-to($breakpoint-small) {
+    .footer {
+        padding: 20px 1rem;
+    }
 }

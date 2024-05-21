@@ -148,7 +148,7 @@
 
 @include mixins.respond-to($breakpoint-small) {
     .main {
-        padding: 15px 2rem;
+        padding: 15px 1rem;
         padding-bottom: 50px;
 
         .list_box {

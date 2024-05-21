@@ -1,3 +1,6 @@
+@use '../../../mixins';
+@import '../../../variable';
+
 .section {
     padding: 15px 0;
 
@@ -48,5 +51,19 @@
                 }
             }
         }
+    }
+}
+
+@include mixins.respond-to($breakpoint-large) {
+    .section {
+        padding: 15px 3rem;
+        padding-bottom: 100px;
+    }
+}
+
+@include mixins.respond-to($breakpoint-small) {
+    .section {
+        padding: 15px 1rem;
+        padding-bottom: 50px;
     }
 }
