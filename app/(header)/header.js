@@ -47,10 +47,11 @@ function Time() {
     const serverDate = `${new Date().getDate()}일`;
     const serverMonth = krMonths[new Date().getMonth()];
     const serverYear = `${new Date().getFullYear()}년`;
-    console.log(new Date())
+
 
     return (
         <div className={styles.time}>
+            {new Date()}
             <div className={styles.left}>
                 <span>{serverYear}</span>
                 <span>{serverMonth}</span>
