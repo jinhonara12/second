@@ -51,7 +51,7 @@ function Time() {
 
     return (
         <div className={styles.time}>
-            {new Date()}
+            {`${new Date()}`}
             <div className={styles.left}>
                 <span>{serverYear}</span>
                 <span>{serverMonth}</span>
