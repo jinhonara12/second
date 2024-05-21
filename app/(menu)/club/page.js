@@ -1,4 +1,6 @@
 import ClubList from "./club-list";
+import { Suspense } from 'react';
+import Loading from '../../(component)/Loading';
 
 export const metadata = {
     title: "클럽",
@@ -7,6 +9,8 @@ export const metadata = {
 
 export default function page() {
     return (
-        <ClubList />
+        <Suspense fallback={<Loading />}>
+            <ClubList />
+        </Suspense>
     )
 }

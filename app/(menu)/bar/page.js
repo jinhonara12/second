@@ -1,4 +1,6 @@
 import BarList from "./bar-list";
+import { Suspense } from 'react';
+import Loading from '../../(component)/Loading';
 
 export const metadata = {
     title: "바",
@@ -7,6 +9,8 @@ export const metadata = {
 
 export default function page() {
     return (
-        <BarList />
+        <Suspense fallback={<Loading />}>
+            <BarList />
+        </Suspense>
     )
 }

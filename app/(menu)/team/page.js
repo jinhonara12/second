@@ -1,4 +1,6 @@
 import TeamList from "./Team-list";
+import { Suspense } from 'react';
+import Loading from '../../(component)/Loading';
 
 export const metadata = {
     title: "팀",
@@ -7,6 +9,8 @@ export const metadata = {
 
 export default function Team() {
     return (
-        <TeamList />
+        <Suspense fallback={<Loading />}>
+            <TeamList />
+        </Suspense>
     )
 }

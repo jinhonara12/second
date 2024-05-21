@@ -3,6 +3,7 @@ import Link from 'next/link';
 import RecentlyNewsData from './recentlyNewsData.js';
 import WeeklyNewsData from './weeklyNewsData.js';
 import { Suspense } from 'react';
+import Loading from '../(component)/Loading';
 
 function WeeklyNews({ className }) {
   return (
@@ -58,10 +59,10 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.sorted_news}>
-        <Suspense fallback={<p>Weekly News Loading...</p>}>
+        <Suspense fallback={<Loading />}>
           <WeeklyNews className={styles.weekly_news_box} />
         </Suspense>
-        <Suspense fallback={<p>Recently News Loading...</p>}>
+        <Suspense fallback={<Loading />}>
           <RecentlyNews className={styles.recently_news_box} />
         </Suspense>
       </div>

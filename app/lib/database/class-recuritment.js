@@ -7,18 +7,18 @@ export default async function fetchData() {
     try {
         const response = await notion.databases.query({
             database_id: databaseId,
+            filter: {
+                property: "dday",
+                rich_text: {
+                    "does_not_contain": "종료"
+                }
+            },
             sorts: [
                 {
                     property: "date",
                     direction: "ascending"
                 }
             ],
-            filter: {
-                property: "dday",
-                rich_text: {
-                    "does_not_contain": "종료"
-                }
-            }
         })
         const data = await Promise.all(response.results.map(async page => {
 
