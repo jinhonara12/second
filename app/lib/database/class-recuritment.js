@@ -10,9 +10,15 @@ export default async function fetchData() {
             sorts: [
                 {
                     property: "date",
-                    direction: "descending"
+                    direction: "ascending"
                 }
             ],
+            filter: {
+                property: "dday",
+                rich_text: {
+                    "does_not_contain": "종료"
+                }
+            }
         })
         const data = await Promise.all(response.results.map(async page => {
 

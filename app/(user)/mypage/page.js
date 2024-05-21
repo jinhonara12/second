@@ -11,15 +11,15 @@ export const metadata = {
 };
 
 export default async function MyPage() {
+    let number;
     const resposne = await getUserProfile();
+
     if (resposne !== null) {
-        const userProfile = await getUserProfile();
         const barList = await getBarList();
         const clubList = await getClubList();
         const teamList = await getTeamList();
-        const privacyData = userProfile.privacyData;
-        const memberData = userProfile.memberData;
-        let number;
+        const privacyData = resposne.privacyData;
+        const memberData = resposne.memberData;
 
         if (privacyData.index === 1) {
             number = "1st"
