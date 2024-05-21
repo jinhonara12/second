@@ -65,6 +65,10 @@
 
                 .title_box {
                     margin-top: 1rem;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    word-break: break-all;
 
                     h3 {
                         a {
@@ -171,6 +175,10 @@
         .section {
             .list_box {
                 grid-template-columns: repeat(1, 1fr);
+
+                .list {
+                    grid-template-rows: minmax(300px, 100%) repeat(4, max-content);
+                }
             }
         }
     }
