@@ -31,7 +31,7 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-
+  ogImage: '/opengraph-image.png',
   openGraph: {
     title: 'Daily Swing',
     site_name: '데일리스윙',
