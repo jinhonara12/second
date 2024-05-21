@@ -1,6 +1,6 @@
 'use client';
 import { useState } from "react";
-import styles from './form.module.scss';
+import styles from '../form.module.scss';
 
 export default function Form({ privacy }) {
     const [name, setName] = useState(privacy.name);

@@ -183,16 +183,19 @@
                             }
 
                             .login_box {
-                                display: flex;
-                                justify-content: center;
-                                column-gap: 1rem;
-                                align-items: center;
 
-                                a,
-                                button {
-                                    font-size: 1rem;
-                                    text-transform: capitalize;
-                                    cursor: pointer;
+                                .login_wrap {
+                                    display: flex;
+                                    justify-content: center;
+                                    column-gap: 1rem;
+                                    align-items: center;
+
+                                    a,
+                                    button {
+                                        font-size: 1rem;
+                                        text-transform: capitalize;
+                                        cursor: pointer;
+                                    }
                                 }
 
                             }

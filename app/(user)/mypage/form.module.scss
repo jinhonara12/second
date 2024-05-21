@@ -119,3 +119,22 @@
         }
     }
 }
+
+@include mixins.respond-to($breakpoint-small) {
+    .form {
+        .label {
+            width: 100%;
+
+            &>div {
+                display: flex;
+                width: 100%;
+            }
+
+            .title,
+            .input {
+                min-width: initial;
+                flex: 1 1 0%;
+            }
+        }
+    }
+}

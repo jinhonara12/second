@@ -1,7 +1,7 @@
 'use client';
 import { useState } from "react";
 import Link from "next/link";
-import styles from './form.module.scss';
+import styles from '../form.module.scss';
 
 export default function Form({ member, bar, club, team }) {
     const allBarList = bar.map(item => ({

@@ -16,6 +16,7 @@ export default function Mobile({ className }) {
     function Menu() {
 
         function linkClick() {
+            const body = document.querySelector('body');
             body.style.overflow = !toggle ? 'hidden' : 'visible';
             setToggle(false);
         }
@@ -27,7 +28,9 @@ export default function Mobile({ className }) {
                         <p className={className}>Daily Swing</p>
                     </div>
                     <div className={styles.login_box}>
-                        <Login />
+                        <span className={styles.login_wrap} onClick={linkClick}>
+                            <Login />
+                        </span>
                     </div>
                     <div className={styles.link_box}>
                         <ul>
