@@ -35,6 +35,7 @@ export const metadata = {
   abc: "123",
   openGraph: {
     site_name: '데일리스윙',
+    type: 'webpage',
     description: "스윙 커뮤니티 데일리스윙입니다. 스윙댄스를 시작하는 뉴비를 위해 다양한 행사와 강습, 정보를 손쉽게 확인할 수 있습니다.",
     url: 'https://www.daily-swing.com',
     images: '/opengraph-image.png'

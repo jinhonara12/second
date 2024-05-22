@@ -227,6 +227,7 @@
 @include mixins.respond-to($breakpoint-medium) {
     .main {
         .sorted_news {
+            padding: 15px 1rem;
 
             .weekly_news_box,
             .recently_news_box {
@@ -236,6 +237,10 @@
                     }
                 }
             }
+        }
+
+        .main_news {
+            padding: 15px 1rem;
         }
     }
 }
