@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const data = {
     name: 'John Doe',
-    age: 30,
+    age: 31,
     occupation: 'Software Developer'
 };
 

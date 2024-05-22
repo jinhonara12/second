@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-build": "node node.js && next build"
+    "update": "node node.js && git push"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.14",
