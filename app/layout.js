@@ -6,8 +6,8 @@ import styles from './layout.module.scss';
 import './reset.css';
 import './global.scss';
 
-// export const dynamic = 'force-dynamic';
-export const dynamic = 'auto';
+export const dynamic = 'force-dynamic';
+// export const dynamic = 'auto';
 
 export function GET(request) {
   return new Response('Vercel', {

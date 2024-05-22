@@ -1,13 +1,8 @@
 import fetchData from '../../lib/database/club';
 import styles from './page.module.scss';
 
-const getData = async () => {
-    const result = await fetchData()
-    return result;
-}
-
 export default async function ClubData() {
-    const data = await getData()
+    const data = await fetchData();
 
     return (
         <div className={styles.club_data_box}>

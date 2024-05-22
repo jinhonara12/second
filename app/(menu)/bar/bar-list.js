@@ -1,13 +1,13 @@
 import fetchData from '../../lib/database/bar';
+import { cache } from 'react';
 import styles from './page.module.scss';
 
-const getData = async () => {
-    const result = await fetchData()
-    return result;
-}
+const cachedFetchData = cache(fetchData);
+
 
 export default async function BarData() {
-    const data = await getData()
+    // const data = await cachedFetchData();
+    const data = await fetchData();
 
     return (
         <div className={styles.bar_data_box}>
