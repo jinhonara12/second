@@ -51,7 +51,7 @@ function IsLoggined({ id, page: eventArray, user_id }) {
     }
 
     if (status === "authenticated") {
-        return <span onClick={heartClick}>{heart ? "❤️" : "🩶"}</span>;
+        return <span onClick={heartClick}>{heart ? <img src="/icons/heart_icon_red.png" /> : <img src="/icons/heart_icon_bl.png" />}</span>;
     }
 
     // 로그인 되어 있지 않은 경우 하트 비활성화

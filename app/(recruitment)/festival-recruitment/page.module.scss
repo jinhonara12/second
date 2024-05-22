@@ -16,7 +16,7 @@
             row-gap: 2rem;
             grid-auto-rows: minmax(100px, auto);
 
-            .list:hover .img_box img {
+            .list:hover .img_box>img {
                 filter: grayscale(0);
             }
 
@@ -35,17 +35,19 @@
                         left: .5rem;
                         cursor: pointer;
 
-                        span {
-                            font-size: 1rem;
-                            transition: .2s;
+                        img {
+                            width: 1rem;
+                            height: 1rem;
                             -webkit-user-select: none;
                             -moz-user-select: none;
                             -ms-user-select: none;
                             user-select: none
                         }
+
+                        span {}
                     }
 
-                    img {
+                    &>img {
                         width: 100%;
                         object-fit: cover;
                         object-position: top;
