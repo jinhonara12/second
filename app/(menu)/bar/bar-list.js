@@ -1,12 +1,7 @@
 import fetchData from '../../lib/database/bar';
-import { cache } from 'react';
 import styles from './page.module.scss';
 
-const cachedFetchData = cache(fetchData);
-
-
 export default async function BarData() {
-    // const data = await cachedFetchData();
     const data = await fetchData();
 
     return (
