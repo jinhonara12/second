@@ -88,7 +88,7 @@ export default function About() {
                                 <span>06.</span>
                             </div>
                             <div className={styles.right}>
-                                <h3>추후 업데이트 예정 기능</h3>
+                                <h3>추후 업데이트 예정</h3>
                                 <div className={styles.sub_text}>
                                     <p>💬 홈페이지 내에서 주고받을 수 있는 채팅 페이지</p>
                                     <p>🏆 마이페이지에서 스윙데일리에 등록된 대회 기준으로 수상 정보 기입</p>
