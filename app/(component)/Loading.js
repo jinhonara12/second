@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import styles from './loading.module.scss';
 
-export default function Loading() {
+export default function Loading({ text = "" }) {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
@@ -13,5 +13,5 @@ export default function Loading() {
         return () => clearInterval(interval);
     }, []);
 
-    return <p className={styles.loading}>{`Loading ... ${count}s`}</p>;
-}
+    return <p className={styles.loading}>{`${text} Loading... ${count}s`}</p>;
+} 

@@ -59,10 +59,10 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.sorted_news}>
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<Loading text="Weekly News" />}>
           <WeeklyNews className={styles.weekly_news_box} />
         </Suspense>
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<Loading text="Recently News" />}>
           <RecentlyNews className={styles.recently_news_box} />
         </Suspense>
       </div>
