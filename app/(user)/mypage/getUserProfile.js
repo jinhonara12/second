@@ -5,8 +5,10 @@ import getMemberData from "../../api/database/notion/member";
 export default async function getUserProfile() {
     const kakaoId = await getKakaoId();
     if (kakaoId != null) {
-        const privacyData = await getPrivacyData(kakaoId);
-        const memberData = await getMemberData(kakaoId);
+        const [privacyData, memberData] = await Promise.all([
+            getPrivacyData(kakaoId),
+            getMemberData(kakaoId)
+        ]);
         return { privacyData, memberData };
     } else {
         return null;

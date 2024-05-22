@@ -71,8 +71,6 @@ export default async function fetchData(kakao_id) {
             }
         }
 
-
-
         return data
 
     } catch (error) {

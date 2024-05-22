@@ -6,8 +6,8 @@ import styles from './layout.module.scss';
 import './reset.css';
 import './global.scss';
 
-export const maxDuration = 30; // This function can run for a maximum of 5 seconds
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
+export const dynamic = 'auto';
 
 export function GET(request) {
   return new Response('Vercel', {

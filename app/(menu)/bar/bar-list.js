@@ -27,7 +27,7 @@ export default async function BarData() {
                         <div className={styles.bottom}>
                             <div className={styles.date_box}>
                                 <div className={styles.heart_box}>
-                                    ❤️
+                                    <img src="/icons/heart_icon_red.png" />
                                     <span>{bar.heart}개</span>
                                 </div>
                                 <p data-key={bar.locaiton} className={styles.location}>{bar.locaiton}</p>

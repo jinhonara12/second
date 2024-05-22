@@ -7,11 +7,15 @@ import styles from '../mypage_sub.module.scss';
 
 export default async function member() {
     const resposne = await getUserProfile();
+    // 마이페이지에서 캐싱한 데이터 가져와서 사용 / 동일한 데이터임.
     if (resposne !== null) {
         const memberData = resposne.memberData;
-        const barList = await getBarList();
-        const clubList = await getClubList();
-        const teamList = await getTeamList();
+        // 마이페이지에서 아마 이것도 캐싱할 수 있을 거임
+        const [barList, clubList, teamList] = await Promise.all([
+            getBarList(),
+            getClubList(),
+            getTeamList()
+        ]);
 
         return (
             <div className={styles.main}>

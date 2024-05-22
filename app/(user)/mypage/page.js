@@ -8,7 +8,7 @@ export const metadata = {
 
 export default async function MyPage() {
     let number;
-    const resposne = await getUserProfile();
+    const resposne = await getUserProfile(); // 마이페이지에서 캐싱하고 서브 페이지에 넘겨주기
 
     if (resposne !== null) {
         const privacyData = resposne.privacyData;

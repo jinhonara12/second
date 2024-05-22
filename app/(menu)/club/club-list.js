@@ -37,7 +37,7 @@ export default async function ClubData() {
 
                             <div className={styles.date_box}>
                                 <div className={styles.heart_box}>
-                                    ❤️
+                                    <img src="/icons/heart_icon_red.png" />
                                     <span>{club.heart}개</span>
                                 </div>
                                 <p data-key={club.locaiton} className={styles.location}>{club.locaiton}</p>
