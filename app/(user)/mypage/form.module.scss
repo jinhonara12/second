@@ -35,6 +35,7 @@
             line-height: 1.2;
             min-width: 200px;
             padding: 0 5px;
+            text-align: left;
         }
 
         .alarm_box {
@@ -48,8 +49,8 @@
             text-decoration: none;
 
             img {
-                width: 16px;
-                height: 16px;
+                width: 1rem;
+                height: 1rem;
             }
         }
 
@@ -128,6 +129,7 @@
             &>div {
                 display: flex;
                 width: 100%;
+                align-items: center;
             }
 
             .title,

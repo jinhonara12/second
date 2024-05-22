@@ -178,6 +178,19 @@
 
                 .list {
                     grid-template-rows: minmax(300px, 100%) repeat(4, max-content);
+
+                    .img_box {
+
+                        .heart_box {
+                            top: 1rem;
+                            left: 1rem;
+
+                            img {
+                                width: 2rem;
+                                height: 2rem;
+                            }
+                        }
+                    }
                 }
             }
         }
