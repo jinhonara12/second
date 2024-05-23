@@ -36,7 +36,7 @@ export default async function event(id) {
             }
 
             if (textArray.length > 0) {
-                if (acc.length === 6) {
+                if (acc.length === 0) {
                     acc.push({ title, href: textArray });
                 } else {
                     acc.push({ title, text: textArray });
