@@ -1,4 +1,5 @@
-import { Client } from '@notionhq/client'
+import { Client } from '@notionhq/client';
+import KDate from '../../(component)/KoreaTime';
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export default async function fetchData() {
@@ -36,8 +37,8 @@ export default async function fetchData() {
                 awards: page.properties.awards.relation,
                 member_heart: page.properties.member_heart.relation,
                 photo: page.properties.photo.files[0] && page.properties.photo.files[0].file.url,
-                created_time: page.properties.created_time.created_time,
-                last_modified_time: page.properties.last_modified_time.last_edited_time,
+                created_time: KDate(page.properties.created_time.created_time).toISOString(),
+                last_modified_time: KDate(page.properties.last_modified_time.last_edited_time).toISOString(),
             }
         })
         return data;

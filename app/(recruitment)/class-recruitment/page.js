@@ -35,7 +35,7 @@ export default async function page() {
 
                                         <div className={styles.date_period}>
                                             <span>{list.start_date}</span>
-                                            {list.end_date ? <><span>~</span><span>{list.end_date}</span></> : ""}
+                                            {list.end_date ? <><span>-</span><span>{list.end_date}</span></> : ""}
                                         </div>
                                     </div>
                                     <div className={styles.link}>

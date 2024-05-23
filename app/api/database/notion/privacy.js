@@ -1,4 +1,5 @@
-import { Client } from '@notionhq/client'
+import { Client } from '@notionhq/client';
+import KDate from '../../../(component)/KoreaTime';
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export default async function fetchData(kakao_id) {
@@ -16,7 +17,7 @@ export default async function fetchData(kakao_id) {
 
         const properties = response.results[0].properties;
 
-        const dateString = properties.join.created_time
+        const dateString = KDate(properties.join.created_time).toISOString()
         const date = new Date(dateString);
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -29,7 +30,8 @@ export default async function fetchData(kakao_id) {
             birthday: properties.birthday.date ? properties.birthday.date.start : formattedDate,
             tel: properties.tel.phone_number ?? "",
             email: properties.email.email ?? "",
-            join: formattedDate,
+            join: dateString.split('T')[0],
+            join_kr: `${year}년 ${month}월 ${day}일`,
             alarm: properties.alarm.checkbox
         }
         return data

@@ -26,7 +26,7 @@ export default async function MyPage() {
                 <section className={styles.mypage}>
                     <div className={styles.join}>
                         <p className={styles.en}>"You are the <span>{number}</span> member to have been with Daily Swing since {response.join}"</p>
-                        <p className={styles.kr}>데일리스윙에 {response.join}부터 함께해주신 <span>{response.index}번</span> 회원입니다.</p>
+                        <p className={styles.kr}>데일리스윙에 {response.join_kr}부터 함께해주신 <span>{response.index}번</span> 회원입니다.</p>
                     </div>
 
                     <div className={styles.link}>
