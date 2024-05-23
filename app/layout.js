@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Header from './(header)/header';
 import SideNav from './(header)/sideNav';
 import Footer from './(footer)/Footer'
@@ -49,6 +50,8 @@ export default function RootLayout({ children }) {
         <div className={styles.main__section}>
           <SideNav />
           {children}
+          <SpeedInsights />
+          <Analytics />
         </div>
         <Footer />
       </body>
