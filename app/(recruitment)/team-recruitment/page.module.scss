@@ -15,7 +15,8 @@
 
         .list {
             display: grid;
-            grid-template-columns: minmax(200px, max-content) 1fr;
+            grid-template-columns: 200px 1fr;
+            word-break: keep-all;
             column-gap: 5rem;
             padding-bottom: 2rem;
             border-bottom: 1px solid #444;
