@@ -1,4 +1,4 @@
-import getUserProfile from './getUserProfile';
+import getUserPrivacy from './getUserPrivacy';
 import styles from './mypage.module.scss';
 import Link from 'next/link';
 
@@ -8,27 +8,25 @@ export const metadata = {
 
 export default async function MyPage() {
     let number;
-    const resposne = await getUserProfile(); // 마이페이지에서 캐싱하고 서브 페이지에 넘겨주기
+    const response = await getUserPrivacy();
 
-    if (resposne !== null) {
-        const privacyData = resposne.privacyData;
-
-        if (privacyData.index === 1) {
+    if (response !== null) {
+        if (response.index === 1) {
             number = "1st"
-        } else if (privacyData.index === 2) {
+        } else if (response.index === 2) {
             number = "2nd"
-        } else if (privacyData.index === 3) {
+        } else if (response.index === 3) {
             number = "3rd"
         } else {
-            number = `${privacyData.index}th`
+            number = `${response.index}th`
         }
 
         return (
             <main className={styles.main}>
                 <section className={styles.mypage}>
                     <div className={styles.join}>
-                        <p className={styles.en}>"You are the <span>{number}</span> member to have been with Daily Swing since {privacyData.join}"</p>
-                        <p className={styles.kr}>데일리스윙에 {privacyData.join}부터 함께해주신 <span>{privacyData.index}번</span> 회원입니다.</p>
+                        <p className={styles.en}>"You are the <span>{number}</span> member to have been with Daily Swing since {response.join}"</p>
+                        <p className={styles.kr}>데일리스윙에 {response.join}부터 함께해주신 <span>{response.index}번</span> 회원입니다.</p>
                     </div>
 
                     <div className={styles.link}>

@@ -1,7 +1,6 @@
 import styles from './page.module.scss';
 import Link from 'next/link';
-import RecentlyNewsData from './recentlyNewsData.js';
-import WeeklyNewsData from './weeklyNewsData.js';
+import NewsData from './newsData';
 import { Suspense } from 'react';
 import Loading from '../(component)/Loading';
 
@@ -13,7 +12,7 @@ function WeeklyNews({ className }) {
         <span>- 7일 이내 모집 마감 게시글</span>
       </div>
       <ul>
-        <WeeklyNewsData />
+        <NewsData type="weekly" />
       </ul>
     </div>
   )
@@ -27,7 +26,7 @@ function RecentlyNews({ className }) {
         <span>- 최근 업로드 게시글</span>
       </div>
       <ul>
-        <RecentlyNewsData />
+        <NewsData type="recent" />
       </ul>
     </div>
   )

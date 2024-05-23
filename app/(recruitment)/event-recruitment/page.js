@@ -1,6 +1,6 @@
 import fetch from '../../lib/database/event-recuritment';
 import styles from './page.module.scss';
-import getUserProfile from '@/app/(user)/mypage/getUserProfile';
+import getUserMember from '../../(user)/mypage/getUserMember';
 import Heart from './Heart';
 
 export const metadata = {
@@ -10,7 +10,7 @@ export const metadata = {
 
 export default async function page() {
     const response = await fetch();
-    const userInfo = await getUserProfile();
+    const userInfo = await getUserMember();
 
     return (
         <main className={styles.main}>
@@ -22,7 +22,7 @@ export default async function page() {
                                 <div className={styles.img_box}>
                                     {list.photo ? <img src={list.photo} loading="lazy" alt={list.name} /> : <div className={styles.no_img}></div>}
                                     <div className={styles.heart_box}>
-                                        {(userInfo && <Heart id={list.page_id} page={userInfo.memberData.eventArray} user_id={userInfo.memberData.page_id} />) || <Heart id={list.page_id} />}
+                                        {(userInfo && <Heart id={list.page_id} page={userInfo.eventArray} user_id={userInfo.page_id} />) || <Heart id={list.page_id} />}
                                     </div>
                                 </div>
 

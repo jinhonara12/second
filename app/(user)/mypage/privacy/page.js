@@ -1,18 +1,17 @@
-import getUserProfile from '../getUserProfile';
+import getUserPrivacy from '../getUserPrivacy';
 import PrivacyForm from './PrivacyForm';
 import styles from '../mypage_sub.module.scss';
 
 export default async function privacy() {
-    const resposne = await getUserProfile();
-    if (resposne !== null) {
-        const privacyData = resposne.privacyData;
+    const response = await getUserPrivacy();
+    if (response !== null) {
         return (
             <div className={styles.main}>
                 <p className={styles.title}>
                     privacy
                 </p>
                 <div className={styles.form}>
-                    <PrivacyForm privacy={privacyData} />
+                    <PrivacyForm privacy={response} />
                 </div>
             </div>
         )

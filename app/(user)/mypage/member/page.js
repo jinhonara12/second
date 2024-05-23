@@ -1,29 +1,25 @@
-import getUserProfile from '../getUserProfile';
-import getBarList from '../../../lib/database/bar';
-import getClubList from '../../../lib/database/club';
-import getTeamList from '../../../lib/database/team';
+import getUserMember from '../getUserMember';
+import barData from '../../../lib/static_database/bar';
+import clubData from '../../../lib/static_database/club';
+import teamData from '../../../lib/static_database/team'
 import MemberForm from './MemberForm';
 import styles from '../mypage_sub.module.scss';
 
-export default async function member() {
-    const resposne = await getUserProfile();
-    // 마이페이지에서 캐싱한 데이터 가져와서 사용 / 동일한 데이터임.
-    if (resposne !== null) {
-        const memberData = resposne.memberData;
-        // 마이페이지에서 아마 이것도 캐싱할 수 있을 거임
-        const [barList, clubList, teamList] = await Promise.all([
-            getBarList(),
-            getClubList(),
-            getTeamList()
-        ]);
+// import getBarList from '../../../lib/database/bar';
+// import getClubList from '../../../lib/database/club';
+// import getTeamList from '../../../lib/database/team';
 
+export default async function member() {
+    const resposne = await getUserMember();
+
+    if (resposne !== null) {
         return (
             <div className={styles.main}>
                 <p className={styles.title}>
                     member
                 </p>
                 <div className={styles.form}>
-                    <MemberForm member={memberData} bar={barList} club={clubList} team={teamList} />
+                    <MemberForm member={resposne} bar={barData} club={clubData} team={teamData} />
                 </div>
             </div>
         )

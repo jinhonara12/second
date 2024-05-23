@@ -1,21 +1,14 @@
 import styles from './page.module.scss';
-import teamData from '../../lib/database/team';
+// import teamData from '../../lib/database/team';
+import dataArray from '../../lib/static_database/team';
 
-async function getTeamData() {
-    const response = await teamData();
-    return response;
-}
-
-//  getTeamData 구조
-//     1. name: '',
-//     2. dayArray: []
-//     3. teacherArray: []
-//     4. instagram: '',
-//     5. (공개안함)memberArray: [], 
-//     6. recruitmentArray: [[]]
+// async function getTeamData() {
+//     const response = await teamData();
+//     return response;
+// }
 
 export default async function TeamList() {
-    const dataArray = await getTeamData();
+    // const dataArray = await getTeamData();
 
     return (
         <div className={styles.team_list}>

@@ -20,12 +20,7 @@ export default async function fetchData() {
                 }
             ],
         })
-        const data = await Promise.all(response.results.map(async page => {
-            const last_edited_id = page.properties.last_modifier.last_edited_by.id;
-            const last_user = await notion.users.retrieve({ user_id: last_edited_id });
-
-            const creator_id = page.properties.creator.created_by.id;
-            const create_user = await notion.users.retrieve({ user_id: creator_id });
+        const data = response.results.map(page => {
 
             return {
                 page_id: page.id,
@@ -41,12 +36,10 @@ export default async function fetchData() {
                 awards: page.properties.awards.relation,
                 member_heart: page.properties.member_heart.relation,
                 photo: page.properties.photo.files[0] && page.properties.photo.files[0].file.url,
-                creator_user: create_user.name,
                 created_time: page.properties.created_time.created_time,
-                last_modifier_user: last_user.name,
                 last_modified_time: page.properties.last_modified_time.last_edited_time,
             }
-        }))
+        })
         return data;
     } catch (error) {
         console.error("event-recuritment data error");

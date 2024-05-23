@@ -6,8 +6,6 @@ import styles from './layout.module.scss'
 
 export default function Error({ error, reset }) {
     useEffect(() => {
-        console.log('error 발생')
-        console.log(reset)
         console.error(error)
     }, [error])
 

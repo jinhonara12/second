@@ -1,8 +1,9 @@
-import fetchData from '../../lib/database/bar';
+// import fetchData from '../../lib/database/bar';
+import data from '../../lib/static_database/bar';
 import styles from './page.module.scss';
 
 export default async function BarData() {
-    const data = await fetchData();
+    // const data = await fetchData();
 
     return (
         <div className={styles.bar_data_box}>

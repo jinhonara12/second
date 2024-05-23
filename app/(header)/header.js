@@ -1,7 +1,8 @@
 import Link from "next/link";
 import styles from './header.module.scss';
 import { Yeseva_One } from 'next/font/google';
-import fetchData from '../lib/database/club';
+// import fetchData from '../lib/database/club';
+import data from '../lib/static_database/club';
 import Login from '../(component)/Login'
 import Nav from './Nav';
 import Mobile from './Mobile';
@@ -64,13 +65,13 @@ function Time() {
     )
 }
 
-const getClubData = async () => {
-    const result = await fetchData();
-    return result;
-}
+// const getClubData = async () => {
+//     const result = await fetchData();
+//     return result;
+// }
 
 async function TodayClubList() {
-    const data = await getClubData();
+    // const data = await getClubData();
 
     const krDay = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
     const serverDay = krDay[new Date().getDay()];
