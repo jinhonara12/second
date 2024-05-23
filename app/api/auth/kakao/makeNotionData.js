@@ -1,3 +1,4 @@
+import { COMPILER_NAMES } from 'next/dist/shared/lib/constants';
 export default async function makeNotionData({ id, name }) {
     const { Client } = require('@notionhq/client');
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -15,10 +16,10 @@ export default async function makeNotionData({ id, name }) {
         });
 
         if (response.results.length === 0) {
-            //회원가입 필요
+            // 카카오 로그인하면 고유값으로 받는 id로 노션 디비에 필터링 걸려서 결과값이 없을 경우 자동으로 노션 디비에 등록
             makeMember()
         } else {
-            //이미 가입됨
+            //필터링에 걸려있다면 별도 작업할 필요 없음
             return ""
         }
     })()
