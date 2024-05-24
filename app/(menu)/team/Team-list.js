@@ -31,6 +31,7 @@ export default async function TeamList() {
                             </div>
                             <div className={styles.link_box}>
                                 {team.instagram ? <a href={team.instagram} alt="인스타그램" title={team.name} target="_blank">인스타그램 <img src="/icons/link_24px.png" /></a> : ""}
+                                {team.linktree ? <a href={team.linktree} alt="링크트리" title={team.name} target="_blank">링크트리 <img src="/icons/link_24px.png" /></a> : ""}
                             </div>
                         </div>
                         <ul className={styles.bottom}>
