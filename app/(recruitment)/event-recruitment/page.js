@@ -27,6 +27,7 @@ export default async function page() {
                                 </div>
 
                                 <div className={styles.title_box}>
+                                    <span>{list.year}</span>
                                     <h3><a href={`/event-recruitment/${list.page_id}?name=${list.name}`}>{list.name} <img src="/icons/link_24px.png" /></a></h3>
                                 </div>
                                 <div className={styles.date}>
