@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "update": "node update_notion_data.js && git add . && git commit -m 'notion data update' && git push"
+    "update": "node update_notion_data.js"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.14",
