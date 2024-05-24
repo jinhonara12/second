@@ -104,6 +104,10 @@
         &>section {
             .img_box {
                 background-attachment: initial;
+
+                span {
+                    font-size: 12vw;
+                }
             }
 
             .about_box {
