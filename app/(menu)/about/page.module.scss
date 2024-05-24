@@ -15,10 +15,13 @@
             background: url("/image/about_pc.jpg") center / cover;
             background-attachment: fixed;
             border-radius: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
 
             &>span {
                 position: absolute;
-                font-size: 8.9vw;
+                font-size: 8vw;
                 width: 100%;
                 text-align: center;
                 text-transform: capitalize;
@@ -100,6 +103,10 @@
         max-width: inherit;
 
         &>section {
+            .img_box {
+                background-attachment: initial;
+            }
+
             .about_box {
                 .item {
                     flex-direction: column;
