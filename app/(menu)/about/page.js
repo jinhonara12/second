@@ -15,6 +15,7 @@ export default function About() {
                         <span>just swing it</span>
                     </div>
                     <div className={styles.about_box}>
+
                         <div className={styles.item}>
                             <div className={styles.left}>
                                 <span>01.</span>
@@ -22,8 +23,9 @@ export default function About() {
                             <div className={styles.right}>
                                 <h3>스윙데일리</h3>
                                 <div className={styles.sub_text}>
-                                    <p>스윙데일리는 '동호회'와 '팀', '바' 그리고 각종 '대회', '행사' 소식을 전달하기 위하여 만들어진 커뮤니티 사이트입니다.</p>
-                                    <p> * 스윙데일리는 린디합 위주의 정보만 다루고 있습니다.</p>
+                                    <p>데일리스윙은 린디하퍼의 커뮤니티 지향하고 있어요.</p>
+                                    <p>'동호회'와 '팀', '바' 그리고 각종 '대회', '행사' 모집 관련 게시글을 취합해요.</p>
+                                    <p> * 데일리스윙은 린디합 위주의 정보만 다루고 있습니다.</p>
                                     <p> * 다른 장르에 대한 내용은 추후 데이터 관리 방침이 정리되면 확장할 예정입니다.</p>
                                 </div>
                             </div>
@@ -48,7 +50,7 @@ export default function About() {
                             <div className={styles.right}>
                                 <h3>페이지 안내</h3>
                                 <div className={styles.sub_text}>
-                                    <p>- 'HOME'에서는 7일 이내 마감되는 모든 모집글과 최근에 업데이트 또는 작성된 모집글이 각 10개 / 5개 노출 됩니다.</p>
+                                    <p>- 'HOME'에서는 [7일 이내 마감되는 모든 모집글]과 [최근에 업데이트 또는 작성된 모집글]이 각 10개 / 5개 노출 됩니다.</p>
                                     <p>- 'ABOUT'은 스윙데일리의 구성과 설명 그리고 앞으로 업데이트될 내용을 전달합니다.</p>
                                     <p>- 'CLUB', 'BAR'은 스윙 강습이 이뤄지는 동호회와 바의 기본적인 정적인 정보를 취급하고 있습니다.</p>
                                     <p>- 'TEAM'은 스윙 팀을 소개하며, 팀의 정보가 노출되기를 원하는 팀만 기본 정보를 받아서 노출 시키고 있습니다.</p>
@@ -90,11 +92,11 @@ export default function About() {
                             <div className={styles.right}>
                                 <h3>추후 업데이트 예정</h3>
                                 <div className={styles.sub_text}>
-                                    <p>💬 홈페이지 내에서 주고받을 수 있는 채팅 페이지</p>
-                                    <p>🏆 마이페이지에서 스윙데일리에 등록된 대회 기준으로 수상 정보 기입</p>
-                                    <p>🏅 수상한 인원을 확인할 수 있는 리스트 페이지</p>
-                                    <p>1️⃣ 스윙을 처음 접하는 인원을 대상으로 하는 원데이 홍보 페이지</p>
-                                    <p>🎧 스윙데일리에 등록된 바에서 진행되는 소셜 디제이 캘린더 페이지</p>
+                                    <p>🏆 각종 수상 내역과 리스트 페이지</p>
+                                    <p>💬 소통할 수 있는 커뮤니티 페이지</p>
+                                    <p>🎧 소셜 및 디제이 캘린더 페이지</p>
+                                    <p>1️⃣ 외부 모집을 위한 원데이 홍보 페이지</p>
+                                    <p>🔔 관심있는 행사 소식 카카오톡 알림 기능</p>
                                 </div>
                             </div>
                         </div>
