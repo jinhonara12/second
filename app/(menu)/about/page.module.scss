@@ -130,12 +130,10 @@
 }
 
 @media (orientation: Landscape) and (pointer: coarse) {
-    @include mixins.respond-to($breakpoint-large) {
-        .main {
-            &>section {
-                .img_box {
-                    background-attachment: initial;
-                }
+    .main {
+        &>section {
+            .img_box {
+                background-attachment: initial;
             }
         }
     }
