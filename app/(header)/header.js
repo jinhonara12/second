@@ -75,24 +75,29 @@ async function TodayClubList() {
 
     const krDay = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
     const serverDay = krDay[new Date().getDay()];
-    const todayClub = data.map(page => {
-        return page.mainday.map(days => {
-            if (days.name === serverDay) {
-                return page.name
-            }
-        }).filter(el => el)
-    }).filter(el => el.length).flat();
 
+    const todayClub = data.reduce((acc, page) => {
+        const isTodayClub = page.mainday.some(days => days.name === serverDay);
+        if (isTodayClub) {
+            acc.push(page.name);
+        }
+        return acc;
+    }, []);
 
     return (
         <div className={styles.club__list}>
-            {todayClub.length > 0 ? <>
-                <span>today swing club</span>
-                <div className={styles.club__box}>
-                    {todayClub.map(el =>
-                        <span key={el}>{el}</span>
-                    )} </div></>
-                : <span>There are no clubs open today.</span>}
+            {todayClub.length > 0 ? (
+                <>
+                    <span>today swing club</span>
+                    <div className={styles.club__box}>
+                        {todayClub.map(el => (
+                            <span key={el}>{el}</span>
+                        ))}
+                    </div>
+                </>
+            ) : (
+                <span>There are no clubs open today.</span>
+            )}
         </div>
     )
 }
