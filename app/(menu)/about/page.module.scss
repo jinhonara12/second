@@ -95,7 +95,6 @@
     }
 }
 
-
 @include mixins.respond-to($breakpoint-large) {
     .main {
         padding: 15px 3rem;
@@ -125,6 +124,18 @@
         &>section {
             .img_box {
                 height: 100px;
+            }
+        }
+    }
+}
+
+@media (orientation: Landscape) and (pointer: coarse) {
+    @include mixins.respond-to($breakpoint-large) {
+        .main {
+            &>section {
+                .img_box {
+                    background-attachment: initial;
+                }
             }
         }
     }
