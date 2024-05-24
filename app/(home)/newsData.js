@@ -48,8 +48,10 @@ export default async function NewsData({ type }) {
         return (
             <ul>
                 {sortedData.slice(0, repeatCount).map((item, index) => {
-                    const last_modified_time = new Date(item.last_modified_time).toLocaleDateString();
-                    const created_time = new Date(item.created_time).toLocaleDateString();
+                    // const last_modified_time = new Date(item.last_modified_time).toLocaleDateString();
+                    // const created_time = new Date(item.created_time).toLocaleDateString();
+                    const last_modified_time = item.last_modified_time.split('T')[0];
+                    const created_time = item.created_time.split('T')[0];
                     const type = item.classification;
 
                     return (
@@ -63,8 +65,8 @@ export default async function NewsData({ type }) {
                             </div>
                             <div className={styles.middle}>
                                 <div>
-                                    <span className={styles.date}>{item.start_date} {item.end_date ? ` - ${item.end_date}` : ""}</span>
                                     <span className={styles.dday}>{item.dday}</span>
+                                    <span className={styles.date}>{item.start_date} {item.end_date ? ` - ${item.end_date}` : ""}</span>
                                 </div>
                                 <div className={styles.middle_2}>
                                     {type === "행사" && <Link href={`festival-recruitment/${item.page_id}?name=${item.name}`}>자세히 보기<img src="/icons/link_24px.png" /></Link>}
@@ -77,11 +79,11 @@ export default async function NewsData({ type }) {
                             <div className={styles.bottom}>
                                 {last_modified_time !== created_time && (
                                     <div>
-                                        <span className={styles.date}>modified {last_modified_time}</span>
+                                        <span className={styles.date}>수정일 | {last_modified_time}</span>
                                     </div>
                                 )}
                                 <div>
-                                    <span className={styles.date}>created {created_time}</span>
+                                    <span className={styles.date}>작성일 | {created_time}</span>
                                 </div>
                             </div>
                         </li>
