@@ -74,7 +74,9 @@ async function TodayClubList() {
     // const data = await getClubData();
 
     const krDay = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
-    const serverDay = krDay[new Date().getDay()];
+    const krDate = new Date().toLocaleString('en-US', { timeZone: 'Asia/Seoul' });
+    const serverDay = krDay[new Date(krDate).getDay()];
+    console.log(serverDay)
 
     const todayClub = data.reduce((acc, page) => {
         const isTodayClub = page.mainday.some(days => days.name === serverDay);
