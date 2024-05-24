@@ -103,7 +103,9 @@
 
             .club__box {
                 display: flex;
+                flex-wrap: wrap;
                 column-gap: .5rem;
+                row-gap: .3rem;
             }
 
             span {
