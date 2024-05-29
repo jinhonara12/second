@@ -1,7 +1,8 @@
 # *
 User-agent: *
 Allow: /
-Disallow: /mypage
+Disallow: /mypage/
+Disallow: /beta
 
 # Host
 Host: https://daily-swing.com
