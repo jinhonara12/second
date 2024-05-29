@@ -1,3 +1,6 @@
+@use '../../../mixins';
+@import '../../../variable';
+
 .awards {
     display: flex;
     flex-direction: column;
@@ -17,10 +20,10 @@
     flex-direction: column;
 
     .awards_list__head,
-    .awards_list__item {
+    .awards_list__item .pc {
         display: grid;
         grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr 1fr;
-        gap: 1rem;
+        gap: .5rem;
         border-top: 1px solid #ddd;
         padding: .5rem 0;
         place-items: center;
@@ -30,7 +33,9 @@
         border: none;
 
         span {
+            font-size: .9rem;
             font-weight: bold;
+            word-break: keep-all;
         }
     }
 
@@ -55,6 +60,8 @@
             font-size: .9rem;
             color: #111;
             text-transform: capitalize;
+            text-align: center;
+            word-break: keep-all;
         }
     }
 }
@@ -64,4 +71,79 @@
     text-align: center;
     font-size: .9rem;
     border-top: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+    a {
+        font-size: .8rem;
+
+        img {
+            display: inline-block;
+            width: 0.8rem;
+            height: 0.8rem;
+        }
+    }
+}
+
+.mo {
+    display: none;
+}
+
+@include mixins.respond-to($breakpoint-large) {}
+
+
+@include mixins.respond-to($breakpoint-small) {
+    .pc {
+        display: none !important;
+    }
+
+    .mo {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        row-gap: 1rem;
+
+        width: 100%;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            row-gap: .3rem;
+
+            .mo__title_box {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                column-gap: .5rem;
+
+                .year {}
+
+                .name {
+                    font-size: 1rem;
+                }
+
+                .date {}
+            }
+
+            .mo__result_box {
+                display: flex;
+                flex-wrap: wrap;
+                column-gap: .5rem;
+
+            }
+        }
+    }
+
+    .awards_list {
+
+        .awards_list__item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border-top: 1px solid #ddd;
+            padding: .5rem 0;
+        }
+    }
 }

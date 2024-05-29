@@ -32,10 +32,10 @@ export default function awardsForm({ data }) {
         const formData = {
             user_id: userId,
             nickname: userName,
-            eventId: eventId,
-            division: division,
-            level: level,
-            result: result
+            eventId,
+            division,
+            level,
+            result
         };
         try {
             const postFetch = await fetch('/api/database/notion/updateAwards', {
@@ -77,7 +77,7 @@ export default function awardsForm({ data }) {
         <form onSubmit={handleSubmit} className={styles.event__form}>
             <div className={`${styles.event_list} ${styles.event_wrap}`}>
                 <h3>event</h3>
-                <div className={styles.double_label_wrap}>
+                {/* <div className={`${styles.double_label_wrap} ${styles.pc}`}>
                     {Object.keys(eventGroup).map((year) => (
                         <div className={styles.event_year} key={year}>
                             <span className={styles.year__text}>{year}</span>
@@ -85,12 +85,29 @@ export default function awardsForm({ data }) {
                                 {eventGroup[year].map((award) => (
                                     <label key={award.page_id} className={`${styles.label} ${eventId === award.page_id ? styles.checked : ''}`}>
                                         {award.name}
-                                        <input hidden onChange={clickInputRadio} type="radio" value={award.page_id} name="event" required />
+                                        <input className={styles.pc} hidden onChange={clickInputRadio} type="radio" value={award.page_id} name="event" required />
                                     </label>
                                 ))}
                             </div>
                         </div>
                     ))}
+                </div> */}
+                <div className={`${styles.select}`}>
+                    <select onChange={clickInputRadio} name="event" required>
+                        <option value="">Select an event</option>
+                        {Object.keys(eventGroup).map((year) => (
+                            <optgroup key={year} label={year}>
+                                {eventGroup[year].map((award) => (
+                                    <option
+                                        key={award.page_id}
+                                        value={award.page_id}
+                                        className={`${eventId === award.page_id ? styles.checked : ''}`}>
+                                        {award.name}
+                                    </option>
+                                ))}
+                            </optgroup>
+                        ))}
+                    </select>
                 </div>
             </div>
             <div className={`${styles.event_level} ${styles.event_wrap}`}>

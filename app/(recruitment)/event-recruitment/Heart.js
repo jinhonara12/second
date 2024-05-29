@@ -2,8 +2,6 @@
 import { SessionProvider, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
-
-
 function IsLoggined({ id, page: eventArray, user_id }) {
     const { data: session, status } = useSession();
     const [heart, setHeart] = useState(false);

@@ -1,8 +1,8 @@
 import userAwardsData from '../getUserAwards';
+import getUserId from '../getUserId';
 import AwardsList from './AwardsList';
 import AwardForm from './AwardsForm';
 import styles from '../mypage_sub.module.scss';
-import getUserId from '../getUserId';
 import ErrorPage from '../../../(component)/Error_page';
 
 export default async function awards() {
