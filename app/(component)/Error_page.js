@@ -1,18 +1,11 @@
-'use client' // Error components must be Client Components
-
 import Link from 'next/link';
-import { useEffect } from 'react';
-import styles from './layout.module.scss';
+import styles from './error.module.scss';
 
-export default function Error({ error, reset }) {
-    useEffect(() => {
-        console.error(error)
-    }, [error])
-
+export default function ErrorPage({ text }) {
     return (
         <div className={styles.error_page}>
             <div className={styles.title}>
-                <h2>500 : Got a problem?</h2>
+                <h2>{text} error : Got a problem?</h2>
                 <p>문제가 생겼나요?</p>
             </div>
             <div className={styles.content}>

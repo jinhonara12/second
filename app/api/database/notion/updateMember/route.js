@@ -8,44 +8,41 @@ export async function GET(req) {
 export async function POST(req) {
     const { nickname, id, swingDay, barArray, clubArray, teamMemberArray } = await req.json()
     try {
-        async function update() {
-            const response = await notion.pages.update({
+        const response = await notion.pages.update({
 
-                page_id: id,
-                properties: {
-                    'nickname': {
-                        "id": "title",
-                        "type": "title",
-                        "title": [
-                            {
-                                "type": "text",
-                                "text": {
-                                    "content": nickname,
-                                    "link": null
-                                },
-                                "plain_text": nickname,
-                            }
-                        ]
-                    },
-                    'swing_date': {
-                        "date": {
-                            "start": swingDay,
+            page_id: id,
+            properties: {
+                'nickname': {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": nickname,
+                                "link": null
+                            },
+                            "plain_text": nickname,
                         }
-                    },
-                    'bar': {
-                        "relation": barArray
-                    },
-                    'club': {
-                        "relation": clubArray
-                    },
-                    'team_member': {
-                        "relation": teamMemberArray
+                    ]
+                },
+                'swing_date': {
+                    "date": {
+                        "start": swingDay,
                     }
                 },
-            });
-        }
+                'bar': {
+                    "relation": barArray
+                },
+                'club': {
+                    "relation": clubArray
+                },
+                'team_member': {
+                    "relation": teamMemberArray
+                }
+            },
+        });
 
-        await update()
         return Response.json(true)
     } catch (error) {
         console.log('handler error');

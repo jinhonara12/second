@@ -1,5 +1,6 @@
 
 import { Client } from '@notionhq/client'
+import { COMPILER_NAMES } from 'next/dist/shared/lib/constants';
 import getRelationTitle from "./relationTitle";
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -26,9 +27,6 @@ export default async function fetchData(kakao_id) {
         }
 
         const properties = response.results[0].properties;
-
-        console.log(properties.swing_date)
-
         const date = new Date();
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -46,7 +44,6 @@ export default async function fetchData(kakao_id) {
         const extractRelationIds = (property) =>
             property.relation ? property.relation.map(item => item.id) : [];
 
-        // 이벤트나 행사, dj, 수상은 가져올 내용이 더 많아질 예정으로 좀 더 보완해야함
         const relations = {
             festArray: extractRelationIds(properties.festival_recruitment),
             eventArray: extractRelationIds(properties.event_recruitment),

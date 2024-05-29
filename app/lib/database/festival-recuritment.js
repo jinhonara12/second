@@ -26,6 +26,7 @@ export default async function fetchData() {
             return {
                 page_id: page.id,
                 classification: page.properties.classification.select.name,
+                year: page.properties.year.formula.number,
                 name: page.properties.name.title[0].text.content,
                 url: page.properties.url.url,
                 home: page.properties.home.url,

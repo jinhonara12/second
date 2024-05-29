@@ -1,0 +1,67 @@
+.awards {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: rgb(244, 244, 236);
+    border: 1px solid #ddd;
+
+    h3 {
+        font-size: 1.1rem;
+    }
+}
+
+.awards_list {
+    display: flex;
+    flex-direction: column;
+
+    .awards_list__head,
+    .awards_list__item {
+        display: grid;
+        grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr 1fr;
+        gap: 1rem;
+        border-top: 1px solid #ddd;
+        padding: .5rem 0;
+        place-items: center;
+    }
+
+    .awards_list__head {
+        border: none;
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    .awards_list__item {
+        .delete.updating {
+            background-color: tomato;
+            cursor: not-allowed;
+        }
+
+        .delete {
+            font-size: .8rem;
+            color: #fff;
+            background-color: #444;
+            display: inline-block;
+            padding: 2px 3px;
+            border-radius: 2px;
+            cursor: pointer;
+            width: max-content;
+        }
+
+        span {
+            font-size: .9rem;
+            color: #111;
+            text-transform: capitalize;
+        }
+    }
+}
+
+.not_awards {
+    padding: 2rem 0;
+    text-align: center;
+    font-size: .9rem;
+    border-top: 1px solid #ddd;
+}

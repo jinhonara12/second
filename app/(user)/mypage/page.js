@@ -1,6 +1,8 @@
 import getUserPrivacy from './getUserPrivacy';
 import styles from './mypage.module.scss';
 import Link from 'next/link';
+import ErrorPage from '../../(component)/Error_page';
+
 
 export const metadata = {
     title: "마이페이지",
@@ -44,6 +46,13 @@ export default async function MyPage() {
                             </div>
                             <Link href="/mypage/member">member <img src="/icons/link_24px.png" /></Link>
                         </div>
+                        <div className={styles.awards}>
+                            <div className={styles.text}>
+                                <p className={styles.title}>대회 수상 등록</p>
+                                <span>- 회원의 대회 수상 정보를 등록할 수 있습니다.</span>
+                            </div>
+                            <Link href="/mypage/awards">awards <img src="/icons/link_24px.png" /></Link>
+                        </div>
                     </div>
 
 
@@ -51,12 +60,6 @@ export default async function MyPage() {
             </main>
         )
     } else {
-        return (
-            <div className={styles.not_loggined}>
-                <p>로그인이 제대로 되지 않았습니다.</p>
-                <p>다시 로그인을 부탁드립니다.</p>
-                <p>지속적인 문제가 생길시 오류 화면 문의 주시면 빠르게 처리하겠습니다.</p>
-            </div>
-        )
+        return <ErrorPage text="Login" />
     }
 }
