@@ -10,6 +10,13 @@
     -moz-user-select: none;
     user-select: none;
 
+    .google_form {
+        font-size: .8rem;
+        color: #888;
+
+        a {}
+    }
+
     .event_wrap {
         display: flex;
         align-items: flex-start;
