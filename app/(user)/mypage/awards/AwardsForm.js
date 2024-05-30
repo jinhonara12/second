@@ -98,7 +98,7 @@ export default function awardsForm({ data }) {
                 </div> */}
                 <div className={`${styles.select}`}>
                     <select onChange={clickInputRadio} name="event" required>
-                        <option value="">Select an event</option>
+                        <option value="">Select an event ⬇️</option>
                         {Object.keys(eventGroup).map((year) => (
                             <optgroup key={year} label={year}>
                                 {eventGroup[year].map((award) => (

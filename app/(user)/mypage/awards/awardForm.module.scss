@@ -46,19 +46,19 @@
         .select {
             position: relative;
 
-            &:after {
-                content: '⬇️';
-                /* 사용자 정의 화살표 */
-                position: absolute;
-                top: 50%;
-                right: 8px;
-                /* 위치 조정 */
-                transform: translateY(-40%);
-                pointer-events: none;
-                /* 클릭 방지 */
-                font-size: .7rem;
-                color: #888;
-            }
+            // &:after {
+            //     content: '⬇️';
+            //     /* 사용자 정의 화살표 */
+            //     position: absolute;
+            //     top: 50%;
+            //     right: 8px;
+            //     /* 위치 조정 */
+            //     transform: translateY(-40%);
+            //     pointer-events: none;
+            //     /* 클릭 방지 */
+            //     font-size: .7rem;
+            //     color: #888;
+            // }
 
             select {
                 padding: 6px 8px;
