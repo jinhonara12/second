@@ -10,11 +10,18 @@
     -moz-user-select: none;
     user-select: none;
 
-    .google_form {
+    .inform {
         font-size: .8rem;
         color: #888;
+        display: flex;
+        flex-direction: column;
+        row-gap: .5rem;
 
-        a {}
+        .google_form {
+
+
+            a {}
+        }
     }
 
     .event_wrap {

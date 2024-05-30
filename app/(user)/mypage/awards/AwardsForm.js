@@ -75,7 +75,10 @@ export default function awardsForm({ data }) {
 
     return (
         <form onSubmit={handleSubmit} className={styles.event__form}>
-            <span className={styles.google_form}>원하는 대회가 없으시다면, <a href="https://forms.gle/wftQnqtMKK1VVCq96" target="_blank">여기</a>에 알려주세요.</span>
+            <div className={styles.inform}>
+                <span>등록된 수상 내역은 수상리스트에 전체공개 됩니다.</span>
+                <span className={styles.google_form}>원하는 대회가 없으시다면, <a href="https://forms.gle/wftQnqtMKK1VVCq96" target="_blank">여기</a>에 알려주세요.</span>
+            </div>
             <div className={`${styles.event_list} ${styles.event_wrap}`}>
                 <h3>event</h3>
                 {/* <div className={`${styles.double_label_wrap} ${styles.pc}`}>

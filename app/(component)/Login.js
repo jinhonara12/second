@@ -12,12 +12,12 @@ function LoginCheck() {
             <Link href="/mypage">my page</Link>
             <button onClick={() => {
                 signOut()
-            }}>logout</button>
+            }}><img src="/icons/kakao.png" />logout</button>
         </>
     } else {
         return <button onClick={() => {
             signIn("kakao")
-        }}>login</button>
+        }}><img src="/icons/kakao.png" /> login</button>
     }
 }
 
