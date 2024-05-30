@@ -1,12 +1,16 @@
 'use client'
 import Link from "next/link";
 import { signOut, signIn, SessionProvider, useSession } from "next-auth/react";
-import { Suspense } from 'react';
-import Loading from './Loading';
 
 function LoginCheck() {
     const { data: session, status } = useSession()
+    console.log(status)
 
+    if (status === "loading") {
+        return <>
+            <span>checking...</span>
+        </>
+    }
     if (status === "authenticated") {
         return <>
             <Link href="/mypage">my page</Link>
@@ -23,10 +27,8 @@ function LoginCheck() {
 
 export default function Login() {
     return (
-        <Suspense fallback={<Loading text="login" />}>
-            <SessionProvider>
-                <LoginCheck />
-            </SessionProvider>
-        </Suspense>
+        <SessionProvider>
+            <LoginCheck />
+        </SessionProvider>
     )
 }
