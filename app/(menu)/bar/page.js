@@ -1,7 +1,6 @@
 import BarList from "./bar-list";
 import { Suspense } from 'react';
 import Loading from '../../(component)/Loading';
-import Head from "next/head";
 
 export const metadata = {
     title: "바",
