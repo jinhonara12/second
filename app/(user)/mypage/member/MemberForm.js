@@ -16,6 +16,7 @@ export default function Form({ member, bar, club, team }) {
         name: item.name,
         id: item.page_id
     }))
+
     const [nickname, setNickame] = useState(member.nickname);
     const [swingDay, setSwingDay] = useState(member.swing_date);
     const [barArray, setBarArray] = useState(member.barArray);

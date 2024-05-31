@@ -34,9 +34,9 @@ export default async function fetchData(kakao_id) {
             swing_days: properties.swing_days.formula.number,
             festArray: createIdTitleArray(properties.festival_recruitment.relation, properties.festival_name.rollup.array),
             eventArray: createIdTitleArray(properties.event_recruitment.relation, properties.event_name.rollup.array),
-            barArray: createIdTitleArray(properties.bar.relation, properties.bar_name.rollup.array),
-            clubArray: createIdTitleArray(properties.club.relation, properties.club_name.rollup.array),
-            teamMemberArray: createIdTitleArray(properties.team_member.relation, properties.team_name.rollup.array),
+            barArray: createTitleArray(properties.bar_name.rollup.array),
+            clubArray: createTitleArray(properties.club_name.rollup.array),
+            teamMemberArray: createTitleArray(properties.team_name.rollup.array),
         };
 
         return data;
@@ -64,4 +64,8 @@ function createIdTitleArray(idArray, titleArray) {
         id: item.id,
         title: titles[index]
     }));
+}
+
+function createTitleArray(titleArray) {
+    return extractTitles(titleArray);
 }

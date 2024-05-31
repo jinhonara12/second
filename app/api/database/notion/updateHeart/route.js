@@ -1,5 +1,4 @@
 import { Client } from '@notionhq/client'
-import { Cabin_Sketch } from 'next/font/google';
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export async function GET(req) {
@@ -10,39 +9,53 @@ export async function GET(req) {
     return Response.json('get')
 }
 
+// 전역 변수를 사용하여 현재 처리 중인 요청 여부를 추적합니다.
+let isProcessing = false;
+
 export async function POST(req) {
-    const { page_id, user_id, type, page_type } = await req.json()
-    const currentFest = (await notion.pages.retrieve({
-        page_id: user_id
-    })).properties[page_type].relation
-
-    let updatedFest = []
-
-    if (type === false) {
-        updatedFest.push(...currentFest, { "id": page_id })
-    } else if (type === true) {
-        updatedFest.push(...currentFest.filter(i => i.id !== page_id))
-    }
 
     try {
-        async function update() {
-            console.log(page_type)
-            const response = await notion.pages.update({
-
-                page_id: user_id,
-                properties: {
-                    [page_type]: {
-                        "relation": updatedFest
-                    }
-                },
-            });
+        // 만약 이미 다른 요청을 처리 중이라면, 현재 요청을 대기시킵니다.
+        while (isProcessing) {
+            await new Promise(resolve => setTimeout(resolve, 200));
         }
 
-        await update()
-        return Response.json(true)
+        isProcessing = true; // 현재 요청을 처리 중으로 설정합니다.
+
+        const { page_id, user_id, type, page_type } = await req.json();
+
+        // 노션 API 호출
+        const currentFestArray = await notion.pages.retrieve({
+            page_id: user_id
+        });
+
+        const currentFest = currentFestArray.properties[page_type].relation;
+
+        const updatedFest = [];
+
+        if (type === false) {
+            updatedFest.push(...currentFest, { "id": page_id });
+        } else if (type === true) {
+            updatedFest.push(...currentFest.filter(i => i.id !== page_id));
+        }
+
+        // 노션 API 호출
+        const response = await notion.pages.update({
+            page_id: user_id,
+            properties: {
+                [page_type]: {
+                    "relation": updatedFest
+                }
+            },
+        });
+
+        isProcessing = false; // 현재 요청 처리가 완료되었음을 표시합니다.
+
+        return Response.json(true);
 
     } catch (error) {
-        console.log('handler error');
-        return Response.json(false)
+        console.log('handler error:', error);
+        isProcessing = false; // 에러 발생 시 처리가 완료되었음을 표시합니다.
+        return Response.json(false);
     }
 }

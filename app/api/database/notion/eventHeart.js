@@ -45,6 +45,7 @@ export default async function fetchData(kakao_id) {
         const eventArray = createIdTitleArray(eventIdArray, eventNameArray);
 
         const data = {
+            page_id: response.results[0].id,
             eventArray,
             festArray
         };

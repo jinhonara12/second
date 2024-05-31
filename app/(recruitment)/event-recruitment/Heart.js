@@ -15,6 +15,7 @@ function IsLoggined({ id, page: eventArray, user_id }) {
     }, []);
 
     function heartClick() {
+        console.log(uploading);
         if (uploading) {
             setHeart(!heart)
             updateHeart()
@@ -28,7 +29,6 @@ function IsLoggined({ id, page: eventArray, user_id }) {
             page_id: id,
             page_type: "event_recruitment",
             user_id: user_id,
-
         };
 
         try {
