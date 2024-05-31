@@ -64,6 +64,12 @@ export default function Mobile({ className }) {
                                     <span>팀</span>
                                 </Link>
                             </li>
+                            <li>
+                                <Link onClick={linkClick} href="/awards">
+                                    <span>awards</span>
+                                    <span>수상</span>
+                                </Link>
+                            </li>
                         </ul>
                         <ul>
                             <li>

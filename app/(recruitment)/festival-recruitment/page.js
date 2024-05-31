@@ -1,6 +1,6 @@
 import fetch from '../../lib/database/festival-recuritment';
 import styles from './page.module.scss';
-import getUserMember from '../../(user)/mypage/getUserMember';
+import getUserHeart from '../../(user)/mypage/getUserMember';
 import Heart from './Heart';
 
 export const metadata = {
@@ -10,7 +10,7 @@ export const metadata = {
 
 export default async function page() {
     const response = await fetch();
-    const userInfo = await getUserMember();
+    const userInfo = await getUserHeart();
 
     return (
         <main className={styles.main}>

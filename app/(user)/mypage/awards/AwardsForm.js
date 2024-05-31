@@ -77,7 +77,7 @@ export default function awardsForm({ data }) {
         <form onSubmit={handleSubmit} className={styles.event__form}>
             <div className={styles.inform}>
                 <span>등록된 수상 내역은 수상리스트에 전체공개 됩니다.</span>
-                <span className={styles.google_form}>원하는 대회가 없으시다면, <a href="https://forms.gle/wftQnqtMKK1VVCq96" target="_blank">여기</a>에 알려주세요.</span>
+                <span className={styles.google_form}>수상 등록하시길 원하는 대회가 없으시다면, <a href="https://forms.gle/wftQnqtMKK1VVCq96" target="_blank">여기</a>에 알려주세요.</span>
             </div>
             <div className={`${styles.event_list} ${styles.event_wrap}`}>
                 <h3>event</h3>
@@ -117,7 +117,7 @@ export default function awardsForm({ data }) {
             <div className={`${styles.event_level} ${styles.event_wrap}`}>
                 <h3>level</h3>
                 <div className={styles.label_wrap}>
-                    {['rookie', 'super rookie', 'open', 'advanced', 'all star', 'all level'].map((lvl) => (
+                    {['Rookie', 'Super Rookie', 'Open', 'Advanced', 'All Star', 'All Level'].map((lvl) => (
                         <label key={lvl} className={`${styles.label} ${level === lvl ? styles.checked : ''}`}>
                             {lvl}
                             <input onChange={clickInputRadio} required hidden type="radio" value={lvl} name="level" />
@@ -128,7 +128,7 @@ export default function awardsForm({ data }) {
             <div className={`${styles.event_division} ${styles.event_wrap}`}>
                 <h3>division</h3>
                 <div className={styles.label_wrap}>
-                    {['strictly', 'lindy hop couple', 'team', 'm&m', 'solo jazz'].map((div) => (
+                    {['M&M', 'Strictly', 'Couple Routine', 'Solo Jazz', 'Duo Jazz', 'Trio Challenge', 'Team Routine', 'Team Battle', 'Chrous Line', 'Charleston-Jazz Roots', 'Rhythm & Blues'].map((div) => (
                         <label key={div} className={`${styles.label} ${division === div ? styles.checked : ''}`}>
                             {div}
                             <input onChange={clickInputRadio} required hidden type="radio" value={div} name="division" />
@@ -139,7 +139,7 @@ export default function awardsForm({ data }) {
             <div className={`${styles.event_result} ${styles.event_wrap}`}>
                 <h3>result</h3>
                 <div className={styles.label_wrap}>
-                    {['1st', '2nd', '3rd', 'final'].map((res) => (
+                    {['1st', '2nd', '3rd', 'Final'].map((res) => (
                         <label key={res} className={`${styles.label} ${result === res ? styles.checked : ''}`}>
                             {res}
                             <input onChange={clickInputRadio} required hidden type="radio" value={res} name="result" />

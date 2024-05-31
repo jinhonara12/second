@@ -4,7 +4,6 @@ import { signOut, signIn, SessionProvider, useSession } from "next-auth/react";
 
 function LoginCheck() {
     const { data: session, status } = useSession()
-    console.log(status)
 
     if (status === "loading") {
         return <>
