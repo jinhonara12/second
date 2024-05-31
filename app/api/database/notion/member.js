@@ -1,7 +1,4 @@
-
-import { Client } from '@notionhq/client'
-import { COMPILER_NAMES } from 'next/dist/shared/lib/constants';
-import getRelationTitle from "./relationTitle";
+import { Client } from '@notionhq/client';
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const databaseId = process.env.NOTION_MEMBER;
@@ -11,27 +8,23 @@ export default async function fetchData(kakao_id) {
         const response = await notion.databases.query({
             database_id: databaseId,
             filter: {
-                "property": "kakao_id",
+                property: "kakao_id",
                 rollup: {
                     any: {
-                        "rich_text": {
+                        rich_text: {
                             contains: kakao_id
                         }
                     }
                 }
             }
-        })
+        });
 
         if (!response.results || response.results.length === 0) {
             throw new Error('No matching data found');
         }
 
         const properties = response.results[0].properties;
-        const date = new Date();
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        const formattedDate = `${year}-${month}-${day}`;
+        const formattedDate = formatDate(new Date());
 
         const data = {
             page_id: response.results[0].id,
@@ -39,41 +32,36 @@ export default async function fetchData(kakao_id) {
             swing_date: properties.swing_date.date ? properties.swing_date.date.start : formattedDate,
             swing_years: properties.swing_years.formula.number,
             swing_days: properties.swing_days.formula.number,
-        }
-
-        const extractRelationIds = (property) =>
-            property.relation ? property.relation.map(item => item.id) : [];
-
-        const relations = {
-            festArray: extractRelationIds(properties.festival_recruitment),
-            eventArray: extractRelationIds(properties.event_recruitment),
-
+            festArray: createIdTitleArray(properties.festival_recruitment.relation, properties.festival_name.rollup.array),
+            eventArray: createIdTitleArray(properties.event_recruitment.relation, properties.event_name.rollup.array),
+            barArray: createIdTitleArray(properties.bar.relation, properties.bar_name.rollup.array),
+            clubArray: createIdTitleArray(properties.club.relation, properties.club_name.rollup.array),
+            teamMemberArray: createIdTitleArray(properties.team_member.relation, properties.team_name.rollup.array),
         };
-        for (let array in relations) {
-            data[array] = []
-            for (let id of relations[array]) {
-                const title = await getRelationTitle(id);
-                data[array].push({ title: title, 'id': id })
-            }
-        }
 
-        const relations2 = {
-            barArray: extractRelationIds(properties.bar),
-            clubArray: extractRelationIds(properties.club),
-            teamMemberArray: extractRelationIds(properties.team_member),
-        }
-        for (let array in relations2) {
-            data[array] = []
-            for (let id of relations2[array]) {
-                const title = await getRelationTitle(id);
-                data[array].push(title)
-            }
-        }
-
-        return data
+        return data;
 
     } catch (error) {
-        console.error('member error')
-        throw error
+        console.error('member error', error);
+        throw error;
     }
+}
+
+function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+function extractTitles(array) {
+    return array.map(item => item.title[0].text.content);
+}
+
+function createIdTitleArray(idArray, titleArray) {
+    const titles = extractTitles(titleArray);
+    return idArray.map((item, index) => ({
+        id: item.id,
+        title: titles[index]
+    }));
 }

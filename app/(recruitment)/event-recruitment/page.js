@@ -1,6 +1,6 @@
 import fetch from '../../lib/database/event-recuritment';
 import styles from './page.module.scss';
-import getUserHeart from '../../(user)/mypage/getUserMember';
+import getUserHeart from '../../(user)/mypage/getUserHeart';
 import Heart from './Heart';
 
 export const metadata = {

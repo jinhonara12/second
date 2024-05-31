@@ -1,6 +1,4 @@
-
 import { Client } from '@notionhq/client'
-import getRelationTitle from "./relationTitle";
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const databaseId = process.env.NOTION_MEMBER;
@@ -25,25 +23,31 @@ export default async function fetchData(kakao_id) {
             throw new Error('No matching data found');
         }
 
+        function extractTitles(array) {
+            return array.map(item => item.title[0].text.content);
+        }
+
+        function createIdTitleArray(idArray, titleArray) {
+            return idArray.map((item, index) => ({
+                id: item.id,
+                title: titleArray[index]
+            }));
+        }
+
+        const responseResults = response.results[0].properties;
+
+        const festNameArray = extractTitles(responseResults.festival_name.rollup.array);
+        const festIdArray = responseResults.festival_recruitment.relation;
+        const festArray = createIdTitleArray(festIdArray, festNameArray);
+
+        const eventNameArray = extractTitles(responseResults.event_name.rollup.array);
+        const eventIdArray = responseResults.event_recruitment.relation;
+        const eventArray = createIdTitleArray(eventIdArray, eventNameArray);
+
         const data = {
-
-        }
-
-        const extractRelationIds = (property) =>
-            property.relation ? property.relation.map(item => item.id) : [];
-
-        const relations = {
-            festArray: extractRelationIds(properties.festival_recruitment),
-            eventArray: extractRelationIds(properties.event_recruitment),
+            eventArray,
+            festArray
         };
-
-        for (let array in relations) {
-            data[array] = []
-            for (let id of relations[array]) {
-                const title = await getRelationTitle(id);
-                data[array].push({ title: title, 'id': id })
-            }
-        }
 
         return data
 
