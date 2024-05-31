@@ -26,8 +26,6 @@ function LoginCheck() {
 
 export default function Login() {
     return (
-        <SessionProvider>
-            <LoginCheck />
-        </SessionProvider>
+        <LoginCheck />
     )
 }
