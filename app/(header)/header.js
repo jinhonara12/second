@@ -31,7 +31,6 @@ function Logo() {
                 </div>
             </div>
             <div className={styles.right}>
-                <div className={styles.pc}><Login /></div>
             </div>
         </div >
     )
