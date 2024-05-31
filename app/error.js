@@ -17,12 +17,20 @@ export default function Error({ error, reset }) {
             </div>
             <div className={styles.content}>
                 <div className={styles.text_box}>
-                    <p>문제가 지속적으로 발생한다면 데일리스윙에게 알려주세요.</p>
+                    <p className={styles.title}>문제가 지속적으로 발생한다면 데일리스윙에게 알려주세요.</p>
                     <div className={styles.small}>
                         <p>데일리스윙은 린디하퍼 커뮤니티를 지향하고 있어요.</p>
                         <p>가끔 길을 헤매더라도 함께 할 수 있는 공간을 만들고 있습니다.</p>
                     </div>
-
+                </div>
+                <div className={styles.error_box}>
+                    <p className={styles.title}>오류는 왜 발생하나요?</p>
+                    <div className={styles.small}>
+                        <p>1. 로딩이 10초 이상 걸리면 서버와 연결이 끊어져서 오류가 발생할 수 있어요.</p>
+                        <p>- 새로고침으로 재접속하면 문제가 해결될 수 있어요.</p>
+                        <p>2. 들어간 특정 페이지에 데이터 타입에서 오류가 발생할 수 있어요.</p>
+                        <p>- '오류 제보하기'를 클릭하여 특정 페이지의 점검을 요청해주세요.</p>
+                    </div>
                 </div>
                 <div className={styles.link_box}>
                     <Link href="/">처음으로 돌아가기</Link>

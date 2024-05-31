@@ -10,7 +10,7 @@ export default function NotFound() {
             </div>
             <div className={styles.content}>
                 <div className={styles.text_box}>
-                    <p>찾으시는 페이지가 없다면 데일리스윙에게 알려주세요.</p>
+                    <p className={styles.title}>찾으시는 페이지가 없다면 데일리스윙에게 알려주세요.</p>
                     <div className={styles.small}>
                         <p>데일리스윙은 린디하퍼의 커뮤니티 지향하고 있어요.</p>
                         <p>가끔 길을 헤매더라도 함께 할 수 있는 공간을 만들고 있습니다.</p>

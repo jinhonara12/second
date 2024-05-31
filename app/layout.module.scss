@@ -50,6 +50,26 @@
                 font-size: .9rem;
                 color: #444;
             }
+
+            .title {
+                font-weight: bold;
+            }
+        }
+
+        .error_box {
+            display: flex;
+            flex-direction: column;
+            row-gap: .3rem;
+
+            .small {
+                font-size: .9rem;
+                color: #444;
+            }
+
+            .title {
+                font-weight: bold;
+            }
+
         }
 
         .link_box {
