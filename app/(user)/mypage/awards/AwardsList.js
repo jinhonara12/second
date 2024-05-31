@@ -83,7 +83,7 @@ export default function AwardsList({ list }) {
                             <div className={styles.mo}>
                                 <div className={styles.content}>
                                     <div className={styles.mo__title_box}>
-                                        <span className={styles.date}>[{award.start_date}]</span>
+                                        <span className={styles.date}>[{(award.start_date).split("T")[0]}]</span>
                                         {/* <span className={styles.year}>[{award.year}]</span> */}
                                         <span className={styles.name}>{award.name}</span>
                                     </div>
