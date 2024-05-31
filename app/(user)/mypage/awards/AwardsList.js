@@ -71,7 +71,7 @@ export default function AwardsList({ list }) {
                         <li key={index} className={`${styles.awards_list__item} `}>
                             <div className={styles.pc}>
                                 <span>{award.year} | {award.name}</span>
-                                <span>{award.start_date}</span>
+                                <span>{(award.start_date).split("T")[0]}</span>
                                 <span>{award.level}</span>
                                 <span>{award.division}</span>
                                 <span>{award.result}</span>

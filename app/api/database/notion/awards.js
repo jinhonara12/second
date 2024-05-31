@@ -32,8 +32,8 @@ export default async function fetchData(kakao_id) {
                 page_id: award.id,
                 name: award.properties.event_name.rollup.array[0].title[0].text.content,
                 year: award.properties.year.rollup.array[0].formula.number,
-                start_date: award.properties.date.rollup.array[0].date.start,
-                end_date: award.properties.date.rollup.array[0].date.end,
+                start_date: award.properties.date.rollup.date.start,
+                end_date: award.properties.date.rollup.date.end,
                 division: award.properties.division.select.name,
                 level: award.properties.level.select.name,
                 result: award.properties.result.select.name
