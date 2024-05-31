@@ -143,6 +143,13 @@
 
             .awards_list__head {
                 border-radius: .3rem;
+
+                span {
+
+                    img {
+                        display: none;
+                    }
+                }
             }
 
             .awards_list__li {

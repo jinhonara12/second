@@ -12,6 +12,7 @@ export default async function page() {
                     <p>✅ 이용방법</p>
                     <div>
                         <p>- Only Members 🙇🏻‍♂️ : 데일리스윙 회원은 마이페이지에서 수상 경력을 등록하실 수 있습니다.</p>
+                        <p>- Sorting 🔃 : 최상단 항목을 클릭하시면 정렬하실 수 있습니다.</p>
                         <p>- Dream Come True ⭐️ : 수상하고 싶은 대회가 있다면 먼저 선점해보세요.</p>
                     </div>
                 </div>

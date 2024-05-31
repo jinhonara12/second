@@ -138,8 +138,8 @@
 @include mixins.respond-to($breakpoint-medium) {
     .header {
         .logo__box {
+            flex-direction: column;
 
-            .right,
             .left {
                 display: none;
             }
