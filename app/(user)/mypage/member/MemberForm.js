@@ -22,7 +22,11 @@ export default function Form({ member, bar, club, team }) {
     const [barArray, setBarArray] = useState(member.barArray);
     const [clubArray, setClubArray] = useState(member.clubArray);
     const [teamMemberArray, setTeamMemberArray] = useState(member.teamMemberArray);
-    const page_id = member.page_id;
+    const [eventArray, setEventArray] = useState(member.eventArray);
+    const [festArray, setFestArray] = useState(member.festArray);
+    const [interestUpdate, setInterestUpdate] = useState(true);
+    const [xMark, setXMark] = useState('❌');
+    const member_id = member.page_id;
     const [update, setUpdate] = useState('update');
     const [state, setState] = useState(true);
 
@@ -77,7 +81,7 @@ export default function Form({ member, bar, club, team }) {
         const formData = {
             nickname: nickname || '닉네임',
             swingDay: swingDay,
-            id: page_id,
+            id: member_id,
             barArray: allBarList.filter(list => barArray.includes(list.name)).map(item => ({
                 id: item.id
             })) || [],
@@ -106,7 +110,51 @@ export default function Form({ member, bar, club, team }) {
             console.error('Error updating data:', error);
         }
     }
+    const handelEvent = (e) => {
+        const { type, page_type, page_id } = e.target.dataset;
+        if (interestUpdate) {
+            deleteHeart(type, page_type, page_id);
+            setXMark('🔄');
+        }
+        setInterestUpdate(false);
+    }
+    const deleteHeart = async (type, page_type, page_id) => {
+        const formData = {
+            page_id: page_id,
+            user_id: member_id,
+            type: type,
+            page_type: page_type
+        };
+        try {
+            await fetch('/api/database/notion/updateHeart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            }).then(result => {
+                if (result) {
+                    setInterestUpdate(true);
+                    setXMark('❌');
+                }
+            });
 
+            if (page_type === 'festival_recruitment') {
+                setFestArray((prev) => {
+                    return prev.filter(item => item.id !== page_id)
+                })
+            }
+            if (page_type === 'event_recruitment') {
+                setEventArray((prev) => {
+                    return prev.filter(item => item.id !== page_id)
+                })
+            }
+
+        } catch (error) {
+            console.error('Error updating data:', error);
+        }
+
+    }
 
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -186,15 +234,19 @@ export default function Form({ member, bar, club, team }) {
                 </div>
             </div>
 
+            <button className={`${styles.button} ${!state ? styles.uploading : ""}`} type="submit">{update}</button>
+
             <div className={styles.label}>
                 <span className={styles.title}>interested event</span>
                 <div className={styles.wrap_box}>
-                    {member.eventArray.length === 0 ? <span className={styles.not}>관심있는 행사를 등록하지 않았습니다.</span> :
-                        member.eventArray.map(item => {
+                    {eventArray.length === 0 ? <span className={styles.not}>관심있는 행사를 등록하지 않았습니다.</span> :
+                        eventArray.map(item => {
                             return (
-                                <Link className={styles.link} key={item.id} href={`/event-recruitment/${item.id}`} target="_blank" title={item.title} >{item.title}
-                                    <img src="/icons/link_24px.png" />
-                                </Link>
+                                <div className={styles.interested} key={item.id}>
+                                    <Link className={styles.link} href={`/event-recruitment/${item.id}`} target="_blank" title={`${item.title} 새창에서 보기`} >{item.title}
+                                    </Link>
+                                    <span onClick={handelEvent} data-type={true} data-page_type="event_recruitment" data-page_id={item.id} title="삭제하기">{xMark}</span>
+                                </div>
                             )
                         })
                     }
@@ -204,19 +256,19 @@ export default function Form({ member, bar, club, team }) {
             <div className={styles.label}>
                 <span className={styles.title}>interested festival</span>
                 <div className={styles.wrap_box}>
-                    {member.festArray.length === 0 ? <span className={styles.not}>관심있는 대회를 등록하지 않았습니다.</span> :
-                        member.festArray.map(item => {
+                    {festArray.length === 0 ? <span className={styles.not}>관심있는 대회를 등록하지 않았습니다.</span> :
+                        festArray.map(item => {
                             return (
-                                <Link className={styles.link} key={item.id} href={`/festival-recruitment/${item.id}`} target="_blank" title={item.title} >{item.title}
-                                    <img src="/icons/link_24px.png" />
-                                </Link>
+                                <div className={styles.interested} key={item.id}>
+                                    <Link className={styles.link} href={`/festival-recruitment/${item.id}`} target="_blank" title={`${item.title} 새창에서 보기`} >{item.title}
+                                    </Link>
+                                    <span onClick={handelEvent} data-type={true} data-page_type="festival_recruitment" data-page_id={item.id} title="삭제하기">{xMark}</span>
+                                </div>
                             )
                         })
                     }
                 </div>
             </div>
-
-            <button className={`${styles.button} ${!state ? styles.uploading : ""}`} type="submit">{update}</button>
         </form>
     )
 }

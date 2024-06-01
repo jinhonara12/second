@@ -33,9 +33,9 @@ export async function POST(req) {
 
         const updatedFest = [];
 
-        if (type === false) {
+        if (JSON.parse(type) === false) {
             updatedFest.push(...currentFest, { "id": page_id });
-        } else if (type === true) {
+        } else if (JSON.parse(type) === true) {
             updatedFest.push(...currentFest.filter(i => i.id !== page_id));
         }
 
