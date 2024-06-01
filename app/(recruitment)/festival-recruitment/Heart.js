@@ -1,5 +1,5 @@
 'use client'
-import { SessionProvider, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 function IsLoggined({ id, page: festArray, user_id }) {
@@ -59,8 +59,6 @@ function IsLoggined({ id, page: festArray, user_id }) {
 
 export default function Heart({ id, page, user_id }) {
     return (
-        <SessionProvider>
-            <IsLoggined id={id} page={page} user_id={user_id} />
-        </SessionProvider>
+        <IsLoggined id={id} page={page} user_id={user_id} />
     );
 }

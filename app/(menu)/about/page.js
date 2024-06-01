@@ -4,6 +4,7 @@ import Loading from '../../(component)/Loading';
 
 export const metadata = {
     title: "소개",
+    description: "데일리스윙은 스윙댄스 커뮤니티 사이트로 다양한 정보와 스윙과 관련된 정보를 제공합니다."
 };
 
 export default function About() {

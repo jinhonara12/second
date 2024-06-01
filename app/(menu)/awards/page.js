@@ -2,6 +2,11 @@ import styles from './page.module.scss';
 import fetchAwards from '../../lib/database/awards';
 import AwardsList from './awardsList';
 
+export const metadata = {
+    title: "수상",
+    description: "각종 스윙댄스 대회 수상자 리스트입니다."
+};
+
 export default async function page() {
     const response = await fetchAwards();
 
