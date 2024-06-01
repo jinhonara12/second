@@ -15,12 +15,12 @@ function LoginCheck() {
             <Link href="/mypage">my page</Link>
             <button onClick={() => {
                 signOut()
-            }}><img src="/icons/kakao.png" />logout</button>
+            }}><img src="/icons/kakao.png" alt="카카오 로그아웃 이미지" />logout</button>
         </>
     } else {
         return <button onClick={() => {
             signIn("kakao")
-        }}><img src="/icons/kakao.png" /> login</button>
+        }}><img src="/icons/kakao.png" alt="카카오 로그인 이미지" /> login</button>
     }
 }
 

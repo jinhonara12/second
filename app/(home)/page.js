@@ -8,12 +8,10 @@ function WeeklyNews({ className }) {
   return (
     <div className={className}>
       <div>
-        <h4>weekly news</h4>
+        <h2>weekly news</h2>
         <span>- 7일 이내 모집 마감 게시글</span>
       </div>
-      <ul>
-        <NewsData type="weekly" />
-      </ul>
+      <NewsData type="weekly" />
     </div>
   )
 }
@@ -22,12 +20,10 @@ function RecentlyNews({ className }) {
   return (
     <div className={className}>
       <div>
-        <h4>recently news</h4>
+        <h2>recently news</h2>
         <span>- 최근 업로드 게시글</span>
       </div>
-      <ul>
-        <NewsData type="recent" />
-      </ul>
+      <NewsData type="recent" />
     </div>
   )
 }

@@ -69,11 +69,11 @@ export default async function NewsData({ type }) {
                                     <span className={styles.date}>{item.start_date} {item.end_date ? ` - ${item.end_date}` : ""}</span>
                                 </div>
                                 <div className={styles.middle_2}>
-                                    {type === "행사" && <Link href={`festival-recruitment/${item.page_id}?name=${item.name}`}>자세히 보기<img src="/icons/link_24px.png" /></Link>}
-                                    {type === "대회" && <Link href={`event-recruitment/${item.page_id}?name=${item.name}`}>자세히 보기<img src="/icons/link_24px.png" /></Link>}
-                                    {item.home && <a href={item.home} title={item.name} target="_blank">공식홈페이지<img src="/icons/link_24px.png" /></a>}
-                                    {item.url && <a href={item.url} title={item.name} target="_blank">신청링크<img src="/icons/link_24px.png" /></a>}
-                                    {item.check_url && <a href={item.check_url} title={item.name} target="_blank">확인링크<img src="/icons/link_24px.png" /></a>}
+                                    {type === "행사" && <Link href={`festival-recruitment/${item.page_id}?name=${item.name}`}>자세히 보기<img src="/icons/link_24px.png" alt="바로가기 링크 아이콘" /></Link>}
+                                    {type === "대회" && <Link href={`event-recruitment/${item.page_id}?name=${item.name}`}>자세히 보기<img src="/icons/link_24px.png" alt="바로가기 링크 아이콘" /></Link>}
+                                    {item.home && <a href={item.home} title={item.name} target="_blank">공식홈페이지<img src="/icons/link_24px.png" alt="바로가기 링크 아이콘" /></a>}
+                                    {item.url && <a href={item.url} title={item.name} target="_blank">신청링크<img src="/icons/link_24px.png" alt="바로가기 링크 아이콘" /></a>}
+                                    {item.check_url && <a href={item.check_url} title={item.name} target="_blank">확인링크<img src="/icons/link_24px.png" alt="바로가기 링크 아이콘" /></a>}
                                 </div>
                             </div>
                             <div className={styles.bottom}>
