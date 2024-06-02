@@ -35,6 +35,7 @@
             .detail_text_box {
                 display: flex;
                 flex-direction: column;
+                align-items: flex-start;
                 row-gap: .5rem;
 
                 .detail_text {

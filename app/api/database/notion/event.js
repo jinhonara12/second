@@ -4,20 +4,21 @@ import styles from '../../../(recruitment)/event-recruitment/[id]/page.module.sc
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export default async function event(id) {
-    const databaseId = process.env.NOTION_EVENT_RECURITMENT;
     const blockId = id;
 
 
     const title = (await notion.blocks.retrieve({ block_id: blockId })).child_page.title;
     // Get block children
     const response = await notion.blocks.children.list({ block_id: blockId });
-    const data = response.results
+    const data = response.results;
+
 
     // Extract main image URL
     const mainImgUrl = data.find(item => item.type === "image")?.image.file.url || '';
 
     // Filter and process text blocks
-    const textBlocks = data.filter(item => ["heading_3", "bulleted_list_item", "numbered_list_item"].includes(item.type));
+    const textBlocks = data.filter(item => ["heading_3", "bulleted_list_item", "numbered_list_item", "callout"].includes(item.type));
+
 
     const pairedTextBlocks = textBlocks.reduce((acc, currentItem, i, arr) => {
         if (currentItem.type === "heading_3") {
@@ -25,11 +26,13 @@ export default async function event(id) {
             const textArray = [];
             let nextItem = arr[i + 1];
 
-            while (nextItem && (nextItem.type === "bulleted_list_item" || nextItem.type === "numbered_list_item")) {
+            while (nextItem && (nextItem.type === "bulleted_list_item" || nextItem.type === "numbered_list_item" || nextItem.type === "callout")) {
                 if (nextItem.type === "bulleted_list_item") {
                     textArray.push(nextItem.bulleted_list_item.rich_text.map(text => text.plain_text).join(""));
                 } else if (nextItem.type === "numbered_list_item") {
                     textArray.push(nextItem.numbered_list_item.rich_text.map(text => text.plain_text).join(""));
+                } else if (nextItem.type === "callout") {
+                    textArray.push(nextItem.callout.rich_text.map(text => text.plain_text).join(""));
                 }
                 i++;
                 nextItem = arr[i + 1];

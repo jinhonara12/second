@@ -42,7 +42,7 @@ async function getData(filterCondition) {
 export default async function NewsData({ type }) {
     const filterCondition = type === 'recent' ? filterRecentData : filterWeeklyData;
     const sortedData = await getData(filterCondition);
-    const repeatCount = type === 'recent' ? 5 : 10;
+    const repeatCount = type === 'recent' ? 5 : 5;
 
     if (sortedData.length > 0) {
         return (

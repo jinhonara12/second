@@ -2,7 +2,6 @@ import { Client } from '@notionhq/client';
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const databaseId = process.env.NOTION_MEMBER;
-
 export default async function fetchData(kakao_id) {
     try {
         const response = await notion.databases.query({
@@ -38,7 +37,6 @@ export default async function fetchData(kakao_id) {
             clubArray: createTitleArray(properties.club_name.rollup.array),
             teamMemberArray: createTitleArray(properties.team_name.rollup.array),
         };
-
         return data;
 
     } catch (error) {

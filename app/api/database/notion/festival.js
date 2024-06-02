@@ -4,9 +4,7 @@ import styles from '../../../(recruitment)/festival-recruitment/[id]/page.module
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export default async function festival(id) {
-    const databaseId = process.env.NOTION_EVENT_RECURITMENT;
     const blockId = id;
-
 
     const title = (await notion.blocks.retrieve({ block_id: blockId })).child_page.title;
     // Get block children
@@ -25,11 +23,13 @@ export default async function festival(id) {
             const textArray = [];
             let nextItem = arr[i + 1];
 
-            while (nextItem && (nextItem.type === "bulleted_list_item" || nextItem.type === "numbered_list_item")) {
+            while (nextItem && (nextItem.type === "bulleted_list_item" || nextItem.type === "numbered_list_item" || nextItem.type === "callout")) {
                 if (nextItem.type === "bulleted_list_item") {
                     textArray.push(nextItem.bulleted_list_item.rich_text.map(text => text.plain_text).join(""));
                 } else if (nextItem.type === "numbered_list_item") {
                     textArray.push(nextItem.numbered_list_item.rich_text.map(text => text.plain_text).join(""));
+                } else if (nextItem.type === "callout") {
+                    textArray.push(nextItem.callout.rich_text.map(text => text.plain_text).join(""));
                 }
                 i++;
                 nextItem = arr[i + 1];
