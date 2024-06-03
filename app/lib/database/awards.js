@@ -1,5 +1,4 @@
 import { Client } from '@notionhq/client';
-import KoreaTime from '../../(component)/KoreaTime';
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 
