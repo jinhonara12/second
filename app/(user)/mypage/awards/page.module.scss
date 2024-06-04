@@ -31,11 +31,26 @@
 
     .awards_list__head {
         border: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
 
         span {
             font-size: .9rem;
-            font-weight: bold;
             word-break: keep-all;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            column-gap: 0.2rem;
+            cursor: pointer;
+
+            img {
+                width: 0.7rem;
+                height: 0.7rem;
+                opacity: .9;
+                cursor: initial;
+            }
         }
     }
 

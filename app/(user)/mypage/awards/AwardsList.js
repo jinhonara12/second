@@ -5,8 +5,35 @@ import styles from './page.module.scss';
 
 export default function AwardsList({ list }) {
     const [awards, setAwards] = useState(list);
+    const [sortConfig, setSortConfig] = useState({});
     const [state, setState] = useState(true);
     const [deletingIds, setDeletingIds] = useState([]);
+
+    function sorting(e) {
+        const sortKey = e.target.dataset.sort;
+        let direction = 'ascending';
+
+        // 열의 정렬 상태를 토글합니다.
+        if (sortConfig[sortKey] === 'ascending') {
+            direction = 'descending';
+        }
+
+        // 현재 열의 정렬 상태를 업데이트합니다.
+        setSortConfig({
+            ...sortConfig,
+            [sortKey]: direction
+        });
+
+        setAwards((prevList) => {
+            const sortedList = [...prevList].sort((a, b) => {
+                if (a[sortKey] < b[sortKey]) return direction === 'ascending' ? -1 : 1;
+                if (a[sortKey] > b[sortKey]) return direction === 'ascending' ? 1 : -1;
+                return 0;
+            });
+            return sortedList;
+        });
+    }
+
     const clickDelete = async (id) => {
         setDeletingIds(prev => [...prev, id]);
         const formData = {
@@ -59,12 +86,12 @@ export default function AwardsList({ list }) {
             ) : (
                 <ul className={styles.awards_list}>
                     <li className={`${styles.awards_list__head} ${styles.pc}`}>
-                        <span>대회명</span>
-                        <span>대회일자</span>
-                        <span>부문-1</span>
-                        <span>부문-2</span>
-                        <span>결과</span>
-                        <span>수정</span>
+                        <span data-sort="name" onClick={sorting}>대회명<img src="/icons/sorting.svg" /> </span>
+                        <span data-sort="start_date" onClick={sorting}>대회일자<img src="/icons/sorting.svg" /> </span>
+                        <span data-sort="level" onClick={sorting}>부문-1<img src="/icons/sorting.svg" /> </span>
+                        <span data-sort="division" onClick={sorting}>부문-2<img src="/icons/sorting.svg" /> </span>
+                        <span data-sort="result" onClick={sorting}>결과<img src="/icons/sorting.svg" /> </span>
+                        <span >수정</span>
                     </li>
 
                     {awards.map((award, index) => (
