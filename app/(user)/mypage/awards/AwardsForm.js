@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { useState } from 'react';
 import getEventData from '../../../lib/static_database/event';
 import styles from './awardForm.module.scss';
@@ -76,8 +77,9 @@ export default function awardsForm({ data }) {
     return (
         <form onSubmit={handleSubmit} className={styles.event__form}>
             <div className={styles.inform}>
-                <span>등록된 수상 내역은 수상리스트에 전체공개 됩니다.</span>
-                <span className={styles.google_form}>수상 등록하시길 원하는 대회가 없으시다면, <a href="https://forms.gle/wftQnqtMKK1VVCq96" target="_blank">여기</a>에 알려주세요.</span>
+                <span className={styles.google_form}>- 찾으시는 대회가 없으시다면, <a href="https://forms.gle/wftQnqtMKK1VVCq96" target="_blank">링크</a>를 클릭해주세요.</span>
+                <span>- 등록된 수상 내역은 <a href="/awards" target="_blank">수상리스트</a>에 공개 됩니다.</span>
+                <span>- 아래 항목을 모두 선택해주시고 [UPDATE]를 눌러주세요.</span>
             </div>
             <div className={`${styles.event_list} ${styles.event_wrap}`}>
                 <h3>event</h3>
