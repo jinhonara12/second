@@ -1,9 +1,0 @@
-{
-    "buildCommand": "next build",
-    "crons": [
-        {
-            "path": "/app/api/schedule/update_notion_data",
-            "schedule": "0-59 * * * * *"
-        }
-    ]
-}
