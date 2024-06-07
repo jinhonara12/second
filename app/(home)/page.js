@@ -51,7 +51,6 @@ function MainNews({ className }) {
 }
 
 export default function Home() {
-  console.log('home')
   return (
     <main className={styles.main}>
       <div className={styles.sorted_news}>
