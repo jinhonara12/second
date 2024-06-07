@@ -1,33 +1,34 @@
 require('dotenv').config();
+const { Client } = require('@notionhq/client');
+const fs = require('fs');
 const clubFetch = require('../../lib/static_database/club');
 const teamFetch = require('../../lib/static_database/team');
+
 const KDate = function (utcDateString) {
     const date = new Date(utcDateString);
-
     const kstOffset = 9 * 60 * 60 * 1000; // 9 hours in milliseconds
     const kstDate = new Date(date.getTime() + kstOffset);
-
     return kstDate;
 }
-const { Client } = require('@notionhq/client');
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-const fs = require('fs');
+const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 function writeJson(data, fileName) {
     const basePath = "./app/lib/static_database";
-    fs.writeFileSync(`${basePath}/${fileName}.json`, JSON.stringify(data))
+    fs.writeFileSync(`${basePath}/${fileName}.json`, JSON.stringify(data));
 }
 
-barFetch();
-clubData();
-teamData();
-eventData();
-recruitmentClassData();
-recruitmentTeamData();
-recruitmentWorkShopData();
-recruitmentEventData();
-recruitmentFestivalData();
+async function fetchData() {
+    await barFetch();
+    await clubData();
+    await teamData();
+    await eventData();
+    await recruitmentClassData();
+    await recruitmentTeamData();
+    await recruitmentWorkShopData();
+    await recruitmentEventData();
+    await recruitmentFestivalData();
+}
 
 async function barFetch() {
     const databaseId = process.env.NOTION_BAR;
@@ -424,3 +425,15 @@ async function recruitmentFestivalData() {
     }
 
 }
+
+export async function GET(request) {
+    try {
+        await fetchData();
+        // res.status(200).json({ message: 'Data fetched and written successfully' });
+        return Response.json(true)
+    } catch (error) {
+        // console.error('Error fetching data:', error);
+        // res.status(500).json({ message: 'Error fetching data', error });
+    }
+}
+
