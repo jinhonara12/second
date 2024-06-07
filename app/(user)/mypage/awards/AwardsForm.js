@@ -1,7 +1,6 @@
 'use client';
-import Link from 'next/link';
 import { useState } from 'react';
-import getEventData from '../../../lib/static_database/event';
+import getEventData from '../../../lib/static_database/eventForAwards';
 import styles from './awardForm.module.scss';
 
 export default function awardsForm({ data }) {
@@ -83,21 +82,6 @@ export default function awardsForm({ data }) {
             </div>
             <div className={`${styles.event_list} ${styles.event_wrap}`}>
                 <h3>event</h3>
-                {/* <div className={`${styles.double_label_wrap} ${styles.pc}`}>
-                    {Object.keys(eventGroup).map((year) => (
-                        <div className={styles.event_year} key={year}>
-                            <span className={styles.year__text}>{year}</span>
-                            <div className={styles.event_year__list}>
-                                {eventGroup[year].map((award) => (
-                                    <label key={award.page_id} className={`${styles.label} ${eventId === award.page_id ? styles.checked : ''}`}>
-                                        {award.name}
-                                        <input className={styles.pc} hidden onChange={clickInputRadio} type="radio" value={award.page_id} name="event" required />
-                                    </label>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div> */}
                 <div className={`${styles.select}`}>
                     <select onChange={clickInputRadio} name="event" required>
                         <option value="">Select an event ⬇️</option>
