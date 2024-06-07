@@ -49,7 +49,7 @@ function MainNews({ className }) {
     </div >
   )
 }
-
+// dfdfdf
 export default function Home() {
   return (
     <main className={styles.main}>
