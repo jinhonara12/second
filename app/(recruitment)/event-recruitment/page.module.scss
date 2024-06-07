@@ -6,6 +6,9 @@
     padding-right: 15px;
     padding-bottom: 100px;
     flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
 
     .section {
 

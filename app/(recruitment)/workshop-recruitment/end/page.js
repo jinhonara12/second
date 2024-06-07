@@ -1,14 +1,13 @@
-import fetch from '../../lib/database/workshop-recuritment';
-import styles from './page.module.scss';
-import End from "../endPage";
+import response from '../../../lib/static_database/workShopRecruitment';
+import styles from '../page.module.scss';
+import End from "../../endPage";
 
 export const metadata = {
-    title: "워크샵 모집",
-    description: "스윙댄스 워크샵 모집 리스트입니다."
+    title: "종료된 워크샵 모집",
+    description: "스윙댄스 종료된 워크샵 모집 리스트입니다."
 };
 
 export default async function page() {
-    const response = await fetch();
 
     return (
         <main className={styles.main}>

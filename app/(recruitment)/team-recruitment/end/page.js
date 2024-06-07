@@ -1,14 +1,13 @@
-import fetch from "../../lib/database/team-recuritment";
-import styles from "./page.module.scss";
-import End from "../endPage";
+import response from "../../../lib/static_database/teamRecruitment";
+import styles from "../page.module.scss";
+import End from "../../endPage";
 
 export const metadata = {
-    title: "팀 모집",
-    description: "스윙댄스 팀 모집 리스트입니다."
+    title: "종료된 팀 모집",
+    description: "스윙댄스 종료된 팀 모집 리스트입니다."
 };
 
 export default async function page() {
-    const response = await fetch();
 
     return (
         <main className={styles.main}>
@@ -37,9 +36,9 @@ export default async function page() {
                                             {list.end_date ? <><span>-</span><span>{list.end_date}</span></> : ""}
                                         </div>
                                     </div>
-                                    <div className={styles.link}>
+                                    {/* <div className={styles.link}>
                                         {list.url ? <a href={list.url} target='_blank'>신청링크 <img src="/icons/link_24px.png" /></a> : <span>링크 미작성</span>}
-                                    </div>
+                                    </div> */}
                                     <div className={styles.created_date}>
                                         <span>작성일 | {list.created_time.split('T')[0]}</span>
                                         <span>수정일 | {list.last_modified_time.split('T')[0]}</span>

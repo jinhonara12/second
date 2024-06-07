@@ -1,0 +1,14 @@
+.path {
+    display: flex;
+    column-gap: 1.5rem;
+
+
+    a {
+        font-size: .9rem;
+
+    }
+
+    a.active {
+        color: tomato;
+    }
+}

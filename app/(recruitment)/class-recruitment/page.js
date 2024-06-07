@@ -1,5 +1,6 @@
 import fetch from "../../lib/database/class-recuritment";
 import styles from "./page.module.scss";
+import End from "../endPage";
 
 export const metadata = {
     title: "강습 모집",
@@ -11,6 +12,7 @@ export default async function page() {
 
     return (
         <main className={styles.main}>
+            <End path="class-recruitment" />
             <section>
                 <ul className={styles.list_box}>
                     {response.map((list, index) => {

@@ -3,6 +3,7 @@ import styles from './page.module.scss';
 import getUserHeart from '../../(user)/mypage/getUserHeart';
 import Heart from './Heart';
 import Session from './Session';
+import End from "../endPage";
 
 export const metadata = {
     title: "대회 모집",
@@ -16,6 +17,7 @@ export default async function page() {
     return (
         <Session>
             <main className={styles.main}>
+                <End path="event-recruitment" />
                 <section className={styles.section}>
                     <ul className={styles.list_box}>
                         {response.map((list, index) => {
