@@ -427,8 +427,6 @@ async function recruitmentFestivalData() {
 }
 
 export async function GET(req, res) {
-
-
     try {
         await fetchData();
         const data = await recruitmentEventData()
