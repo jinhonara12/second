@@ -23,8 +23,7 @@ jobs:
 
       - name: Run fetchData API
         run: |
-          # Next.js의 API 라우트를 호출하여 데이터를 가져옴
-          curl -X GET https://www.daily-swing.com/api/schedule
+          curl -H "User-Agent: GitHub-Actions" -X GET https://www.daily-swing.com/api/schedule
 
       - name: Commit changes
         run: |
