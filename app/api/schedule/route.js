@@ -427,7 +427,7 @@ async function recruitmentFestivalData() {
 }
 
 export async function GET(res) {
-    const data = await barFetch()
+    const data = await recruitmentEventData()
 
     try {
         await fetchData();
