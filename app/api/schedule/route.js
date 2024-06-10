@@ -426,16 +426,15 @@ async function recruitmentFestivalData() {
 
 }
 
-console.log('schedule 실행')
+export async function GET(res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET');
 
-export async function GET(request) {
     try {
         await fetchData();
-        // res.status(200).json({ message: 'Data fetched and written successfully' });
         return Response.json(true)
     } catch (error) {
-        // console.error('Error fetching data:', error);
-        // res.status(500).json({ message: 'Error fetching data', error });
+        return Response.json(false)
     }
 }
 
