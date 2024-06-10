@@ -19,15 +19,15 @@ function writeJson(data, fileName) {
 }
 
 async function fetchData() {
-    await barFetch();
-    await clubData();
-    await teamData();
-    await eventData();
-    await recruitmentClassData();
-    await recruitmentTeamData();
-    await recruitmentWorkShopData();
-    await recruitmentEventData();
-    await recruitmentFestivalData();
+    // await barFetch();
+    // await clubData();
+    // await teamData();
+    // await eventData();
+    // await recruitmentClassData();
+    // await recruitmentTeamData();
+    // await recruitmentWorkShopData();
+    // await recruitmentEventData();
+    // await recruitmentFestivalData();
 }
 
 async function barFetch() {
@@ -428,10 +428,11 @@ async function recruitmentFestivalData() {
 
 export async function GET(req, res) {
 
+
     try {
         await fetchData();
         const data = await recruitmentEventData()
-        return Response.json(data)
+        return Response.json(new Date())
     } catch (error) {
         return Response.json(false)
     }
