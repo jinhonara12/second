@@ -426,6 +426,8 @@ async function recruitmentFestivalData() {
 
 }
 
+console.log('schedule 실행')
+
 export async function GET(request) {
     try {
         await fetchData();
