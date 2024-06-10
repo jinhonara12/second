@@ -427,12 +427,11 @@ async function recruitmentFestivalData() {
 }
 
 export async function GET(res) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET');
+    const data = await barFetch()
 
     try {
         await fetchData();
-        return Response.json(true)
+        return Response.json(data)
     } catch (error) {
         return Response.json(false)
     }
