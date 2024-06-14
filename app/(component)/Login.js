@@ -18,9 +18,12 @@ function LoginCheck() {
             }}><img src="/icons/kakao.png" alt="카카오 로그아웃 이미지" />logout</button>
         </>
     } else {
-        return <button onClick={() => {
-            signIn("kakao")
-        }}><img src="/icons/kakao.png" alt="카카오 로그인 이미지" /> login</button>
+        return <>
+            <Link href="/join">join</Link>
+            <button onClick={() => {
+                signIn("kakao")
+            }}><img src="/icons/kakao.png" alt="카카오 로그인 이미지" /> login</button>
+        </>
     }
 }
 

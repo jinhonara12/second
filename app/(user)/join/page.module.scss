@@ -1,0 +1,91 @@
+@use '../../mixins';
+@import '../../variable';
+
+.join {
+    padding: 15px 0;
+    padding-right: 15px;
+    padding-bottom: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+
+    .terms {
+        .textarea {
+            background-color: #f4f4ec;
+            padding: 1.5rem;
+            white-space: pre-line;
+            user-select: none;
+            resize: none;
+            border: #ddd 1px solid;
+            font-size: .9rem;
+            box-sizing: border-box;
+            width: 100%;
+            height: 300px;
+            overflow: auto;
+        }
+
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 2rem;
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: .5rem;
+
+            p {
+                font-size: .9rem;
+                font-weight: bold;
+                text-align: center;
+                word-break: keep-all;
+            }
+        }
+
+        .login {
+            button {
+                cursor: pointer;
+                padding: .3rem;
+                display: flex;
+                align-items: center;
+                column-gap: .5rem;
+                background-color: #FEE500;
+                font-size: 1rem;
+
+                img {
+                    width: 1rem;
+                    height: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@include mixins.respond-to($breakpoint-large) {
+    .join {
+        padding: 15px 3rem;
+        padding-bottom: 100px;
+    }
+}
+
+@include mixins.respond-to($breakpoint-small) {
+    .join {
+        padding: 15px 1rem;
+        padding-bottom: 50px;
+
+        .info {
+            .text {
+                p {
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}

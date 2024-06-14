@@ -1,5 +1,5 @@
 import { COMPILER_NAMES } from 'next/dist/shared/lib/constants';
-export default async function makeNotionData({ id, name }) {
+export default async function checkNotionData({ id, name }) {
     const { Client } = require('@notionhq/client');
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
     (async () => {
