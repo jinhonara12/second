@@ -103,7 +103,7 @@ export default function awardsForm({ data }) {
             <div className={`${styles.event_level} ${styles.event_wrap}`}>
                 <h3>level</h3>
                 <div className={styles.label_wrap}>
-                    {['Rookie', 'Super Rookie', 'Open', 'Advanced', 'All Star', 'All Level'].map((lvl) => (
+                    {['Rookie', 'Super Rookie', 'Open', 'Advanced', 'All Star', 'Invitational', 'All Level'].map((lvl) => (
                         <label key={lvl} className={`${styles.label} ${level === lvl ? styles.checked : ''}`}>
                             {lvl}
                             <input onChange={clickInputRadio} required hidden type="radio" value={lvl} name="level" />
