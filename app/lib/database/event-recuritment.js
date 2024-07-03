@@ -36,7 +36,7 @@ export default async function fetchData() {
                 member_heart_count: page.properties.member_heart_count.formula.number,
                 awards: page.properties.awards.relation,
                 member_heart: page.properties.member_heart.relation,
-                photo: page.properties.photo.files[0] && page.properties.photo.files[0].file.url,
+                photo: page.properties.photo.files[0] && `${process.env.NOTION_SITE}/image/${encodeURIComponent(page.properties.photo.files[0].file.url)}?cache=v2&table=block&id=${page.id}`,
                 created_time: KDate(page.properties.created_time.created_time).toISOString(),
                 last_modified_time: KDate(page.properties.last_modified_time.last_edited_time).toISOString(),
             }
