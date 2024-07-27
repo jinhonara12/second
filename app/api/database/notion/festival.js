@@ -15,7 +15,7 @@ export default async function festival(id) {
     const mainImgUrl = data.find(item => item.type === "image")?.image.file.url || '';
 
     // Filter and process text blocks
-    const textBlocks = data.filter(item => ["heading_3", "bulleted_list_item", "numbered_list_item"].includes(item.type));
+    const textBlocks = data.filter(item => ["heading_3", "bulleted_list_item", "numbered_list_item", "callout"].includes(item.type));
 
     const pairedTextBlocks = textBlocks.reduce((acc, currentItem, i, arr) => {
         if (currentItem.type === "heading_3") {
