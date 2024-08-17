@@ -1,5 +1,5 @@
-@use '../../../mixins';
-@import '../../../variable';
+@use "../../../mixins";
+@import "../../../variable";
 
 .event__form {
     display: flex;
@@ -11,16 +11,15 @@
     user-select: none;
 
     .inform {
-        font-size: .8rem;
+        font-size: 0.8rem;
         color: #888;
         display: flex;
         flex-direction: column;
-        row-gap: .5rem;
+        row-gap: 0.5rem;
 
         .google_form {
-
-
-            a {}
+            a {
+            }
         }
     }
 
@@ -62,7 +61,7 @@
 
             select {
                 padding: 6px 8px;
-                font-size: .8rem;
+                font-size: 0.8rem;
                 color: #888;
                 border: 1px solid #888;
                 border-radius: 3px;
@@ -71,7 +70,8 @@
                 -webkit-appearance: none;
                 -moz-appearance: none;
 
-                option {}
+                option {
+                }
             }
         }
 
@@ -110,9 +110,22 @@
             border-color: #444;
         }
 
+        .label_nickname {
+            .label {
+                border: none;
+                padding: 6px 0;
+                font-size: 0.8rem;
+                color: #444;
+                cursor: initial;
+            }
+            .span {
+                font-weight: bold;
+                font-style: italic;
+            }
+        }
         .label {
             cursor: pointer;
-            font-size: .8rem;
+            font-size: 0.8rem;
             cursor: pointer;
             color: #888;
             border: 1px solid #888;
@@ -135,12 +148,12 @@
     .button {
         cursor: pointer;
         text-transform: uppercase;
-        font-size: .9rem;
+        font-size: 0.9rem;
         border: 1px solid #888;
         background-color: #ddd;
         padding: 5px 12px;
         border-radius: 30px;
-        transition: box-shadow .2s;
+        transition: box-shadow 0.2s;
 
         &:hover {
             box-shadow: 1px 1px 3px inset rgba(0, 0, 0, 30%);
@@ -152,13 +165,14 @@
     .event__form {
         .event_wrap {
             flex-direction: column;
-            row-gap: .5rem;
+            row-gap: 0.5rem;
 
             .double_label_wrap {
-                row-gap: .5rem;
+                row-gap: 0.5rem;
             }
         }
     }
 }
 
-@include mixins.respond-to($breakpoint-small) {}
+@include mixins.respond-to($breakpoint-small) {
+}
