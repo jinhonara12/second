@@ -1,7 +1,6 @@
 import { Client } from '@notionhq/client';
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-
 export default async function fetchData() {
     const databaseId = process.env.NOTION_AWARDS;
     try {
@@ -17,6 +16,7 @@ export default async function fetchData() {
         });
 
         const data = response.results.map(item => {
+            console.log(item.properties.event.relation)
             return {
                 page_id: item.id,
                 user_id: item.properties.member.relation[0].id,

@@ -90,8 +90,13 @@
                     }
 
                     h3 {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        width: 100%;
+
                         a {
-                            display: flex;
+                            display: inline;
                             text-decoration: initial;
 
                             img {

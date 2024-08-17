@@ -78,7 +78,7 @@ export default function awardsForm({ data }) {
             <div className={styles.inform}>
                 <span className={styles.google_form}>- 찾으시는 대회가 없으시다면, <a href="https://forms.gle/wftQnqtMKK1VVCq96" target="_blank">링크</a>를 클릭해주세요.</span>
                 <span>- 등록된 수상 내역은 <a href="/awards" target="_blank">수상리스트</a>에 공개 됩니다.</span>
-                <span>- 아래 항목을 모두 선택해주시고 [UPDATE]를 눌러주세요.</span>
+                <span>- 아래 항목을 모두 선택 ✅ 해주시고 [UPDATE]를 눌러주세요.</span>
             </div>
             <div className={`${styles.event_list} ${styles.event_wrap}`}>
                 <h3>event</h3>

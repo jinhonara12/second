@@ -32,7 +32,7 @@ export default async function page() {
 
                                     <div className={styles.title_box}>
                                         <span>{list.year}</span>
-                                        <h3><a href={`/event-recruitment/${list.page_id}?name=${list.name}&year=${list.year}`}>{list.name} <img src="/icons/link_24px.png" /></a></h3>
+                                        <h3>{list.name}</h3>
                                     </div>
                                     <div className={styles.date}>
                                         <div className={styles.dday}>
@@ -44,6 +44,7 @@ export default async function page() {
                                         </div>
                                     </div>
                                     <div className={styles.link}>
+                                        <a href={`/event-recruitment/${list.page_id}?name=${list.name}&year=${list.year}`}>상세페이지 <img src="/icons/link_24px.png" /></a>
                                         {list.home ? <a href={list.home} target='_blank'>홈페이지 <img src="/icons/link_24px.png" /></a> : ""}
                                         {list.url ? <a href={list.url} target='_blank'>신청링크 <img src="/icons/link_24px.png" /></a> : ""}
                                         {list.check_url ? <a href={list.check_url} target='_blank'>확인링크 <img src="/icons/link_24px.png" /></a> : ""}
