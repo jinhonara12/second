@@ -1,10 +1,10 @@
-import { Client } from '@notionhq/client';
-import teamData from '../static_database/team';
-import KDate from '../../(component)/KoreaTime';
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
+import { Client } from "@notionhq/client"
+import teamData from "../static_database/team"
+import KDate from "../../(component)/KoreaTime"
+const notion = new Client({ auth: process.env.NOTION_API_KEY })
 
 export default async function fetchData() {
-    const databaseId = process.env.NOTION_TEAM_RECURITMENT;
+    const databaseId = process.env.NOTION_TEAM_RECURITMENT
 
     try {
         const response = await notion.databases.query({
@@ -12,20 +12,20 @@ export default async function fetchData() {
             filter: {
                 property: "dday",
                 rich_text: {
-                    "does_not_contain": "종료"
-                }
+                    does_not_contain: "종료",
+                },
             },
             sorts: [
                 {
                     property: "date",
-                    direction: "ascending"
-                }
+                    direction: "ascending",
+                },
             ],
         })
 
-        const data = response.results.map(page => {
+        const data = response.results.map((page) => {
             const teamId = page.properties.team.relation[0] ? page.properties.team.relation[0].id : null
-            const team = teamData.find(team => team.page_id === teamId)
+            const team = teamData.find((team) => team.page_id === teamId)
             const teamName = team ? team.name : "TEAM"
 
             return {
@@ -66,10 +66,9 @@ export default async function fetchData() {
         //         last_modified_time: page.properties.last_modified_time.last_edited_time,
         //     }
         // }))
-        return data;
+        return data
     } catch (error) {
-        console.error("team-recuritment data error");
-        throw error;
+        console.error("team-recuritment data error")
+        throw error
     }
-
 }
