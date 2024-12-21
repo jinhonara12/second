@@ -1,15 +1,16 @@
-'use client'
-import styles from './page.module.scss';
-import { signOut, SessionProvider, signIn, useSession } from "next-auth/react";
-import { useRouter } from 'next/navigation';
+"use client"
+import styles from "./page.module.scss"
+import { signOut, SessionProvider, signIn, useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 function Join() {
     const { data: session, status } = useSession()
-    if (status === 'unauthenticated') {
+    if (status === "unauthenticated") {
         return (
             <div className={styles.join}>
                 <div className={styles.terms}>
-                    <div className={styles.textarea}>{`개인정보 수집 및 이용에 대한 동의
+                    <div className={styles.textarea}>
+                        {`개인정보 수집 및 이용에 대한 동의
                 
                 데일리스윙은 개인정보 보호에 대한 중요성을 인식하고 있으며, 개인정보 보호법을 준수하고 있습니다. 본 약관은 데일리스윙이 수집하는 개인정보와 그 이용 목적, 보유 기간 등에 대해 설명합니다.
 
@@ -42,7 +43,7 @@ function Join() {
                 6. 이용자의 권리와 행사 방법
                 이용자는 언제든지 자신의 개인정보를 조회하거나 수정할 수 있습니다. 또한, 개인정보 수집 및 이용에 대한 동의를 철회할 수 있습니다.
                 - 개인정보 조회/수정: 마이페이지에서 직접 조회 및 수정
-                - 동의 철회: 문의링크를 통해 문의 요청
+                - 동의 철회: 문의 링크를 통해 문의 요청
                 
                 7. 개인정보 보호책임자 및 문의
                 개인정보 보호와 관련된 문의는 아래의 연락처로 해주시기 바랍니다:
@@ -54,27 +55,30 @@ function Join() {
                 </div>
                 <div className={styles.info}>
                     <div className={styles.text}>
-                        <p>회원 가입은 카카오 로그인을 통해서 카카오 계정으로 가입됩니다.</p>
+                        <p>회원 가입은 카카오 로그인을 통해서 카카오 계정으로 자동 가입 등록됩니다.</p>
                         <p>추가 회원정보는 카카오 계정으로 로그인 후 마이페이지에서 변경 가능합니다.</p>
                         <p>하단 버튼을 클릭하면 개인정보 수집 및 이용 약관에 동의한 것으로 간주됩니다.</p>
                     </div>
                     <div className={styles.login}>
-                        <button onClick={() => {
-                            signIn("kakao")
-                        }}><img src="/icons/kakao.png" alt="카카오 로그인 이미지" />login with kakao</button>
+                        <button
+                            onClick={() => {
+                                signIn("kakao")
+                            }}
+                        >
+                            <img src="/icons/kakao.png" alt="카카오 로그인 이미지" />
+                            login with kakao
+                        </button>
                     </div>
                 </div>
             </div>
         )
     } else if (status === "authenticated") {
-        const router = useRouter();
-        router.push('/')
+        const router = useRouter()
+        router.push("/")
     }
-
 }
 
 export default function page() {
-
     return (
         <SessionProvider>
             <Join />

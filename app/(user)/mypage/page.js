@@ -53,6 +53,13 @@ export default async function MyPage() {
                             </div>
                             <Link href="/mypage/awards">awards <img src="/icons/link_24px.png" /></Link>
                         </div>
+                        <div className={styles.quit}>
+                            <div className={styles.text}>
+                                <p className={styles.title}>회원 탈퇴</p>
+                                <span>- 데일리스윙에서 회원탈퇴 합니다.</span>
+                            </div>
+                            <Link href="/mypage/quit">quit <img src="/icons/link_24px.png" /></Link>
+                        </div>
                     </div>
 
 
