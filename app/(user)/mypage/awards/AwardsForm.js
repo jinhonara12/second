@@ -164,6 +164,7 @@ export default function awardsForm({ data }) {
                         "M&M",
                         "Strictly",
                         "Couple Routine",
+                        "Classic Routine",
                         "Solo Jazz",
                         "Duo Jazz",
                         "Trio Challenge",
