@@ -1,14 +1,14 @@
-import styles from './page.module.scss';
-import fetchAwards from '../../lib/database/awards';
-import AwardsList from './awardsList';
+import styles from "./page.module.scss"
+import fetchAwards from "../../lib/database/awards"
+import AwardsList from "./awardsList"
 
 export const metadata = {
     title: "수상",
-    description: "각종 스윙댄스 대회 수상자 리스트입니다."
-};
+    description: "각종 스윙댄스 대회 수상자 리스트입니다.",
+}
 
 export default async function page() {
-    const response = await fetchAwards();
+    const response = await fetchAwards()
 
     return (
         <main className={styles.main}>
@@ -25,7 +25,10 @@ export default async function page() {
                 <div className={styles.caution}>
                     <p>⚠️ 주의사항</p>
                     <div>
-                        <p>- Fake News 🔎 : 대회 종료 후 실제 수상 결과와 다른 데이터가 등록되어 있는 경우 해당 데이터는 삭제될 수 있습니다.</p>
+                        <p>
+                            - Fake News 🔎 : 대회 종료 후 실제 수상 결과와 다른 데이터가 등록되어 있는 경우 해당
+                            데이터는 삭제될 수 있습니다.
+                        </p>
                     </div>
                 </div>
             </div>

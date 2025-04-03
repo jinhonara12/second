@@ -350,6 +350,7 @@ async function eventAwardsData() {
                 year: page.properties.year.formula.number,
                 name: page.properties.name.title[0].text.content,
                 start_date: page.properties.date.date.start,
+                month: page.properties.date.date.start.split("-")[1],
                 end_date: page.properties.date.date.end,
                 awards: page.properties.awards.relation,
             }

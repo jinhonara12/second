@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+import { type } from "os"
 import { useState } from "react"
 import getEventData from "../../../lib/static_database/eventForAwards"
 import styles from "./awardForm.module.scss"
@@ -121,19 +122,21 @@ export default function awardsForm({ data }) {
                 <div className={`${styles.select}`}>
                     <select onChange={clickInputRadio} name="event" required>
                         <option value="">Select an event ⬇️</option>
-                        {Object.keys(eventGroup).map((year) => (
-                            <optgroup key={year} label={year}>
-                                {eventGroup[year].map((award) => (
-                                    <option
-                                        key={award.page_id}
-                                        value={award.page_id}
-                                        className={`${eventId === award.page_id ? styles.checked : ""}`}
-                                    >
-                                        {award.name}
-                                    </option>
-                                ))}
-                            </optgroup>
-                        ))}
+                        {Object.keys(eventGroup)
+                            .sort((a, b) => b - a)
+                            .map((year) => (
+                                <optgroup key={year} label={year}>
+                                    {eventGroup[year].map((award) => (
+                                        <option
+                                            key={award.page_id}
+                                            value={award.page_id}
+                                            className={`${eventId === award.page_id ? styles.checked : ""}`}
+                                        >
+                                            {`${award.month}월 | ${award.name}`}
+                                        </option>
+                                    ))}
+                                </optgroup>
+                            ))}
                     </select>
                 </div>
             </div>
