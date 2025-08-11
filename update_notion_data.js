@@ -110,6 +110,12 @@ async function teamData() {
     try {
         const response = await notion.databases.query({
             database_id: databaseId,
+            sorts: [
+                {
+                    property: "name`",
+                    direction: "descending",
+                },
+            ],
         })
         const data = await Promise.all(
             response.results.map(async (page) => {
