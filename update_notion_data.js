@@ -18,11 +18,17 @@ function writeJson(data, fileName) {
     fs.writeFileSync(`${basePath}/${fileName}.json`, JSON.stringify(data))
 }
 
-async function barFetch() {
+async function barData() {
     const databaseId = process.env.NOTION_BAR
     try {
         const response = await notion.databases.query({
             database_id: databaseId,
+            sorts: [
+                {
+                    property: "name",
+                    direction: "ascending",
+                },
+            ],
         })
         const data = await Promise.all(
             response.results.map(async (page) => {
@@ -63,6 +69,12 @@ async function clubData() {
     try {
         const response = await notion.databases.query({
             database_id: databaseId,
+            sorts: [
+                {
+                    property: "name",
+                    direction: "ascending",
+                },
+            ],
         })
         const data = await Promise.all(
             response.results.map(async (page) => {
@@ -90,8 +102,12 @@ async function clubData() {
                     youtube2: page.properties.youtube2.url,
                     mainday: page.properties.mainday.multi_select,
                     homepage: page.properties.homepage.url,
-                    locaiton: page.properties.location.rollup.array[0].select.name,
-                    address: page.properties.address.rollup.array[0].rich_text[0].plain_text,
+                    locaiton: page.properties.location.rollup.array[0]
+                        ? page.properties.location.rollup.array[0].select.name
+                        : "",
+                    address: page.properties.address.rollup.array[0]
+                        ? page.properties.address.rollup.array[0].rich_text[0].plain_text
+                        : "",
                     heart: page.properties.member_heart_count.formula.number,
                     bar: barArray,
                 }
@@ -112,8 +128,8 @@ async function teamData() {
             database_id: databaseId,
             sorts: [
                 {
-                    property: "name`",
-                    direction: "descending",
+                    property: "name",
+                    direction: "ascending",
                 },
             ],
         })
@@ -471,7 +487,7 @@ async function recruitmentFestivalData() {
 }
 
 async function fetchData() {
-    await barFetch()
+    await barData()
     await clubData()
     await teamData()
     await eventData()
