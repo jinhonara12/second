@@ -105,7 +105,7 @@ export default async function ClubData() {
                                     </p>
                                 )}
                                 <ul>
-                                    {club.mainday.length &&
+                                    {club.mainday.length != 0 &&
                                         club.mainday.map((day, idx) => (
                                             <li key={idx} data-day={day.name}>
                                                 {day.name.slice(0, 1)}
