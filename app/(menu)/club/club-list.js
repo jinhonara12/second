@@ -99,15 +99,18 @@ export default async function ClubData() {
                                     <img src="/icons/heart_icon_red.png" />
                                     <span>{likes[index]}개</span>
                                 </div>
-                                <p data-key={club.locaiton} className={styles.location}>
-                                    {club.locaiton}
-                                </p>
+                                {club.locaiton && (
+                                    <p data-key={club.locaiton} className={styles.location}>
+                                        {club.locaiton}
+                                    </p>
+                                )}
                                 <ul>
-                                    {club.mainday.map((day, idx) => (
-                                        <li key={idx} data-day={day.name}>
-                                            {day.name.slice(0, 1)}
-                                        </li>
-                                    ))}
+                                    {club.mainday.length &&
+                                        club.mainday.map((day, idx) => (
+                                            <li key={idx} data-day={day.name}>
+                                                {day.name.slice(0, 1)}
+                                            </li>
+                                        ))}
                                 </ul>
                             </div>
                         </div>
