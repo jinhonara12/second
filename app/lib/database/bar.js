@@ -50,7 +50,6 @@ export default async function fetchData() {
             database_id: databaseId,
         })
         const data = response.results.map((a) => a.properties.member_heart_count.formula.number)
-        console.log(data)
         return data
     } catch (error) {
         console.error("Error fetching data from Notion:", error)
