@@ -2,6 +2,7 @@ import fetch from "../../lib/database/workshop-recuritment"
 import styles from "./page.module.scss"
 import End from "../endPage"
 
+export const revalidate = 300
 export const metadata = {
     title: "워크샵 모집",
     description: "스윙댄스 워크샵 모집 리스트입니다.",
