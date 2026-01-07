@@ -46,11 +46,19 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY })
 export default async function fetchData() {
     const databaseId = process.env.NOTION_BAR
     try {
+        const map = {}
         const response = await notion.databases.query({
             database_id: databaseId,
         })
-        const data = response.results.map((a) => a.properties.member_heart_count.formula.number)
-        return data
+        response.results.forEach((page) => {
+            const name = page.properties.name.title[0].text.content
+            const likes = page.properties.member_heart_count.formula.number
+
+            if (name) {
+                map[name] = likes
+            }
+        })
+        return map
     } catch (error) {
         console.error("Error fetching data from Notion:", error)
         throw error

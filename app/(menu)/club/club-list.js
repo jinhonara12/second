@@ -97,7 +97,7 @@ export default async function ClubData() {
                             <div className={styles.date_box}>
                                 <div className={styles.heart_box}>
                                     <img src="/icons/heart_icon_red.png" />
-                                    <span>{likes[index]}개</span>
+                                    <span>{likes[club.name]}개</span>
                                 </div>
                                 {club.locaiton && (
                                     <p data-key={club.locaiton} className={styles.location}>
