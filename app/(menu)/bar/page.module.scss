@@ -1,5 +1,5 @@
-@use '../../mixins';
-@import '../../variable';
+@use "../../mixins";
+@import "../../variable";
 
 .bar_data_box {
     padding: 15px 0;
@@ -24,12 +24,11 @@
             .main_box {
                 display: flex;
                 flex-direction: column;
-                row-gap: .5rem;
-
+                row-gap: 0.5rem;
 
                 .title_box {
                     display: flex;
-                    column-gap: .5rem;
+                    column-gap: 0.5rem;
                     align-items: flex-top;
 
                     .title {
@@ -42,11 +41,11 @@
                     display: flex;
                     flex-wrap: wrap;
                     align-items: center;
-                    column-gap: .5rem;
-                    row-gap: .3rem;
+                    column-gap: 0.5rem;
+                    row-gap: 0.3rem;
 
                     .p {
-                        font-size: .9rem;
+                        font-size: 0.9rem;
                         color: #444;
 
                         a {
@@ -65,17 +64,17 @@
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-                row-gap: .5rem;
+                row-gap: 0.5rem;
 
                 .date_box {
                     display: flex;
                     align-items: center;
-                    gap: .5rem;
+                    gap: 0.5rem;
 
                     .heart_box {
                         display: flex;
                         align-items: center;
-                        column-gap: .5rem;
+                        column-gap: 0.5rem;
 
                         img {
                             width: 0.8rem;
@@ -85,12 +84,12 @@
 
                     ul {
                         display: flex;
-                        gap: .3rem;
+                        gap: 0.3rem;
 
                         li {
                             background-color: #444;
                             color: #fff;
-                            font-size: .7rem;
+                            font-size: 0.7rem;
                             width: 22px;
                             height: 22px;
                             display: flex;
@@ -101,78 +100,101 @@
 
                         $days: (
                             일요일: rgb(205, 70, 70),
-                            토요일: rgb(61, 61, 176)
+                            토요일: rgb(61, 61, 176),
                         );
 
-                    @each $day,
-                    $color in $days {
-                        li[data-day="#{$day}"] {
-                            background-color: $color;
+                        @each $day, $color in $days {
+                            li[data-day="#{$day}"] {
+                                background-color: $color;
+                            }
+                        }
+                    }
+
+                    .location {
+                        background-color: #444;
+                        color: #fff;
+                        height: 22px;
+                        padding: 0 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 50px;
+                        font-size: 0.7rem;
+                    }
+
+                    $lines: (
+                        남부터미널: (
+                            #ef7c1c,
+                            #ef7c1c,
+                        ),
+                        합정: (
+                            #00a84d,
+                            #cd7c2f,
+                        ),
+                        신촌: (
+                            #00a84d,
+                            #00a84d,
+                        ),
+                        봉천: (
+                            #00a84d,
+                            #00a84d,
+                        ),
+                        건대: (
+                            #00a84d,
+                            #747f00,
+                        ),
+                        신림: (
+                            #00a84d,
+                            #6789ca,
+                        ),
+                        사당: (
+                            #00a84d,
+                            #00a5de,
+                        ),
+                        선릉: (
+                            #00a84d,
+                            #f5a200,
+                        ),
+                    );
+
+                    @each $line, $colors in $lines {
+                        $startColor: nth($colors, 1);
+                        $endColor: nth($colors, 2);
+
+                        .location[data-key="#{$line}"] {
+                            background: linear-gradient(to right, $startColor 50%, $endColor 50%);
                         }
                     }
                 }
+            }
 
-                .location {
-                    background-color: #444;
-                    color: #fff;
-                    height: 22px;
-                    padding: 0 10px;
+            .bar {
+                width: 100%;
+
+                .bar_box {
                     display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 50px;
-                    font-size: .7rem;
-                }
+                    flex-wrap: wrap;
+                    row-gap: 0.3rem;
+                    column-gap: 0.5rem;
+                    border-top: 1px solid #aaa;
+                    padding-top: 1rem;
 
-                $lines: (
-                    남부터미널: (#EF7C1C, #EF7C1C),
-                    합정: (#00A84D, #CD7C2F),
-                    신촌 : (#00A84D, #00A84D),
-                    건대: (#00A84D, #747F00),
-                    신림: (#00A84D, #6789CA),
-                    사당 : (#00A84D, #00A5DE),
-                    선릉:(#00A84D, #F5A200)
-                );
+                    li {
+                        font-size: 0.8rem;
+                    }
 
-            @each $line,
-            $colors in $lines {
-                $startColor: nth($colors, 1);
-                $endColor: nth($colors, 2);
+                    li.item {
+                        border-right: 1px solid #888;
+                        padding-right: 0.5rem;
+                    }
 
-                .location[data-key="#{$line}"] {
-                    background: linear-gradient(to right, $startColor 50%, $endColor 50%);
+                    li.item:last-of-type {
+                        border: none;
+                    }
                 }
             }
         }
     }
-
-    .bar {
-        width: 100%;
-
-        .bar_box {
-            display: flex;
-            flex-wrap: wrap;
-            row-gap: .3rem;
-            column-gap: .5rem;
-            border-top: 1px solid #aaa;
-            padding-top: 1rem;
-
-            li {
-                font-size: .8rem;
-            }
-
-            li.item {
-                border-right: 1px solid #888;
-                padding-right: .5rem;
-            }
-
-            li.item:last-of-type {
-                border: none;
-            }
-        }
-    }
-}
-}
 }
 
 @include mixins.respond-to($breakpoint-large) {
