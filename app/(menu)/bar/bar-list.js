@@ -5,6 +5,9 @@ import styles from "./page.module.scss"
 export default async function BarData() {
     const likes = await fetchLikesArray()
 
+    console.log("data : ", data)
+    console.log("fetchLikesArray : ", fetchLikesArray)
+
     return (
         <div className={styles.bar_data_box}>
             <ul className={styles.data_ul}>
