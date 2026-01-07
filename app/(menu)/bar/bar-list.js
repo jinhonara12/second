@@ -6,7 +6,7 @@ export default async function BarData() {
     const likes = await fetchLikesArray()
 
     console.log("data : ", data)
-    console.log("fetchLikesArray : ", fetchLikesArray)
+    console.log("likes : ", likes)
 
     return (
         <div className={styles.bar_data_box}>
