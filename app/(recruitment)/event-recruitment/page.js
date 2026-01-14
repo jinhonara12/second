@@ -5,7 +5,8 @@ import Heart from "./Heart"
 import Session from "./Session"
 import End from "../endPage"
 
-export const revalidate = 300
+// export const revalidate = 300 → 정적으로 페이지를 만들고 싶지만 getUserHeart 여기서 동적으로 카카오를 불러오고 있어서 동적페이지로 변환되어야함
+export const dynamic = 'force-dynamic'
 export const metadata = {
     title: "대회 모집",
     description: "스윙댄스 대회 모집 리스트입니다.",
