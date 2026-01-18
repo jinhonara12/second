@@ -8,7 +8,7 @@ import styles from "./layout.module.scss"
 import "./reset.css"
 import "./global.scss"
 
-export const dynamic = "force-dynamic"
+// export const dynamic = "force-dynamic" ✅ vercel function durations 비용증가로 동적 렌더링은 필요한 곳에만 적용
 // export const dynamic = 'auto';
 
 export function GET(request) {

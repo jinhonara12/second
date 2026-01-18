@@ -1,10 +1,11 @@
-# *
+User-agent: GPTBot
+Disallow: /
+
 User-agent: *
-Allow: /
 Disallow: /mypage/
+Disallow: /join/
+Disallow: /api/
+Disallow: /lib/
 
-# Host
-Host: https://daily-swing.com
 
-# Sitemaps
 Sitemap: https://daily-swing.com/sitemap.xml
