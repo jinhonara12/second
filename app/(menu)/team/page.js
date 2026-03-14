@@ -4,7 +4,7 @@ import Loading from "../../(component)/Loading"
 
 export const revalidate = 300
 export const metadata = {
-    title: "팀",
+    title: "팀 리스트",
     description: "스윙 팀 리스트입니다.",
 }
 

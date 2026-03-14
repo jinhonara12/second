@@ -4,7 +4,7 @@ import End from "../endPage"
 
 export const revalidate = 300
 export const metadata = {
-    title: "팀 모집",
+    title: "팀",
     description: "스윙댄스 팀 모집 리스트입니다.",
 }
 

@@ -26,8 +26,8 @@ const roboto = Roboto_Slab({
 export const metadata = {
     metadataBase: new URL("https://www.daily-swing.com"),
     title: {
-        template: "데일리 스윙 | %s",
-        default: "데일리 스윙 | 홈페이지",
+        template: "%s | 데일리 스윙",
+        default: "Daily-Swing | 데일리 스윙",
     },
     description:
         "스윙 커뮤니티 데일리 스윙입니다. 스윙댄스를 시작하는 뉴비를 위해 다양한 행사와 강습, 정보를 손쉽게 확인할 수 있습니다.",
