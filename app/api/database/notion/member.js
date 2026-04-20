@@ -24,7 +24,6 @@ export default async function fetchData(kakao_id) {
 
         const properties = response.results[0].properties
         const formattedDate = formatDate(new Date())
-        console.log()
         const data = {
             page_id: response.results[0].id,
             nickname: properties.nickname.title.length !== 0 ? properties.nickname.title[0].text.content : "",

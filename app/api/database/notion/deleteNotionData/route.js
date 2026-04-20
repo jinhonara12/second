@@ -7,7 +7,6 @@ export async function GET(req) {
 
 export async function POST(req) {
     const { page_id } = await req.json()
-    console.log(page_id)
     try {
         const award = await notion.pages.update({
             page_id: page_id,

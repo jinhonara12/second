@@ -20,7 +20,6 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY })
 
 //                     return result
 //                 })
-//                 console.log(clubPromise)
 
 //                 const clubArray = await Promise.all(clubPromise)
 //                 return {

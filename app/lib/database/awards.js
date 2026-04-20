@@ -1,8 +1,8 @@
-import { Client } from '@notionhq/client';
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
+import { Client } from "@notionhq/client"
+const notion = new Client({ auth: process.env.NOTION_API_KEY })
 
 export default async function fetchData() {
-    const databaseId = process.env.NOTION_AWARDS;
+    const databaseId = process.env.NOTION_AWARDS
     try {
         const response = await notion.databases.query({
             database_id: databaseId,
@@ -10,13 +10,12 @@ export default async function fetchData() {
                 {
                     property: "created_date",
                     // direction: "ascending"
-                    direction: "descending"
-                }
+                    direction: "descending",
+                },
             ],
-        });
+        })
 
-        const data = response.results.map(item => {
-            console.log(item.properties.event.relation)
+        const data = response.results.map((item) => {
             return {
                 page_id: item.id,
                 user_id: item.properties.member.relation[0].id,
@@ -29,13 +28,12 @@ export default async function fetchData() {
                 level: item.properties.level.select.name,
                 division: item.properties.division.select.name,
                 result: item.properties.result.select.name,
-                valid_date: item.properties.valid_date.formula.boolean
+                valid_date: item.properties.valid_date.formula.boolean,
             }
         })
         return data
-
     } catch (error) {
-        console.error('Error fetching data from Notion:', error);
-        throw error;
+        console.error("Error fetching data from Notion:", error)
+        throw error
     }
 }
