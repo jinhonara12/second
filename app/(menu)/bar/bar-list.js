@@ -33,8 +33,8 @@ export default async function BarData() {
                                     <img src="/icons/heart_icon_red.png" />
                                     <span>{likes[bar.name]}개</span>
                                 </div>
-                                <p data-key={bar.locaiton} className={styles.location}>
-                                    {bar.locaiton}
+                                <p data-key={bar.location} className={styles.location}>
+                                    {bar.location}
                                 </p>
                                 <ul>
                                     {bar.socialArray.map((day, idx) => (

@@ -25,7 +25,7 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY })
 //                 return {
 //                     page_id: page.id,
 //                     name: page.properties.name.title[0].text.content,
-//                     locaiton: page.properties.location.select.name,
+//                     location: page.properties.location.select.name,
 //                     socialArray: page.properties.social.multi_select,
 //                     address: page.properties.address.rich_text[0].plain_text,
 //                     url: page.properties.url.url,

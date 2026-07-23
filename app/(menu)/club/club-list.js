@@ -99,9 +99,9 @@ export default async function ClubData() {
                                     <img src="/icons/heart_icon_red.png" />
                                     <span>{likes[club.name]}개</span>
                                 </div>
-                                {club.locaiton && (
-                                    <p data-key={club.locaiton} className={styles.location}>
-                                        {club.locaiton}
+                                {club.location && (
+                                    <p data-key={club.location} className={styles.location}>
+                                        {club.location}
                                     </p>
                                 )}
                                 <ul>
