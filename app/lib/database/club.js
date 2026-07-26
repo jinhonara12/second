@@ -46,17 +46,19 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY })
 //     }
 // }
 
+import { queryAllDatabasePages } from "./notionHelper"
+
 export default async function fetchData() {
     const databaseId = process.env.NOTION_CLUB
     try {
         const map = {}
-        const response = await notion.databases.query({
+        const results = await queryAllDatabasePages(notion, {
             database_id: databaseId,
         })
 
-        response.results.forEach((page) => {
-            const name = page.properties.name.title[0].text.content
-            const likes = page.properties.member_heart_count.formula.number
+        results.forEach((page) => {
+            const name = page.properties.name?.title?.[0]?.text?.content
+            const likes = page.properties.member_heart_count?.formula?.number ?? 0
 
             if (name) {
                 map[name] = likes

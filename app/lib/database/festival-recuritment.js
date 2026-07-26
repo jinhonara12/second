@@ -1,12 +1,13 @@
 import { Client } from "@notionhq/client"
 import KDate from "../../(component)/KoreaTime"
+import { queryAllDatabasePages } from "./notionHelper"
 const notion = new Client({ auth: process.env.NOTION_API_KEY })
 
 export default async function fetchData() {
     const databaseId = process.env.NOTION_FESTIVAL_RECURITMENT
 
     try {
-        const response = await notion.databases.query({
+        const results = await queryAllDatabasePages(notion, {
             database_id: databaseId,
             filter: {
                 property: "dday",
@@ -21,7 +22,7 @@ export default async function fetchData() {
                 },
             ],
         })
-        const data = response.results.map((page) => {
+        const data = results.map((page) => {
             return {
                 page_id: page.id,
                 classification: page.properties.classification.select.name,

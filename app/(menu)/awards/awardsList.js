@@ -3,21 +3,28 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import styles from './page.module.scss';
-export default function awardsList({ data }) {
+import Pagination from '../../(component)/Pagination';
+
+export default function awardsList({ data = [] }) {
     const [list, setList] = useState(data);
     const [sortConfig, setSortConfig] = useState({});
-    const [state, setState] = useState(false)
+    const [state, setState] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 15;
+
+    const totalPages = Math.ceil(list.length / itemsPerPage);
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = list.slice(indexOfFirstItem, indexOfLastItem);
 
     function sorting(e) {
         const sortKey = e.target.dataset.sort;
         let direction = 'ascending';
 
-        // 열의 정렬 상태를 토글합니다.
         if (sortConfig[sortKey] === 'ascending') {
             direction = 'descending';
         }
 
-        // 현재 열의 정렬 상태를 업데이트합니다.
         setSortConfig({
             ...sortConfig,
             [sortKey]: direction
@@ -31,6 +38,7 @@ export default function awardsList({ data }) {
             });
             return sortedList;
         });
+        setCurrentPage(1);
     }
 
     async function searching(e) {
@@ -49,6 +57,7 @@ export default function awardsList({ data }) {
             const data = await response.json();
             setState(prev => !prev)
             setList(data)
+            setCurrentPage(1);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -64,32 +73,42 @@ export default function awardsList({ data }) {
             </div>
             <ul className={styles.awards_list}>
                 <li className={`${styles.awards_list__head} ${styles.awards_list__li}`}>
-                    <span data-sort="user" onClick={sorting}>닉네임<img src="/icons/sorting.svg" /> </span>
-                    <span className={styles.year} data-sort="year" onClick={sorting}>연도<img src="/icons/sorting.svg" /> </span>
-                    <span data-sort="event_name" onClick={sorting}>대회명<img src="/icons/sorting.svg" /> </span>
-                    <span data-sort="start_date" onClick={sorting}>대회일자<img src="/icons/sorting.svg" /> </span>
-                    <span data-sort="level" onClick={sorting}>부문-1<img src="/icons/sorting.svg" /> </span>
-                    <span data-sort="division" onClick={sorting}>부문-2<img src="/icons/sorting.svg" /> </span>
-                    <span data-sort="result" onClick={sorting}>결과<img src="/icons/sorting.svg" /> </span>
+                    <span data-sort="user" onClick={sorting}>닉네임<img src="/icons/sorting.svg" alt="정렬" /> </span>
+                    <span className={styles.year} data-sort="year" onClick={sorting}>연도<img src="/icons/sorting.svg" alt="정렬" /> </span>
+                    <span data-sort="event_name" onClick={sorting}>대회명<img src="/icons/sorting.svg" alt="정렬" /> </span>
+                    <span data-sort="start_date" onClick={sorting}>대회일자<img src="/icons/sorting.svg" alt="정렬" /> </span>
+                    <span data-sort="level" onClick={sorting}>부문-1<img src="/icons/sorting.svg" alt="정렬" /> </span>
+                    <span data-sort="division" onClick={sorting}>부문-2<img src="/icons/sorting.svg" alt="정렬" /> </span>
+                    <span data-sort="result" onClick={sorting}>결과<img src="/icons/sorting.svg" alt="정렬" /> </span>
                 </li>
-                {list.length === 0 ?
+                {list.length === 0 ? (
                     <li className={styles.awards_list__none}>
                         <p>등록된 수상 내역이 없습니다.</p>
                         <p>다양한 대회 정보는 <Link href="/event-recruitment">여기</Link>에서 확인하실 수 있습니다.</p>
-                    </li> : list.map(item => {
-                        return (
-                            <li key={item.page_id} className={styles.awards_list__li} data-item_id={item.page_id}>
-                                <span>{item.valid_date ? `⭐️${item.user}` : item.user}</span>
-                                <span className={styles.year}>{item.year}</span>
-                                <span>{item.event_name}</span>
-                                <span>{(item.start_date).split('T')[0]}</span>
-                                <span>{item.level}</span>
-                                <span>{item.division}</span>
-                                <span>{item.result}</span>
-                            </li>
-                        )
-                    })}
+                    </li>
+                ) : (
+                    currentItems.map(item => (
+                        <li key={item.page_id} className={styles.awards_list__li} data-item_id={item.page_id}>
+                            <span>{item.valid_date ? `⭐️${item.user}` : item.user}</span>
+                            <span className={styles.year}>{item.year}</span>
+                            <span>{item.event_name}</span>
+                            <span>{(item.start_date)?.split('T')[0]}</span>
+                            <span>{item.level}</span>
+                            <span>{item.division}</span>
+                            <span>{item.result}</span>
+                        </li>
+                    ))
+                )}
             </ul>
+
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={(page) => {
+                    setCurrentPage(page);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+            />
         </div>
     )
 }

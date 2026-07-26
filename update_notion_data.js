@@ -3,6 +3,7 @@ const { Client } = require("@notionhq/client")
 const fs = require("fs")
 const clubFetch = require("./app/lib/static_database/club")
 const teamFetch = require("./app/lib/static_database/team")
+const { queryAllDatabasePages } = require("./app/lib/database/notionHelper")
 
 const KDate = function (utcDateString) {
     const date = new Date(utcDateString)
@@ -21,7 +22,7 @@ function writeJson(data, fileName) {
 async function barData() {
     const databaseId = process.env.NOTION_BAR
     try {
-        const response = await notion.databases.query({
+        const results = await queryAllDatabasePages(notion, {
             database_id: databaseId,
             sorts: [
                 {
@@ -31,7 +32,7 @@ async function barData() {
             ],
         })
         const data = await Promise.all(
-            response.results.map(async (page) => {
+            results.map(async (page) => {
                 const clubPromise = page.properties.club.relation.map(async (clubList) => {
                     const id = clubList.id
 
@@ -67,7 +68,7 @@ async function barData() {
 async function clubData() {
     const databaseId = process.env.NOTION_CLUB
     try {
-        const response = await notion.databases.query({
+        const results = await queryAllDatabasePages(notion, {
             database_id: databaseId,
             sorts: [
                 {
@@ -77,7 +78,7 @@ async function clubData() {
             ],
         })
         const data = await Promise.all(
-            response.results.map(async (page) => {
+            results.map(async (page) => {
                 const barPromise = page.properties.bar.relation.map(async (barList) => {
                     const id = barList.id
 

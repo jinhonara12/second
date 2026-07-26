@@ -1,13 +1,14 @@
 import { Client } from '@notionhq/client';
 import clubFetch from '../static_database/club';
 import KDate from '../../(component)/KoreaTime';
+import { queryAllDatabasePages } from './notionHelper';
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export default async function fetchData() {
     const databaseId = process.env.NOTION_CLASS_RECURITMENT;
 
     try {
-        const response = await notion.databases.query({
+        const results = await queryAllDatabasePages(notion, {
             database_id: databaseId,
             filter: {
                 property: "dday",
@@ -21,9 +22,9 @@ export default async function fetchData() {
                     direction: "ascending"
                 }
             ],
-        })
+        });
 
-        const data = response.results.map(page => {
+        const data = results.map(page => {
             const clubId = page.properties.club.relation[0].id;
             const club = clubFetch.find(club => club.page_id == clubId);
             const clubName = club ? club.name : "";

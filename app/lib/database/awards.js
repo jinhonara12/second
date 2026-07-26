@@ -1,10 +1,11 @@
 import { Client } from "@notionhq/client"
+import { queryAllDatabasePages } from "./notionHelper"
 const notion = new Client({ auth: process.env.NOTION_API_KEY })
 
 export default async function fetchData() {
     const databaseId = process.env.NOTION_AWARDS
     try {
-        const response = await notion.databases.query({
+        const results = await queryAllDatabasePages(notion, {
             database_id: databaseId,
             sorts: [
                 {
@@ -15,7 +16,7 @@ export default async function fetchData() {
             ],
         })
 
-        const data = response.results.map((item) => {
+        const data = results.map((item) => {
             return {
                 page_id: item.id,
                 user_id: item.properties.member.relation[0].id,

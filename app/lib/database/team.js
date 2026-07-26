@@ -46,11 +46,13 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY })
 // team-recuritment.js 활용, 팀 데이터를 가져오는 것은 static상태로 가져옴
 // 정적인 팀 정보에 동적으로 모집관련된 부분만 업데이트
 
+import { queryAllDatabasePages } from "./notionHelper"
+
 export default async function fetchData() {
     const databaseId = process.env.NOTION_TEAM_RECURITMENT
 
     try {
-        const response = await notion.databases.query({
+        const results = await queryAllDatabasePages(notion, {
             database_id: databaseId,
             filter: {
                 property: "dday",
@@ -66,7 +68,7 @@ export default async function fetchData() {
             ],
         })
 
-        const data = response.results.map((page) => {
+        const data = results.map((page) => {
             const recruitmentObject = {
                 teamId: page.properties.team.relation[0] ? page.properties.team.relation[0].id : null,
                 name: page.properties.name.title[0].plain_text,
