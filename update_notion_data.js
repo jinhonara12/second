@@ -190,7 +190,13 @@ async function eventData() {
                 start_date: page.properties.date.date.start,
                 end_date: page.properties.date.date.end,
                 awards: page.properties.awards.relation,
-                photo: page.properties.photo.files[0] && page.properties.photo.files[0].file.url,
+                photo:
+                    page.properties.photo.files[0] &&
+                    `${process.env.NOTION_SITE}/image/${encodeURIComponent(
+                        page.properties.photo.files[0].file.url
+                    )}?cache=v2&table=block&id=${page.id}`,
+                created_time: KDate(page.properties.created_time.created_time).toISOString(),
+                last_modified_time: KDate(page.properties.last_modified_time.last_edited_time).toISOString(),
                 // classification: page.properties.classification.select.name,
                 // url: page.properties.url.url,
                 // home: page.properties.home.url,
