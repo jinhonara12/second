@@ -2,7 +2,7 @@
  * Notion API databases.query의 100개 페칭 제한(Pagination)을 해제하기 위해
  * has_more가 false가 될 때까지 순회하여 전체 결과를 배열로 반환하는 공통 헬퍼 함수
  */
-async function queryAllDatabasePages(notion, queryParams) {
+async function queryAllDatabasePages(notion, queryParams, notionWithRetryFn) {
     let results = [];
     let hasMore = true;
     let cursor = undefined;
@@ -13,7 +13,9 @@ async function queryAllDatabasePages(notion, queryParams) {
             params.start_cursor = cursor;
         }
 
-        const response = await notion.databases.query(params);
+        const response = notionWithRetryFn
+            ? await notionWithRetryFn(() => notion.databases.query(params))
+            : await notion.databases.query(params);
 
         if (response.results && response.results.length > 0) {
             results.push(...response.results);
